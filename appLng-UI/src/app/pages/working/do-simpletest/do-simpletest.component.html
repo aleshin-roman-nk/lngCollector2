@@ -1,0 +1,62 @@
+<div class="container mx-auto my-4">
+  <div class="p-8 w-2/3 mx-auto border border-purple-900 rounded-md">
+
+    <!--<h4 class="mb-2 font-bold text-2xl">{{srv.Current + 1}} / {{srv.Total}}</h4> -->
+
+    <div class="flex">
+      <div *ngFor="let elem of pointsArray; let i = index" [ngClass]="{'bg-slate-400': i <= srv.Current}"
+        class="mr-1 h-4 w-4 rounded-full border-2 border-gray-500"> </div>
+    </div>
+
+    <h4 class="mt-2 rounded-md border border-purple-500 bg-purple-200 p-2 font-bold">
+      {{srv.getQuest()}}
+    </h4>
+    <h4 class="mt-2 rounded-md border border-orange-400 bg-orange-100 p-2 font-bold"
+    *ngIf="ishelpshown">
+      {{srv.gethelp()}}
+    </h4>
+
+    <textarea [(ngModel)]="usersolution" placeholder="Your solution..." [disabled]="hashit"
+      class="disabled:bg-slate-100 border border-purple-500 rounded-md p-2 my-2 w-full" rows="2"></textarea>
+    <!---->
+    <div *ngIf="hashit; then result_and_next_content else control_content"></div>
+
+  </div>
+
+</div>
+
+<ng-template #result_and_next_content>
+  <div class="flex">
+
+    <button *ngIf="!testIsCompleted"
+    class="hover:bg-yellow-700 px-8 py-1 rounded-md border-2
+  border-yellow-600 bg-yellow-500" (click)="next()">
+      next
+    </button>
+    <button *ngIf="testIsCompleted"
+    class="hover:bg-yellow-700 px-8 py-1 rounded-md border-2
+  border-yellow-600 bg-yellow-500" (click)="exit()">
+      exit
+    </button>
+
+    <div [ngClass]="{
+      'bg-green-100': checkingIsOk,
+      'bg-red-100': !checkingIsOk
+    }" class="ml-2 w-full text-center p-1 border border-green-600">
+      {{resultClaim}}
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #control_content>
+  <div>
+    <button class="hover:bg-yellow-700 px-8 py-1 rounded-md border-2
+  border-yellow-600 bg-yellow-500" (click)="gethelp()">
+      get help
+    </button>
+    <button class="hover:bg-green-700 px-8 py-1 mx-2 rounded-md border-2
+   border-green-600 bg-green-500" (click)="hit()">
+      hit
+    </button>
+  </div>
+</ng-template>
