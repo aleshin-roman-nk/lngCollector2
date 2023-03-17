@@ -1293,11 +1293,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\prg\\lngCollectorV2\\appLng.WebAPI\\appLngApi\\consSrv\\consSrv.csproj",
+      "projectUniqueName": "D:\\prg\\lngCollector2\\appLng.WebAPI\\appLngApi\\consSrv\\consSrv.csproj",
       "projectName": "consSrv",
-      "projectPath": "D:\\prg\\lngCollectorV2\\appLng.WebAPI\\appLngApi\\consSrv\\consSrv.csproj",
+      "projectPath": "D:\\prg\\lngCollector2\\appLng.WebAPI\\appLngApi\\consSrv\\consSrv.csproj",
       "packagesPath": "C:\\Users\\alesh\\.nuget\\packages\\",
-      "outputPath": "D:\\prg\\lngCollectorV2\\appLng.WebAPI\\appLngApi\\consSrv\\obj\\",
+      "outputPath": "D:\\prg\\lngCollector2\\appLng.WebAPI\\appLngApi\\consSrv\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\alesh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1314,8 +1314,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\prg\\lngCollectorV2\\appLng.WebAPI\\appLngApi\\Services\\Services.csproj": {
-              "projectPath": "D:\\prg\\lngCollectorV2\\appLng.WebAPI\\appLngApi\\Services\\Services.csproj"
+            "D:\\prg\\lngCollector2\\appLng.WebAPI\\appLngApi\\Services\\Services.csproj": {
+              "projectPath": "D:\\prg\\lngCollector2\\appLng.WebAPI\\appLngApi\\Services\\Services.csproj"
             }
           }
         }
@@ -1351,7 +1351,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

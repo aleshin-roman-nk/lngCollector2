@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, tap, throwError } from 'rxjs';
+import { catchError, delay, Observable, tap, throwError } from 'rxjs';
 import { environment } from 'src/environment';
 import { ITerrain } from '../models/terrain';
 
@@ -16,6 +16,7 @@ export class TerriansService {
   getAll(): Observable<ITerrain[]> {
     return this.http.get<ITerrain[]>(`${environment.apiUrl}/terrain`)
       .pipe(
+        delay(50),
         tap(resp => this.items = resp),
         catchError(this.errorHandler.bind(this))
       )

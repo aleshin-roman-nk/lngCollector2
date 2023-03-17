@@ -4,13 +4,13 @@
   </h1>
 </div>
 
-<p>Hello</p>
-
 <div class="container mx-auto">
   <div class="grid grid-cols-4 gap-4 p-1">
     <app-terrian *ngFor="let terrain of terrSrv.items" [terrain]="terrain"></app-terrian>
   </div>
 </div>
+
+<app-loading-anim *ngIf="loading"></app-loading-anim>
 
 <app-modal *ngIf="modalService.isVisible$ | async" titleXA="Create a new terrain">
 <app-create-terrain></app-create-terrain>

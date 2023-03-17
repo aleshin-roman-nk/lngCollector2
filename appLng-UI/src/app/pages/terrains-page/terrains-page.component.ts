@@ -12,15 +12,21 @@ export class TerrainsPageComponent {
 
   //terrains: ITerrain[] = []
 
+  loading: boolean = false
+
   constructor(public terrSrv: TerriansService,
     public modalService: ModalService
     ) { }
 
   ngOnInit(): void {
 
+    this.loading = true;
+
     this.terrSrv
       .getAll()
       //.subscribe((result: ITerrain[]) => this.terrains = result)
-      .subscribe()
+      .subscribe(() => {
+        this.loading = false
+      })
   }
 }

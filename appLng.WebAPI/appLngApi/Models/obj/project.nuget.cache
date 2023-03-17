@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cA8O33ECfgshLJn3Us5YyvWGVtTsWQ2rs6+2tavOzMRHdxd2fNgsZakzJWxg3/hjl4DAwnQ/Jg1csq6CduL8ig==",
+  "dgSpecHash": "b90/IXfwtKpLYaWXMeIQ3FeKHhTQvQaiikTcyKFmYrW3OSuQOMufgiDMhLWknS9fV7gkswD57c2EUu3a0IWN2A==",
   "success": true,
-  "projectFilePath": "D:\\prg\\lngCollectorV2\\appLng.WebAPI\\appLngApi\\Models\\Models.csproj",
+  "projectFilePath": "D:\\prg\\lngCollector2\\appLng.WebAPI\\appLngApi\\Models\\Models.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

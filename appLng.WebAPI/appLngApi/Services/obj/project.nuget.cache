@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9W6WhtjeCOKCx1rsvMnONa7/oBw7QX5fWkcrMsTDsVZu6Uy25+OhZeBBjpO3LJ/NprlAUi3F7MbuwPZYKP3cfw==",
+  "dgSpecHash": "ffTUmE/fKLLER42WJInTTur3Rj+PzNG4AfCQWC5dlMmONqw6W/M2/VftMemPDcpjnhk6ky4a9Fkn1m8BzoE07w==",
   "success": true,
-  "projectFilePath": "D:\\prg\\lngCollectorV2\\appLng.WebAPI\\appLngApi\\Services\\Services.csproj",
+  "projectFilePath": "D:\\prg\\lngCollector2\\appLng.WebAPI\\appLngApi\\Services\\Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alesh\\.nuget\\packages\\microsoft.data.sqlite\\7.0.2\\microsoft.data.sqlite.7.0.2.nupkg.sha512",
     "C:\\Users\\alesh\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.2\\microsoft.data.sqlite.core.7.0.2.nupkg.sha512",

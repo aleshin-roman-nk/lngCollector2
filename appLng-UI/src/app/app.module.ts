@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './components/modal/modal.component';
 import { CreateTerrainComponent } from './components/create-terrain/create-terrain.component';
+import { LoadingAnimComponent } from './components/loading-anim/loading-anim.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CreateTerrainComponent } from './components/create-terrain/create-terra
     MissionPageComponent,
     DoSimpletestComponent,
     ModalComponent,
-    CreateTerrainComponent
+    CreateTerrainComponent,
+    LoadingAnimComponent
   ],
   imports: [
     BrowserModule,
