@@ -9,6 +9,16 @@ using System.Threading.Tasks;
 
 namespace Services
 {
+    /*
+     * 30-03-2023
+     * Кажется надо что то более универсальное в логическом плане и именовании сделать.
+     * Универсальный сервис проверки ответа;
+     * - один вопрос
+     * - объект собирает группу вопросов
+     * - объект, имеет коллекцию вопросов; одно прохождение - минус хит поинты
+     * 
+     */
+
     public class LexemTestingMissionService
     {
         private readonly DbFactory factory;
