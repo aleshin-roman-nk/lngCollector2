@@ -1,0 +1,46 @@
+<mxfile host="Electron" modified="2023-04-03T10:18:53.879Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.1.2 Chrome/106.0.5249.199 Electron/21.4.3 Safari/537.36" etag="SnbQ-lt87Wrc-qcvBlii" version="21.1.2" type="device">
+  <diagram name="Page-1" id="nKxN83jdYAB19R46BwjR">
+    <mxGraphModel dx="414" dy="255" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="eufnqQEpHw6pK0BBUDOr-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="200" y="80" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="eufnqQEpHw6pK0BBUDOr-2" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="245" y="80" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eufnqQEpHw6pK0BBUDOr-3" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="200" y="125" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eufnqQEpHw6pK0BBUDOr-4" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="290" y="125" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eufnqQEpHw6pK0BBUDOr-5" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="245" y="170" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eufnqQEpHw6pK0BBUDOr-6" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="215" y="95" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eufnqQEpHw6pK0BBUDOr-7" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="275" y="155" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eufnqQEpHw6pK0BBUDOr-8" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="275" y="95" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eufnqQEpHw6pK0BBUDOr-9" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="215" y="155" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eufnqQEpHw6pK0BBUDOr-10" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="245" y="110" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eufnqQEpHw6pK0BBUDOr-11" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="245" y="140" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eufnqQEpHw6pK0BBUDOr-12" value="Сгенерированный блок для теста слов и составления предложения для этих слов" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="10" width="160" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
