@@ -1,4 +1,4 @@
-export interface IBuilding {
+export interface ITerobject {
   id: number
   terrainId: number
   name: string

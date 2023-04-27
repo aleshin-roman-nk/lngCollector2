@@ -1,6 +1,6 @@
-import { IBuilding } from "../models/building";
+import { ITerobject } from "../models/terobject";
 
-export const buildings: IBuilding[] = [
+export const buildings: ITerobject[] = [
   {
     "id": 1,
     "description": "aleshin",

@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace Models
 {
+    /* 17-04-2023 01:12
+     * Лучше собрать тестирование в один комплекс.
+     * Назвать не тест, так как это вызовет путаницу с тестированием кода
+     * 
+     */
+
     public class TestingMissionSession
     {
         public int id { get; set; }

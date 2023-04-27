@@ -1,1 +1,16 @@
-<mxfile host="Electron" modified="2023-02-15T13:36:02.050Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/20.8.16 Chrome/106.0.5249.199 Electron/21.4.0 Safari/537.36" etag="Fk0MB0VY-mX9tvQWtIIQ" version="20.8.16" type="device"><diagram name="Page-1" id="X-qbELrHY3De8q2ge2He">xVVLj5swEP41PrYydqDkuAHSvVSqlEp7rCxwAQkwcpxC+utr7AHGjVbarSr1Mpr55v0wEJ7182ctxuaLqmRHGK1mwnPC2PHILF2AuwcSzj1Q67byULQDl/aXBJACemsreQ0MjVKdaccQLNUwyNIEmNBaTaHZD9WFWUdRywfgUoruEX1pK9N4NI3pjj/Ltm7WzBEFTS9WYwCujajUhCBeEJ5ppYzn+jmT3TK7dS7e7/yKditMy8G8xWFI5qx+fim+qvLbNF4zXn4vPkCUn6K7QcMkp+T4tNBT4egJ0dhRq41Imjg+dfzZxnBihsBopR6x9AiTMPd1vFrdhkouFVLCT1PTGnkZRbloJ3tPFmtM31kpsizUKrWR86tDiLbR2pOUqpdG360JOBxgGfdQnPbVHtYFNmitLAVQwDnVW+R94paBob9jAewfLwCPPkZBDo7mDj+BFly8gXd5esjCkA0L10yRQex4ipZNUdl/uOdgAOLWLE7no/lqXXxG0T35gJ9Qa1sxlmZvO8fU3ZR3zIPsQa6wBah8S3FGjceoHuyVIG2O38PH//4gYvZ3LyJK3v8irLh/7pwO/TN48Rs=</diagram></mxfile>
+<mxfile host="Electron" modified="2023-04-24T06:24:52.821Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="FZz-BNK4qQH9MM4jn6Y5" version="21.2.1" type="device">
+  <diagram name="Page-1" id="X-qbELrHY3De8q2ge2He">
+    <mxGraphModel dx="2058" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n6xCgHWEPocTwpsC3c_E-1" value="Коллекция объектов сцены" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="40" width="400" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="n6xCgHWEPocTwpsC3c_E-2" value="Коллекция исходных объектов материалов на которые создать миссии; это слова, предложений." style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="520" y="40" width="400" height="160" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

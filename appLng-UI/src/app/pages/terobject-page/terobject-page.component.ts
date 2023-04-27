@@ -5,9 +5,9 @@ import { BuildingService } from 'src/app/services/building.service';
 import { MissionService } from 'src/app/services/mission.service';
 
 @Component({
-  selector: 'app-building-page',
-  templateUrl: './building-page.component.html',
-  styleUrls: ['./building-page.component.css']
+  selector: 'app-terobject-page',
+  templateUrl: './terobject-page.component.html',
+  styleUrls: ['./terobject-page.component.css']
 })
 export class BuildingPageComponent {
   private subscription: Subscription;

@@ -1,1 +1,22 @@
-<mxfile host="Electron" modified="2023-01-20T08:28:48.201Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/20.7.4 Chrome/106.0.5249.199 Electron/21.3.3 Safari/537.36" etag="v0y0CbCKCJerS_cvBjs3" version="20.7.4" type="device"><diagram id="q_2xvofkQg4NONyN9xWM" name="Page-1">xVXLdpswEP0alu3hEbv2Ej+SdJHTxm7itDsFxkLnCIkqwoZ8fUdGGGRI0lW74czceYi5dxBetMyrG0WK7E6mwL3QTysvWnlhOJ+H+DRA3QDTKGoAqljaQEEHbNkrWNC3aMlSeHEStZRcs8IFEykEJNrBiFLy6KbtJXdPLQiFAbBNCB+iO5bqrEFnE7/Db4HRrD058G0kJ22yBV4ykspjD4rWXrRUUurGyqslcMNdy0tTd/1G9PxiCoT+m4KH+68beruYZ+T+Kg4fn39/++V/sl0OhJd24J1UKSKxF0459l08K7SosZjFT8PoumVIyVKkYA7xMemYMQ3bgiQmesSVQCzTOUcvQJNwRgXaHPam5QGUZkh2bGEtTf5wsvY1MR2qHmQnvQGZg1Y1ptjozJJeu+6xkzBodcl68rV5xG4NPTfuiEXDcjvOM/1Cd5sHFl/HPilJOXt8Dbbv8uznQAQTdJzxS8zUxWMBZEYPUfx4EiULzaT4Z8oNZBoR803loqkrXTD939qFA+0GTEKKl4Z1cU6m6w1wYkhfd5HFXgptb7ggdNkFkcbmtkJ3vZECfsg7IpCBhasRVEw/tSVo/zT453Bi3VXVy1vVrSOQhae+0y8zfld38trCZkwz2/taIhWyVAl8fM9ooijoj76T4W70tfdHtD+D6kT7wX3hsY2wZ3yXDEfplm/iLl84v1iqZlBb1b9sLxpdXTQKLhs1TAwanRb0PPjYzqLb/TOa9O7HG63/AA==</diagram></mxfile>
+<mxfile host="Electron" modified="2023-04-24T06:23:45.156Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="ko4Z5l8AzODfJF3n1wzc" version="21.2.1" type="device">
+  <diagram id="q_2xvofkQg4NONyN9xWM" name="Page-1">
+    <mxGraphModel dx="2058" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="UQIRgHB9haQ4A2VbqOZ0-1" value="Word A&lt;br&gt;id A" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="80" y="80" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g7gWRUiAFA0auau8Vz1S-1" value="Word A meaning&lt;br&gt;id&lt;br&gt;WordAid&lt;br&gt;text&lt;br&gt;descroption" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="360" y="160" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g7gWRUiAFA0auau8Vz1S-2" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="UQIRgHB9haQ4A2VbqOZ0-1" target="g7gWRUiAFA0auau8Vz1S-1" edge="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="350" y="290" as="sourcePoint" />
+            <mxPoint x="450" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
