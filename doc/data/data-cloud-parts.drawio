@@ -1,0 +1,19 @@
+<mxfile host="Electron" modified="2023-04-28T13:29:33.802Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="gmpWqfYFN0NuVES9WUqf" version="21.2.1" type="device">
+  <diagram name="Page-1" id="5awJ8Kfc-SjN0M0XZbBp">
+    <mxGraphModel dx="1050" dy="652" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="QvZa6QJuOlzEnajQ9hCa-1" value="Справочник слов и фраз" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="40" width="300" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="QvZa6QJuOlzEnajQ9hCa-2" value="Слово" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="220" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="QvZa6QJuOlzEnajQ9hCa-3" value="Слово" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="280" width="120" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
