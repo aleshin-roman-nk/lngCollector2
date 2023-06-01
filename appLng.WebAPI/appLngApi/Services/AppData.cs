@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Models;
+using Models.Exam;
+using Models.Location;
+using Models.Thought;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,10 +28,9 @@ namespace Services
         }
 
         public DbSet<Terrain> Terrains { get; set; }
-        public DbSet<TestingMissionSession> TestingMissionSessions { get; set; }
-        public DbSet<TestingMission> TestingMissions { get; set; }
-        public DbSet<LexemMeaning> LexemMeanings { get; set; }
-        public DbSet<Lexem> Lexems { get; set; }
+        public DbSet<Node> Nodes { get; set; }
+        public DbSet<Thought> Thoughts { get; set; }
+        public DbSet<ThExpression> ThExpressions { get; set; }
         public DbSet<Grade> Grades { get; set; }
     }
 }

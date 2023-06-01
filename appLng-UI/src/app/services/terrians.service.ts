@@ -13,6 +13,11 @@ export class TerriansService {
 
   items: ITerrain[] = []
 
+  private instance: number = 0;
+  getNextInstanceNumber(): number{
+    return this.instance++;
+  }
+
   getAll(): Observable<ITerrain[]> {
     return this.http.get<ITerrain[]>(`${environment.apiUrl}/terrain`)
       .pipe(

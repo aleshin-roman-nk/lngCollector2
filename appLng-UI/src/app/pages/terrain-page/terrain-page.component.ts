@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ITerrain } from 'src/app/models/terrain';
-import { BuildingService } from 'src/app/services/building.service';
+import { NodeService } from 'src/app/services/node.service';
 import { TerriansService } from 'src/app/services/terrians.service';
 
 @Component({
@@ -21,7 +21,10 @@ export class TerrainPageComponent {
     activateRoute: ActivatedRoute,
     private router: Router,
     public srvTerr: TerriansService,
-    public srvBuilding: BuildingService) {
+    public nodeSrv: NodeService) {
+
+      console.log(srvTerr.getNextInstanceNumber())
+
     this.subscription = activateRoute.params.subscribe(params => {
       this.id = params['id']
     });
@@ -30,15 +33,15 @@ export class TerrainPageComponent {
 
   ngOnInit(): void {
     this.srvTerr
-    .getOne(this.id)
-    .subscribe((result) => {
-      this.terrain = result
-    })
+      .getOne(this.id)
+      .subscribe((result) => {
+        this.terrain = result
+      })
   }
 
-  killme(): void{
+  killme(): void {
     this.srvTerr.delete(this.id)
-    .subscribe(()=>{this.router.navigate([''])})
+      .subscribe(() => { this.router.navigate(['']) })
   }
 
 }

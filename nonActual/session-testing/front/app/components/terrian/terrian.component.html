@@ -1,0 +1,29 @@
+<a [routerLink]="['terrain', terrain.id]"
+  class="transition duration-200 ease-in-out hover:bg-purple-600 border-b-2 flex flex-col p-2 bg-purple-400 rounded-md">
+
+  <span class="my-2 border-l-2 px-2 border-orange-600">Terrian: {{terrain.name}}</span>
+  <span class="my-2 px-2 border-l-2 border-yellow-400">Description: {{terrain.description}}</span>
+
+  <div class=" flex w-min border-2 border-slate-700 rounded-full bg-purple-200">
+
+    <svg class="fill-blue-500 h-8 ml-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      version="1.1" width="37" height="27" viewBox="-0.5 -0.5 37 27"
+      content="&lt;mxfile host=&quot;Electron&quot; modified=&quot;2023-02-01T18:36:02.947Z&quot; agent=&quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/20.8.10 Chrome/106.0.5249.199 Electron/21.3.5 Safari/537.36&quot; version=&quot;20.8.10&quot; etag=&quot;c6vRjR83JEmcJxaL-AlN&quot; type=&quot;device&quot;&gt;&lt;diagram name=&quot;Page-1&quot; id=&quot;1VAs0t3VgBrOCObopMTw&quot;&gt;xZTBboMwDIafhjuQdeu5rNsukyb1sHNGDIkaMArpoH36JU0CRF3VHSrtguzPNkn+P5CQohlfFe34OzKQSZ6yMSHPSZ4/POXmacHRAZJmDtRKMIcWYCdO4GHq6UEw6KNGjSi16GJYYttCqSNGlcIhbqtQxqt2tIYLsCupvKSfgmnu6HqVzvwNRM3DylnqKw0NzR70nDIcFohsE1IoRO2iZixAWu2CLm7u5Up12piCVv9lwBvxTeXBn83vSx/DYRUeWga2P03IZuBCw66jpa0Oxl3DuG6kyTITTuexvbWkfe/jfg+65CHRCveTdHauwlZ7nzPbUQkpC5SoznsgjMK6KqfJReWxXMNXZSr+IKA0jFfFyCaJzdUEbECro2kZwzVcuRF/LQ1w+TCbHIzjS389o/5a1dObZ+VN4MX/3Qhy2wijbWdDbVSHE9rJTQdKmLVALfnHDG/5VYkRwgdm89jse7nZ/7+zaexsfuksuY+zJp0/33Nt8Q8k2x8=&lt;/diagram&gt;&lt;/mxfile&gt;">
+      <defs>
+        <filter id="dropShadow">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="1.7" result="blur" />
+          <feOffset in="blur" dx="3" dy="3" result="offsetBlur" />
+          <feFlood flood-color="#3D4574" flood-opacity="0.4" result="offsetColor" />
+          <feComposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur" />
+          <feBlend in="SourceGraphic" in2="offsetBlur" />
+        </filter>
+      </defs>
+      <g filter="url(#dropShadow)">
+        <rect x="5" y="10" width="20" height="10" fill="#dae8fc" stroke="#6c8ebf" pointer-events="all" />
+        <path d="M 0 10 L 10 0 L 20 0 L 30 10 Z" fill="#dae8fc" stroke="#6c8ebf" stroke-miterlimit="10"
+          pointer-events="all" />
+      </g>
+    </svg>
+    <span class="pr-4">15</span>
+  </div>
+</a>

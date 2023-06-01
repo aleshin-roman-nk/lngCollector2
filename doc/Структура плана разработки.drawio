@@ -1,0 +1,75 @@
+<mxfile host="Electron" modified="2023-05-17T07:30:28.830Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.8 Chrome/112.0.5615.165 Electron/24.2.0 Safari/537.36" etag="YoPfo5cFT0xjoXOTVjtK" version="21.2.8" type="device" pages="2">
+  <diagram name="Page-1" id="OOG43F9dtApxluDdV2wG">
+    <mxGraphModel dx="1728" dy="703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="LH6ck7Mv1uI0gHXbbP7S-1" value="Отработать рисование на canvas&lt;br&gt;Отрисовка территории на канвасах" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DeFtTcpsV5Uv5rV-bT8G-3" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="DeFtTcpsV5Uv5rV-bT8G-1" target="DeFtTcpsV5Uv5rV-bT8G-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DeFtTcpsV5Uv5rV-bT8G-1" value="На беке переделать логику и структуры" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="200" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DeFtTcpsV5Uv5rV-bT8G-2" value="На беке переделать логику и структуры" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="200" width="230" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="YdhBOh_iTb4Kh9wYubZu" name="api-quest">
+    <mxGraphModel dx="1185" dy="1582" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="XM9d14sNnQ-k6v0YHcTt-1" value="QuestsObject" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="80" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XM9d14sNnQ-k6v0YHcTt-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="XM9d14sNnQ-k6v0YHcTt-2" target="XM9d14sNnQ-k6v0YHcTt-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XM9d14sNnQ-k6v0YHcTt-7" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1.014;entryY=0.414;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="XM9d14sNnQ-k6v0YHcTt-2" target="XM9d14sNnQ-k6v0YHcTt-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XM9d14sNnQ-k6v0YHcTt-2" value="Q" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="400" y="280" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="XM9d14sNnQ-k6v0YHcTt-11" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="XM9d14sNnQ-k6v0YHcTt-3" target="XM9d14sNnQ-k6v0YHcTt-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XM9d14sNnQ-k6v0YHcTt-3" value="quest" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="160" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XM9d14sNnQ-k6v0YHcTt-4" value="id" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="340" y="240" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XM9d14sNnQ-k6v0YHcTt-6" value="name" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="320" y="320" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XM9d14sNnQ-k6v0YHcTt-8" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmany;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="XM9d14sNnQ-k6v0YHcTt-2" target="XM9d14sNnQ-k6v0YHcTt-3">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="540" y="280" as="sourcePoint" />
+            <mxPoint x="640" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XM9d14sNnQ-k6v0YHcTt-10" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="240" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XM9d14sNnQ-k6v0YHcTt-12" value="score" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="360" y="380" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XM9d14sNnQ-k6v0YHcTt-13" value="Слова и предложения не связанны, это разные таблицы" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="40" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XM9d14sNnQ-k6v0YHcTt-14" value="quest" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="880" y="160" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XM9d14sNnQ-k6v0YHcTt-15" value="Добавить просто Thought" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="-130" width="300" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

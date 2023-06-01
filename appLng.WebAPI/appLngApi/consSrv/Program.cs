@@ -1,13 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Microsoft.VisualBasic;
 using Services;
+using Models.QuestT1;
+using Models.QuestT1.dto;
 
 Console.WriteLine("Hello, World!");
 
 
 
 //AppData db = new AppData(@"..\..\..\..\db\lngapp.sqlite");
-LexemTestingMissionService service = new LexemTestingMissionService(new DbFactory(@"..\..\..\..\db\lngapp.sqlite"));
+ExamWithSessionService service = new ExamWithSessionService(new DbFactory(@"..\..\..\..\db\lngapp.sqlite"));
 Dictionary<string, Action<string>> _commands = new Dictionary<string, Action<string>>();
 
 buildCommands();
@@ -47,7 +49,7 @@ void buildCommands()
     _commands.Add("start-sess", (prm) =>
     {
         var missionId = int.Parse(prm);
-        service.StartSession(new Models.TestingMission { id = missionId });
+        service.StartSession(new QuestT1Model { id = missionId });
         prnObject(service.GetSession(missionId));
     });
 
@@ -55,7 +57,7 @@ void buildCommands()
     {
         var missionId = int.Parse(prm);
 
-        var q = service.CurrentQuestion(new Models.TestingMission { id = missionId});
+        var q = service.CurrentQuestion(new QuestT1Model { id = missionId});
 
         bool completed = false;
 
@@ -63,7 +65,7 @@ void buildCommands()
         {
             Console.Write($"{q.text} = ");
             var sol = Console.ReadLine();
-            var ck = service.CheckSolutionAndNext(new Models.dto.QuestSolution { lexemId = q.lexemId, solution = sol });
+            var ck = service.CheckSolutionAndNext(new QuestSolution { thoughtId = q.lexemId, solution = sol });
 
             if (ck.isCorrect) Console.WriteLine("Nice!");
             else
@@ -81,7 +83,7 @@ void buildCommands()
                 continue;
             }
 
-            q = service.CurrentQuestion(new Models.TestingMission { id = missionId });
+            q = service.CurrentQuestion(new QuestT1Model { id = missionId });
         }
 
     });

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ModalService } from 'src/app/services/modal.service';
+import { NodeService } from 'src/app/services/node.service';
 import { TerriansService } from 'src/app/services/terrians.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class CreateTerrainComponent {
 
   constructor(private modalService: ModalService,
     public terrSrv: TerriansService) {
+
   }
 
   creatingForm = new FormGroup({
@@ -26,6 +28,7 @@ export class CreateTerrainComponent {
   }
 
   submit() {
+
     this.submitted = true
     if (this.creatingForm.valid) {
 

@@ -1,4 +1,4 @@
-﻿using Models;
+﻿using Models.Location;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,9 +36,28 @@ namespace Services.repo
         {
             using (var db = factory.Create())
             {
+                t.id = 0;
+
                 db.Terrains.Add(t);
                 db.SaveChanges();
                 return t;
+            }
+        }
+
+        public Terrain Update(int id, Terrain terr)
+        {
+            using (var db = factory.Create())
+            {
+                var t = db.Terrains.FirstOrDefault(x => x.id == id);
+                if (t != null)
+                {
+                    t.name = terr.name;
+                    t.description = terr.description;
+                    db.SaveChanges();
+                    return t;
+                }
+
+                throw new InvalidOperationException("Some fault occurred while updating the object.");
             }
         }
 
