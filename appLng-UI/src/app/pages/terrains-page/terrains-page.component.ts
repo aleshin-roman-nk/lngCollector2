@@ -20,6 +20,8 @@ export class TerrainsPageComponent {
 
   ngOnInit(): void {
 
+    console.log("TerrainsPageComponent::ngOnInit()")
+
     this.loading = true;
 
     this.terrSrv

@@ -23,8 +23,6 @@ export class TerrainPageComponent {
     public srvTerr: TerriansService,
     public nodeSrv: NodeService) {
 
-      console.log(srvTerr.getNextInstanceNumber())
-
     this.subscription = activateRoute.params.subscribe(params => {
       this.id = params['id']
     });
