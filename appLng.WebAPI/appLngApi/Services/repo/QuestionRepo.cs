@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Services.repo
 {
-    public class QuestionRepo
+    public class QuestionRepo : IQuestionRepo
     {
-        private readonly DbFactory factory;
+        private readonly IDbFactory factory;
 
-        public QuestionRepo(DbFactory factory)
+        public QuestionRepo(IDbFactory factory)
         {
             this.factory = factory;
         }

@@ -9,23 +9,36 @@ namespace appLngApi.Controllers
     [ApiController]
     public class TerrainController : ControllerBase
     {
-        private readonly TerrainRepo repo;
+        private readonly ITerrainRepo _repo;
+        private readonly INodeRepo nrepo;
 
-        public TerrainController()
+        public TerrainController(ITerrainRepo repo, INodeRepo nrepo)
         {
-            repo = new TerrainRepo(new Services.DbFactory(@"..\db\lngapp.sqlite"));
+            _repo = repo;
+            this.nrepo = nrepo;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(repo.GetAll());
+            return Ok(_repo.GetAll());
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var res = repo.Get(id);
+            var res = _repo.Get(id);
+
+            if (res == null)
+                return StatusCode(500, $"Terrain id = {id} is not found");
+            else
+                return Ok(res);
+        }
+
+        [HttpGet("{id}/nodes")]
+        public IActionResult GetNodes(int id)
+        {
+            var res = nrepo.GetAllOf(id);
 
             if (res == null)
                 return StatusCode(500, $"Terrain id = {id} is not found");
@@ -36,7 +49,7 @@ namespace appLngApi.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Terrain t)
         {
-            var res = repo.Create(t);
+            var res = _repo.Create(t);
 
             if (t.id == 0) return StatusCode(500, $"Something went wrong with creating a new terrain");
             else return Ok(t);
@@ -48,7 +61,7 @@ namespace appLngApi.Controllers
         {
             try
             {
-                return Ok(repo.Update(id, ter));
+                return Ok(_repo.Update(id, ter));
             }
             catch (Exception ex)
             {
@@ -59,7 +72,7 @@ namespace appLngApi.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            repo.Delete(id);
+            _repo.Delete(id);
 
             return Ok(new {text = "Deleted"});
         }

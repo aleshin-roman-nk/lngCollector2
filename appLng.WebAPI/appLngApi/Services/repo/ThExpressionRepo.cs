@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Services.repo
 {
-    public class ThExpressionRepo
+    public class ThExpressionRepo : IThExpressionRepo
     {
-        private readonly DbFactory _factory;
+        private readonly IDbFactory _factory;
 
-        public ThExpressionRepo(DbFactory factory)
+        public ThExpressionRepo(IDbFactory factory)
         {
             this._factory = factory;
         }

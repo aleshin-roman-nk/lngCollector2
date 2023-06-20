@@ -13,7 +13,6 @@ namespace Models.Location
         public int terrianId { get; set; }
         public string? name { get; set; }
         public string? description { get; set; }
-        //public IEnumerable<IMission>? Missions { get; set; }// грузим при открытии объекта
         public int x { get; set; }// при создании, на сервере спрашиваем у территории последние доступное место
         public int y { get; set; }
     }

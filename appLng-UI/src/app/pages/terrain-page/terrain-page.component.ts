@@ -35,6 +35,9 @@ export class TerrainPageComponent {
       .subscribe((result) => {
         this.terrain = result
       })
+
+    //this.nodeSrv.dataNodes$.subscribe()
+    this.nodeSrv.loadNodesOf(this.id)
   }
 
   killme(): void {

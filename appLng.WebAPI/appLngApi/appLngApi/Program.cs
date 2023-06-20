@@ -1,4 +1,5 @@
 using Services;
+using Services.repo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,16 @@ builder.Services.AddSwaggerGen();
 //{
 //    return new AppData("lngapp.sqlite");
 //});
+
+builder.Services.AddScoped<IDbFactory>((f) => new DbFactory(@"..\db\lngapp.sqlite"));
+builder.Services.AddScoped<INodeRepo, NodeRepo>();
+builder.Services.AddScoped<IQuestionRepo, QuestionRepo>();
+builder.Services.AddScoped<ITerrainRepo, TerrainRepo>();
+builder.Services.AddScoped<IThExpressionRepo, ThExpressionRepo>();
+builder.Services.AddScoped<IThoughtRepo, ThoughtRepo>();
+builder.Services.AddScoped<IExamService, ExamService>();
+
+
 builder.Services.AddCors(options => options.AddPolicy(name: "moyaDerevnya",
     policy =>
     {

@@ -7,5 +7,5 @@ import { ITerrain } from 'src/app/models/terrain';
   styleUrls: ['./terrian.component.css']
 })
 export class TerrianComponent {
-@Input() terrain: ITerrain
+  @Input() terrain: ITerrain
 }

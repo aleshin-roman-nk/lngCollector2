@@ -10,11 +10,11 @@ namespace appLngApi.Controllers
     [ApiController]
     public class ThoughtController : ControllerBase
     {
-        private readonly ThoughtRepo repo;
+        private readonly IThoughtRepo repo;
 
-        public ThoughtController()
+        public ThoughtController(IThoughtRepo rp)
         {
-            repo = new ThoughtRepo(new Services.DbFactory(@"..\db\lngapp.sqlite"));
+            repo = rp;
         }
 
 
@@ -29,9 +29,9 @@ namespace appLngApi.Controllers
 
         // POST api/<ThoughtController>
         [HttpPost]
-        public void Create(int nodeId, [FromBody] Thought value)
+        public Thought Create(int nodeId, [FromBody] Thought value)
         {
-            repo.Create(nodeId, value);
+            return repo.Create(nodeId, value);
         }
 
         // PUT api/<ThoughtController>/5

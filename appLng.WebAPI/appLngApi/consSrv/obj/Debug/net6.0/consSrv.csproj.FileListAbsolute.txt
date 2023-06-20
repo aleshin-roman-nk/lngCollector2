@@ -62,3 +62,11 @@ D:\prg\lngCollectorV2\appLng.WebAPI\appLngApi\consSrv\obj\Debug\net6.0\consSrv.p
 D:\prg\lngCollectorV2\appLng.WebAPI\appLngApi\consSrv\obj\Debug\net6.0\consSrv.genruntimeconfig.cache
 D:\prg\lngCollectorV2\appLng.WebAPI\appLngApi\consSrv\obj\Debug\net6.0\ref\consSrv.dll
 d:\prg\lngCollectorV2\appLng.WebAPI\appLngApi\consSrv\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\prg\lngCollector2\appLng.WebAPI\appLngApi\consSrv\obj\Debug\net6.0\consSrv.csproj.AssemblyReference.cache
+D:\prg\lngCollector2\appLng.WebAPI\appLngApi\consSrv\obj\Debug\net6.0\consSrv.GeneratedMSBuildEditorConfig.editorconfig
+D:\prg\lngCollector2\appLng.WebAPI\appLngApi\consSrv\obj\Debug\net6.0\consSrv.AssemblyInfoInputs.cache
+D:\prg\lngCollector2\appLng.WebAPI\appLngApi\consSrv\obj\Debug\net6.0\consSrv.AssemblyInfo.cs
+D:\prg\lngCollector2\appLng.WebAPI\appLngApi\consSrv\obj\Debug\net6.0\consSrv.csproj.CoreCompileInputs.cache
+D:\prg\lngCollector2\appLng.WebAPI\appLngApi\consSrv\obj\Debug\net6.0\consSrv.dll
+D:\prg\lngCollector2\appLng.WebAPI\appLngApi\consSrv\obj\Debug\net6.0\refint\consSrv.dll
+D:\prg\lngCollector2\appLng.WebAPI\appLngApi\consSrv\obj\Debug\net6.0\consSrv.pdb

@@ -1,4 +1,6 @@
-﻿using Models.Location;
+﻿using Microsoft.EntityFrameworkCore;
+using Models.Location;
+using Models.Location.dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Services.repo
 {
-    public class NodeRepo
+    public class NodeRepo : INodeRepo
     {
-        private readonly DbFactory _factory;
+        private readonly IDbFactory _factory;
 
-        public NodeRepo(DbFactory factory) 
+        public NodeRepo(IDbFactory factory)
         {
             this._factory = factory;
         }
@@ -27,9 +29,15 @@ namespace Services.repo
         /*
          * Если будет какая то доп сложная информация, сделаем метод GetDetail, которая будет возвращает единичный экземпляр Node и доп данные.
          */
-        public Node GetDetail(int nodeId)
+        public NodeDetail GetDetail(int nodeId)
         {
-            throw new NotImplementedException();
+            using (var db = _factory.Create())
+            {
+                var n = db.Nodes.FirstOrDefault(x => x.id == nodeId);
+                var ths = db.Thoughts.Include(x => x.expressions).Where(x => x.nodeId == nodeId).ToList();
+
+                return new NodeDetail(n, ths);
+            }
         }
 
         public Node Create(int terrId, Node node)

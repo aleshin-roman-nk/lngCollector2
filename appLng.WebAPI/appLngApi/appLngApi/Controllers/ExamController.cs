@@ -12,21 +12,11 @@ namespace appLngApi.Controllers
     [ApiController]
     public class ExamController : ControllerBase
     {
-        private readonly ExamService service;
+        private readonly IExamService service;
 
-        private readonly ThoughtRepo threpo;
-        private readonly ThExpressionRepo thexprepo;
-        private readonly QuestionRepo questionRepo;
-
-        public ExamController()
+        public ExamController(IExamService srv)
         {
-            var f = new DbFactory(@"..\db\lngapp.sqlite");
-
-            threpo = new ThoughtRepo(f);
-            thexprepo = new ThExpressionRepo(f);
-            questionRepo = new QuestionRepo(f);
-
-            service = new ExamService(threpo, thexprepo, questionRepo);
+            service = srv;
         }
 
         [HttpPost("check")]

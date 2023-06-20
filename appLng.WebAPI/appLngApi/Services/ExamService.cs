@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class ExamService
+    public class ExamService : IExamService
     {
-        private readonly ThoughtRepo threpo;
-        private readonly ThExpressionRepo thexprepo;
-        private readonly QuestionRepo questionRepo;
+        private readonly IThoughtRepo threpo;
+        private readonly IThExpressionRepo thexprepo;
+        private readonly IQuestionRepo questionRepo;
 
-        public ExamService(ThoughtRepo threpo, ThExpressionRepo thexprepo, QuestionRepo questionRepo)
+        public ExamService(IThoughtRepo threpo, IThExpressionRepo thexprepo, IQuestionRepo questionRepo)
         {
             this.threpo = threpo;
             this.thexprepo = thexprepo;

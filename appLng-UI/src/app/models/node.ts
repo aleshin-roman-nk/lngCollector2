@@ -1,6 +1,6 @@
 export interface INode {
   id: number
-  terrainId: number
+  terrianId: number
   name: string
   description: string
   x: number

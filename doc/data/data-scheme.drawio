@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2023-05-24T05:36:06.511Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.8 Chrome/112.0.5615.165 Electron/24.2.0 Safari/537.36" etag="33c-K7Tp5IHiYwmtkj7v" version="21.2.8" type="device" pages="8">
+<mxfile host="Electron" modified="2023-06-15T15:42:57.701Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.4.0 Chrome/112.0.5615.204 Electron/24.5.1 Safari/537.36" etag="f9N0d7Ayhfy7nyyiRwVU" version="21.4.0" type="device" pages="8">
   <diagram name="Page-1" id="tqMP6LUTBTMePXm0T18Q">
-    <mxGraphModel dx="2074" dy="3044" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2058" dy="3020" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -177,7 +177,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="B-euCr4LAnl4oewoDh70" name="Page-2">
-    <mxGraphModel dx="10980" dy="4566" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="7387" dy="3111" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -674,7 +674,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="Mu1GudJyhGzTUgUkNS0S" name="Вид страницы Node">
-    <mxGraphModel dx="2058" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2058" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -694,27 +694,27 @@
     </mxGraphModel>
   </diagram>
   <diagram id="aJCtv8GQRc2Hid6AmKbN" name="Схема объектов и web-api">
-    <mxGraphModel dx="2026" dy="1573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2908" dy="1920" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="wHMLdJ7jL6tPX7jeYec0-1" value="Node" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="wHMLdJ7jL6tPX7jeYec0-1" value="Node" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="40" y="40" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="wHMLdJ7jL6tPX7jeYec0-2" value="Terrain" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="wHMLdJ7jL6tPX7jeYec0-2" value="Terrain" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-200" y="-40" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="wHMLdJ7jL6tPX7jeYec0-3" value="Session" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="wHMLdJ7jL6tPX7jeYec0-3" value="Session" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="280" y="-80" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="wHMLdJ7jL6tPX7jeYec0-4" value="Сессия нужна для исключения повторения вопросов" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="wHMLdJ7jL6tPX7jeYec0-4" value="Сессия нужна для исключения повторения вопросов" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="240" y="-240" width="200" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="M7WS6BoIAtO66iTwFQT6" name="Node">
-    <mxGraphModel dx="2074" dy="-256" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="4573" dy="722" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1020,7 +1020,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="MaJyc0ATpKGj9hJ0IdAa" name="Langs">
-    <mxGraphModel dx="358" dy="-272" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="358" dy="-280" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1040,48 +1040,48 @@
     </mxGraphModel>
   </diagram>
   <diagram id="X343kY0za75lFiqQFlMv" name="Алгоритм вопросов без сессий">
-    <mxGraphModel dx="374" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="358" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="IW31122PodmhGAWNTr4q-1" value="Получить список вопросов" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="IW31122PodmhGAWNTr4q-1" value="Получить список вопросов" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1760" y="40" width="240" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="IW31122PodmhGAWNTr4q-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="IW31122PodmhGAWNTr4q-2" target="IW31122PodmhGAWNTr4q-3">
+        <mxCell id="IW31122PodmhGAWNTr4q-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="IW31122PodmhGAWNTr4q-2" target="IW31122PodmhGAWNTr4q-3" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="IW31122PodmhGAWNTr4q-2" value="Вывести вопрос пользователю" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="IW31122PodmhGAWNTr4q-2" value="Вывести вопрос пользователю" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="2120" y="280" width="240" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="IW31122PodmhGAWNTr4q-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="IW31122PodmhGAWNTr4q-3" target="IW31122PodmhGAWNTr4q-4">
+        <mxCell id="IW31122PodmhGAWNTr4q-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="IW31122PodmhGAWNTr4q-3" target="IW31122PodmhGAWNTr4q-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="IW31122PodmhGAWNTr4q-3" value="Получить ответ пользователя" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="IW31122PodmhGAWNTr4q-3" value="Получить ответ пользователя" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="2120" y="400" width="240" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="IW31122PodmhGAWNTr4q-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="IW31122PodmhGAWNTr4q-4" target="IW31122PodmhGAWNTr4q-11">
+        <mxCell id="IW31122PodmhGAWNTr4q-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="IW31122PodmhGAWNTr4q-4" target="IW31122PodmhGAWNTr4q-11" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="IW31122PodmhGAWNTr4q-4" value="Отправка на сервер; сервер проверяет корректно ли решение пользвателя" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="IW31122PodmhGAWNTr4q-4" value="Отправка на сервер; сервер проверяет корректно ли решение пользвателя" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="2120" y="520" width="240" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="IW31122PodmhGAWNTr4q-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="IW31122PodmhGAWNTr4q-8" target="IW31122PodmhGAWNTr4q-1">
+        <mxCell id="IW31122PodmhGAWNTr4q-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="IW31122PodmhGAWNTr4q-8" target="IW31122PodmhGAWNTr4q-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="IW31122PodmhGAWNTr4q-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="IW31122PodmhGAWNTr4q-8" target="IW31122PodmhGAWNTr4q-2">
+        <mxCell id="IW31122PodmhGAWNTr4q-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="IW31122PodmhGAWNTr4q-8" target="IW31122PodmhGAWNTr4q-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="IW31122PodmhGAWNTr4q-8" value="Фронт - енд" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="IW31122PodmhGAWNTr4q-8" value="Фронт - енд" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="2120" y="160" width="240" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="IW31122PodmhGAWNTr4q-11" value="Если корректно, сервер записывает +1 очко выражению" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="IW31122PodmhGAWNTr4q-11" value="Если корректно, сервер записывает +1 очко выражению" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1760" y="520" width="240" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="PSQYA7_Wps7wER04smSE" name="Thought">
-    <mxGraphModel dx="878" dy="1803" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1208" dy="1920" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1106,47 +1106,47 @@
         <mxCell id="y1qMBO9F_M7_VF_jFgf4-7" value="Отвечает свойство madeBy: myExerc; native&lt;br&gt;&lt;br&gt;native отмечаются мысли из готового текста" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="2480" y="-100" width="320" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="QYky5HoNqtMsIzlB0e8T-1" value="Thought" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+        <mxCell id="QYky5HoNqtMsIzlB0e8T-1" value="Thought" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
           <mxGeometry x="1520" y="120" width="160" height="146" as="geometry">
             <mxRectangle x="1720" y="1240" width="70" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="QYky5HoNqtMsIzlB0e8T-2" value="id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="QYky5HoNqtMsIzlB0e8T-1">
+        <mxCell id="QYky5HoNqtMsIzlB0e8T-2" value="id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="QYky5HoNqtMsIzlB0e8T-1" vertex="1">
           <mxGeometry y="26" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="QYky5HoNqtMsIzlB0e8T-3" value="nodeId" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="QYky5HoNqtMsIzlB0e8T-1">
+        <mxCell id="QYky5HoNqtMsIzlB0e8T-3" value="nodeId" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="QYky5HoNqtMsIzlB0e8T-1" vertex="1">
           <mxGeometry y="56" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="QYky5HoNqtMsIzlB0e8T-4" value="text" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="QYky5HoNqtMsIzlB0e8T-1">
+        <mxCell id="QYky5HoNqtMsIzlB0e8T-4" value="text" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="QYky5HoNqtMsIzlB0e8T-1" vertex="1">
           <mxGeometry y="86" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="QYky5HoNqtMsIzlB0e8T-5" value="description" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="QYky5HoNqtMsIzlB0e8T-1">
+        <mxCell id="QYky5HoNqtMsIzlB0e8T-5" value="description" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="QYky5HoNqtMsIzlB0e8T-1" vertex="1">
           <mxGeometry y="116" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="QYky5HoNqtMsIzlB0e8T-6" value="Thought" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+        <mxCell id="QYky5HoNqtMsIzlB0e8T-6" value="Thought" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="1750" y="40" width="160" height="350" as="geometry">
             <mxRectangle x="1720" y="1240" width="70" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="QYky5HoNqtMsIzlB0e8T-7" value="1" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="QYky5HoNqtMsIzlB0e8T-6">
+        <mxCell id="QYky5HoNqtMsIzlB0e8T-7" value="1" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="QYky5HoNqtMsIzlB0e8T-6" vertex="1">
           <mxGeometry y="26" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="QYky5HoNqtMsIzlB0e8T-8" value="1" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="QYky5HoNqtMsIzlB0e8T-6">
+        <mxCell id="QYky5HoNqtMsIzlB0e8T-8" value="1" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="QYky5HoNqtMsIzlB0e8T-6" vertex="1">
           <mxGeometry y="56" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="QYky5HoNqtMsIzlB0e8T-9" value="we&#39;re in" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="QYky5HoNqtMsIzlB0e8T-6">
+        <mxCell id="QYky5HoNqtMsIzlB0e8T-9" value="we&#39;re in" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="QYky5HoNqtMsIzlB0e8T-6" vertex="1">
           <mxGeometry y="86" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="QYky5HoNqtMsIzlB0e8T-10" value="In the phrase &quot;we&#39;re in,&quot; the term &quot;in&quot; is used as a colloquial expression to indicate involvement or participation in a particular situation or event. It suggests that the speaker and the people they are referring to are actively engaged or included in something positive or desirable. It implies a sense of anticipation, enthusiasm, or readiness for the experience ahead" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" vertex="1" parent="QYky5HoNqtMsIzlB0e8T-6">
+        <mxCell id="QYky5HoNqtMsIzlB0e8T-10" value="In the phrase &quot;we&#39;re in,&quot; the term &quot;in&quot; is used as a colloquial expression to indicate involvement or participation in a particular situation or event. It suggests that the speaker and the people they are referring to are actively engaged or included in something positive or desirable. It implies a sense of anticipation, enthusiasm, or readiness for the experience ahead" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;whiteSpace=wrap;html=1;" parent="QYky5HoNqtMsIzlB0e8T-6" vertex="1">
           <mxGeometry y="116" width="160" height="234" as="geometry" />
         </mxCell>
-        <mxCell id="QYky5HoNqtMsIzlB0e8T-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;curved=1;" edge="1" parent="1" source="QYky5HoNqtMsIzlB0e8T-11" target="QYky5HoNqtMsIzlB0e8T-12">
+        <mxCell id="QYky5HoNqtMsIzlB0e8T-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;curved=1;" parent="1" source="QYky5HoNqtMsIzlB0e8T-11" target="QYky5HoNqtMsIzlB0e8T-12" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="QYky5HoNqtMsIzlB0e8T-11" value="Может имеет смысли добавить связи между Thought" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="QYky5HoNqtMsIzlB0e8T-11" value="Может имеет смысли добавить связи между Thought" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="1960" y="200" width="320" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="QYky5HoNqtMsIzlB0e8T-12" value="Хотя все Thought линейно относятся к Node, между собой удобно было бы иметь цепочку связей" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="QYky5HoNqtMsIzlB0e8T-12" value="Хотя все Thought линейно относятся к Node, между собой удобно было бы иметь цепочку связей" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="2000" y="280" width="320" height="40" as="geometry" />
         </mxCell>
       </root>

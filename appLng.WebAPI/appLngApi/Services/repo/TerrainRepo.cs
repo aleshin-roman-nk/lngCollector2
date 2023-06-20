@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Services.repo
 {
-    public class TerrainRepo
+    public class TerrainRepo : ITerrainRepo
     {
-        private readonly DbFactory factory;
+        private readonly IDbFactory factory;
 
-        public TerrainRepo(DbFactory factory) 
+        public TerrainRepo(IDbFactory factory)
         {
             this.factory = factory;
         }
@@ -20,7 +20,7 @@ namespace Services.repo
         {
             using (var db = factory.Create())
             {
-                return db.Terrains.ToList(); 
+                return db.Terrains.ToList();
             }
         }
 

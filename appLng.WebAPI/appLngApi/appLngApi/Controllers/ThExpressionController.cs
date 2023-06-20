@@ -10,11 +10,11 @@ namespace appLngApi.Controllers
     [ApiController]
     public class ThExpressionController : ControllerBase
     {
-        private readonly ThExpressionRepo repo;
+        private readonly IThExpressionRepo repo;
 
-        public ThExpressionController()
+        public ThExpressionController(IThExpressionRepo rp)
         {
-            repo = new ThExpressionRepo(new Services.DbFactory(@"..\db\lngapp.sqlite"));
+            repo = rp;
         }
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class DbFactory 
+    public class DbFactory : IDbFactory
     {
         private readonly string path;
 

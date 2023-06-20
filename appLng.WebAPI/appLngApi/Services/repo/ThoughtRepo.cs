@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Models;
 using Models.Location;
 using Models.Thought;
 using System;
@@ -9,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace Services.repo
 {
-    public class ThoughtRepo
+    public class ThoughtRepo : IThoughtRepo
     {
-        private readonly DbFactory _factory;
+        private readonly IDbFactory _factory;
 
-        public ThoughtRepo(DbFactory factory)
+        public ThoughtRepo(IDbFactory factory)
         {
             this._factory = factory;
         }
@@ -22,7 +23,7 @@ namespace Services.repo
         {
             using (var db = _factory.Create())
             {
-                return db.Thoughts.Where(x => x.nodeId == nodeId).ToArray();
+                return db.Thoughts.Include(x => x.expressions).Where(x => x.nodeId == nodeId).ToArray();
             }
         }
 

@@ -13,6 +13,9 @@ import { CreateTerrainComponent } from './components/create-terrain/create-terra
 import { LoadingAnimComponent } from './components/loading-anim/loading-anim.component';
 import { NodeComponent } from './components/node/node.component';
 import { PlayquestComponent } from './components/playquest/playquest.component';
+import { NodeDetailPageComponent } from './pages/node-detail-page/node-detail-page.component';
+import { ThoughtComponent } from './components/thought/thought.component';
+import { CreateThoughtComponent } from './components/create-thought/create-thought.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { PlayquestComponent } from './components/playquest/playquest.component';
     CreateTerrainComponent,
     LoadingAnimComponent,
     NodeComponent,
-    PlayquestComponent
+    PlayquestComponent,
+    NodeDetailPageComponent,
+    ThoughtComponent,
+    CreateThoughtComponent
   ],
   imports: [
     BrowserModule,
