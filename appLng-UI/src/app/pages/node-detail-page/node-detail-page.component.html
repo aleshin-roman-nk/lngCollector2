@@ -9,15 +9,21 @@
 
     <div class="flex w-1/5 justify-between bg-gray-200 items-center rounded-md">
         <div class="p-2 my-4"><b>THOUGHTS</b></div>
-        <button class="rounded-full w-10 h-10 bg-red-700 text-white px-4 py-2 m-2" (click)="modalService.open()">
+<!--         <button class="rounded-full w-10 h-10 bg-red-700 text-white px-4 py-2 m-2"
+              (click)="modalService.open()">
             +
-        </button>
+        </button> -->
+        <button class="rounded-full w-10 h-10 bg-red-700 text-white px-4 py-2 m-2"
+        (click)="createThought()">
+      +
+  </button>
+
     </div>
 
     <app-thought *ngFor="let thought of nodeDetail.thoughts" [thought]="thought"></app-thought>
 
     <app-modal *ngIf="modalService.isVisible$ | async" titleXA="Create a new THOUGHT">
-        <app-create-terrain></app-create-terrain>
+        <app-create-thought></app-create-thought>
     </app-modal>
 
 </div>

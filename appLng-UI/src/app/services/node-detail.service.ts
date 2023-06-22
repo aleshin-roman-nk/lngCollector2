@@ -10,10 +10,10 @@ import { IThought } from '../models/thought';
 })
 export class NodeDetailService {
 
-  nodeDetail: INodeDetail
+  //nodeDetail: INodeDetail
 
   /*
-  В этом сервисе возможно обслуживать две отдельные сущности: INode и Thought[] в разных BehaviourSubject
+  В этом сервисе возможно обслуживать две отдельные сущности: INode и IThought[] в разных BehaviourSubject
   */
 
 /*   private nodeDetailSubject: BehaviorSubject<INodeDetail> = new BehaviorSubject<INodeDetail>({
@@ -31,6 +31,16 @@ export class NodeDetailService {
 
   constructor(private http: HttpClient) { }
 
+
+  /**
+   * Оставлю так: в компоненте переменные
+   * - обновляются вызовом getNodeDetail
+   * -- так же можно добавить метод только добавить thought
+   * -- подписавшись на это можно отдельно добавлять в массив объект
+   * И не хранить в сервисе объекты
+   *
+   *
+   */
   getNodeDetail(nodeId: number): Observable<INodeDetail> {
     const url = `${environment.apiUrl}/node/${nodeId}/detail`;
 
