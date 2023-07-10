@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, delay } from 'rxjs';
 import { INodeDetail } from 'src/app/models/nodedetail';
 import { IThought } from 'src/app/models/thought';
+import { UserResponse } from 'src/app/models/user-response';
 import { ModalService } from 'src/app/services/modal.service';
 import { NodeDetailService } from 'src/app/services/node-detail.service';
 import { NodeService } from 'src/app/services/node.service';
@@ -18,11 +19,12 @@ export class NodeDetailPageComponent implements OnInit {
   nodeDetail: INodeDetail
   loading: boolean
 
+  startCreateThought: boolean = false
+
   constructor(
     private activateRoute: ActivatedRoute,
     private router: Router,
-    public nodeDetailSrv: NodeDetailService,
-    public modalService: ModalService
+    public nodeDetailSrv: NodeDetailService
   ) {}
 
   ngOnInit() {
@@ -40,18 +42,25 @@ export class NodeDetailPageComponent implements OnInit {
         this.nodeDetail = data
         this.loading = false
       })
-
-    //this.nodeDetail$ = this.nodeSrv.getNodeDetail(this.nodeId);
   }
 
-  createThought(){
-    this.modalService.open()
+  openCreatingThought(){
+    this.startCreateThought = true
+  }
+
+  closeCreatingThought(){
+    this.startCreateThought = false
+  }
+
+  Finished(eventdata: UserResponse<{text: string, descr: string}>){
+    
+    if(!eventdata.hasUserAccepted) {this.closeCreatingThought(); return}
 
     const th: IThought  = {
       id: 0,
       nodeId: this.nodeId,
-      text: 'dog dog dog',
-      description: 'четвероногое существо',
+      text: eventdata.value.text,
+      description: eventdata.value.descr,
       createdDate: new Date(),
       expressions: []
     }
@@ -67,5 +76,7 @@ export class NodeDetailPageComponent implements OnInit {
       .subscribe(resp => {
         this.nodeDetail.thoughts.push(resp)
       })
+
+      this.closeCreatingThought()
   }
 }

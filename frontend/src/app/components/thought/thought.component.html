@@ -1,5 +1,5 @@
-<div class="border border-green-500 rounded-md my-4 p-2 w-1/5">
-    <p class="mb-2">{{thought.text}}</p>
+<div class="border border-green-500 rounded-md mr-2 p-2 w-40 mt-2 cursor-pointer">
+    <h3 class="text-xl font-bold mb-2">{{thought.text}}</h3>
     <p class="border border-green-600 rounded-md bg-green-100 p-2">{{thought.description}}</p>
     <p *ngFor="let exp of thought.expressions" class="px-4">{{exp.text}}</p>
 </div>

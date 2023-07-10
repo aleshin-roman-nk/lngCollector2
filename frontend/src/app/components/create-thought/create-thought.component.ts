@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { IThought } from 'src/app/models/thought';
+import { UserResponse } from 'src/app/models/user-response';
 import { ModalService } from 'src/app/services/modal.service';
 import { NodeDetailService } from 'src/app/services/node-detail.service';
 import { TerriansService } from 'src/app/services/terrians.service';
@@ -23,8 +25,9 @@ import { TerriansService } from 'src/app/services/terrians.service';
 export class CreateThoughtComponent {
   submitted: boolean = false
 
+  @Output() finished: EventEmitter<UserResponse<{text: string, descr: string}>> = new EventEmitter<UserResponse<{text: string, descr: string}>>()
+
   constructor(
-    private modalService: ModalService,
     public nodeDetailService: NodeDetailService) {}
 
   creatingForm = new FormGroup({
@@ -35,23 +38,18 @@ export class CreateThoughtComponent {
   get thoughtText() {
     return this.creatingForm.controls.thoughtText as FormControl
   }
-
-  submit() {
-
-    this.submitted = true
-    if (this.creatingForm.valid) {
-
-      this.nodeDetailService.createThought({
-        name: this.creatingForm.value.terrainName as string,
-        description: this.creatingForm.value.terrainDescription as string
-      }).subscribe(() => {
-        this.modalService.close()
-      })
-    }
-
+  get thoughtDescription() {
+    return this.creatingForm.controls.thoughtDescription as FormControl
   }
 
-  close() {
-    this.modalService.close()
+  submit() {
+    this.submitted = true
+    if (this.creatingForm.valid) {
+      this.finished.emit(new UserResponse({ text: this.thoughtText.value, descr: this.thoughtDescription.value }, true))
+    }
+  }
+
+  refused() {
+    this.finished.emit(new UserResponse({ text: "", descr: "" }, false))
   }
 }
