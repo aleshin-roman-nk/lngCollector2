@@ -1,0 +1,84 @@
+<mxfile host="Electron" modified="2023-07-09T09:09:09.229Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.1 Chrome/112.0.5615.204 Electron/24.6.1 Safari/537.36" etag="hIuOuRaq0gE_O2-4H6YQ" version="21.6.1" type="device">
+  <diagram name="Page-1" id="zZPa7J5CeQkQSpRsbV4S">
+    <mxGraphModel dx="1477" dy="1938" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="AhPv90tUdWBdV7Ajc3PU-1" target="AhPv90tUdWBdV7Ajc3PU-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-1" value="NodeDetailPage" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="AhPv90tUdWBdV7Ajc3PU-2" target="AhPv90tUdWBdV7Ajc3PU-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-2" value="Create a thought pressed" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="120" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="AhPv90tUdWBdV7Ajc3PU-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="799.8333333333335" y="40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-3" value="Create a thought component" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="120" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-4" value="NodeDetail data object" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-6" value="" style="fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="AhPv90tUdWBdV7Ajc3PU-1" target="AhPv90tUdWBdV7Ajc3PU-4">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="400" y="260" as="sourcePoint" />
+            <mxPoint x="500" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="AhPv90tUdWBdV7Ajc3PU-10" target="AhPv90tUdWBdV7Ajc3PU-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-10" value="Thought is created" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="-80" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-12" value="v1&lt;br style=&quot;font-size: 20px;&quot;&gt;Компонент EditThoughtComponent просто собирает данные от пользователя и отдает их вызывающему компоненту" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="260" y="-260" width="340" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-13" value="NodeDetailPage" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="440" width="560" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-14" value="NODE: &quot;node-name&quot;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="490" width="560" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-15" value="Thoughts" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="540" width="240" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-16" value="+" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="250" y="550" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-17" value="Thought 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="590" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-18" value="Thought 2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="590" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-19" value="Thought ..." style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="590" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-22" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="AhPv90tUdWBdV7Ajc3PU-20" target="AhPv90tUdWBdV7Ajc3PU-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-20" value="По нажатию &quot;+&quot; создать thought с получением текста от пользователя" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="870" y="340" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-24" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="AhPv90tUdWBdV7Ajc3PU-21" target="AhPv90tUdWBdV7Ajc3PU-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-21" value="По созданной thought можно кликнуть и открыть страницу или диалог, где можно менять текст и коллекцию ThExpression" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="350" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="AhPv90tUdWBdV7Ajc3PU-23" value="Находясь на компоненте thought можно в его контексте работать с th-expression" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="460" width="270" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

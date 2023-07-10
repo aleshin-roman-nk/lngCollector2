@@ -8,4 +8,3 @@ It is easier to see progress if learn a language portion by portion.
 + add a thought in my language and add its exprtessions in a language I learn
 + periodically repeating thoughts I added and its expressions
 + application makes statistic images of work I have done, this motivates me to carry on learning
-

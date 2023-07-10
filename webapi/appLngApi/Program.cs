@@ -26,7 +26,7 @@ builder.Services.AddScoped<IExamService, ExamService>();
 builder.Services.AddCors(options => options.AddPolicy(name: "moyaDerevnya",
     policy =>
     {
-        policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+        policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
     }));
 
 
