@@ -1,15 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Microsoft.VisualBasic;
-using Services;
-using Models.QuestT1;
-using Models.QuestT1.dto;
+//using Services;
 
 Console.WriteLine("Hello, World!");
 
 
 
 //AppData db = new AppData(@"..\..\..\..\db\lngapp.sqlite");
-ExamWithSessionService service = new ExamWithSessionService(new DbFactory(@"..\..\..\..\db\lngapp.sqlite"));
+//ExamWithSessionService service = new ExamWithSessionService(new DbFactory(@"..\..\..\..\db\lngapp.sqlite"));
 Dictionary<string, Action<string>> _commands = new Dictionary<string, Action<string>>();
 
 buildCommands();
@@ -49,41 +47,41 @@ void buildCommands()
     _commands.Add("start-sess", (prm) =>
     {
         var missionId = int.Parse(prm);
-        service.StartSession(new QuestT1Model { id = missionId });
-        prnObject(service.GetSession(missionId));
+        //service.StartSession(new QuestT1Model { id = missionId });
+        //prnObject(service.GetSession(missionId));
     });
 
     _commands.Add("pass-test", (prm) =>
     {
         var missionId = int.Parse(prm);
 
-        var q = service.CurrentQuestion(new QuestT1Model { id = missionId});
+        //var q = service.CurrentQuestion(new QuestT1Model { id = missionId});
 
         bool completed = false;
 
         while (!completed)
         {
-            Console.Write($"{q.text} = ");
+            //Console.Write($"{q.text} = ");
             var sol = Console.ReadLine();
-            var ck = service.CheckSolutionAndNext(new QuestSolution { thoughtId = q.lexemId, solution = sol });
+            //var ck = service.CheckSolutionAndNext(new QuestSolution { thoughtId = q.lexemId, solution = sol });
 
-            if (ck.isCorrect) Console.WriteLine("Nice!");
-            else
-            {
-                Console.WriteLine("Wrong; Correct is:");
+            //if (ck.isCorrect) Console.WriteLine("Nice!");
+            //else
+            //{
+            //    Console.WriteLine("Wrong; Correct is:");
 
-                foreach (var item in ck.CorrectStrings)
-                    Console.WriteLine(item);
-            }
+            //    foreach (var item in ck.CorrectStrings)
+            //        Console.WriteLine(item);
+            //}
 
-            if(ck.Completed)
-            {
-                completed = true;
-                Console.WriteLine("Test is finished");
-                continue;
-            }
+            //if(ck.Completed)
+            //{
+            //    completed = true;
+            //    Console.WriteLine("Test is finished");
+            //    continue;
+            //}
 
-            q = service.CurrentQuestion(new QuestT1Model { id = missionId });
+            //q = service.CurrentQuestion(new QuestT1Model { id = missionId });
         }
 
     });
