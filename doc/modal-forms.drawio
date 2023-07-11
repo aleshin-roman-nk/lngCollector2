@@ -1,11 +1,64 @@
-<mxfile host="Electron" modified="2023-07-09T09:11:50.416Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.1 Chrome/112.0.5615.204 Electron/24.6.1 Safari/537.36" etag="YGAJsjnq-lRGnuSAqI2Y" version="21.6.1" type="device">
+<mxfile host="Electron" modified="2023-07-10T17:49:43.365Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.1 Chrome/112.0.5615.204 Electron/24.6.1 Safari/537.36" etag="5aGbyN-ySWIjk4ca9rcb" version="21.6.1" type="device">
   <diagram name="Page-1" id="ECgdfkiFDRJ8SGU_sj2W">
-    <mxGraphModel dx="1950" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1767" dy="1798" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="kYc6Z61Ddn40yY-MoZaM-2" value="Я могу взять промежуточный компонент с затенением и позиционированием&lt;br&gt;&lt;br&gt;Не буду использовать сервисы&lt;br&gt;&lt;br&gt;Окно контента данного диалога будет отдавать событие accepted / refused&lt;br&gt;&lt;br&gt;Вызывающий компонент сам будет закрывать модалку" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="-20" y="50" width="550" height="220" as="geometry" />
+          <mxGeometry x="180" y="-130" width="550" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-10" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="kYc6Z61Ddn40yY-MoZaM-3" target="kYc6Z61Ddn40yY-MoZaM-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-20" value="Для закрытия модалки" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.02;entryY=0.158;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="kYc6Z61Ddn40yY-MoZaM-3" target="kYc6Z61Ddn40yY-MoZaM-4">
+          <mxGeometry x="-0.1269" y="10" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-3" value="ModalComponent" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-330" y="410" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-4" value="ModalService" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-7" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="kYc6Z61Ddn40yY-MoZaM-5" target="kYc6Z61Ddn40yY-MoZaM-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-12" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="kYc6Z61Ddn40yY-MoZaM-5" target="kYc6Z61Ddn40yY-MoZaM-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-16" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="kYc6Z61Ddn40yY-MoZaM-5" target="kYc6Z61Ddn40yY-MoZaM-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-5" value="CallingPageComponent" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="590" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-9" value="content" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="-150" y="440" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-13" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="kYc6Z61Ddn40yY-MoZaM-11" target="kYc6Z61Ddn40yY-MoZaM-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-22" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="kYc6Z61Ddn40yY-MoZaM-11" target="kYc6Z61Ddn40yY-MoZaM-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-11" value="template" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="-190" y="620" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-18" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="kYc6Z61Ddn40yY-MoZaM-14" target="kYc6Z61Ddn40yY-MoZaM-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-19" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="kYc6Z61Ddn40yY-MoZaM-14" target="kYc6Z61Ddn40yY-MoZaM-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-21" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="kYc6Z61Ddn40yY-MoZaM-14" target="kYc6Z61Ddn40yY-MoZaM-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-14" value="FormComponent" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-150" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kYc6Z61Ddn40yY-MoZaM-15" value="DataService" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="760" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -1,27 +1,44 @@
-<p *ngIf="loading">loading...</p>
+<app-modal *ngIf="startCreateThought" title="Create a new thought">
+    <app-create-thought (finished)="FinishedCreatingThought($event)"></app-create-thought>
+</app-modal>
 
-<div *ngIf="!loading" class="p-4">
+<div *ngIf="!loading" class="bg-gray-100">
+    <div class="flex flex-col md:flex-row">
 
-    <a class="transition duration-300 ease-in-out
-    place-content-center hover:bg-yellow-400 p-2 border-2 border-purple-600 bg-purple-300" [routerLink]="['/terrain', nodeDetail.node.terrianId, 'nodes']">back</a>
 
-    <div class="border border-gray-500 rounded-md p-2 my-4 w-1/5"><b>NODE</b> : {{nodeDetail.node.name}}</div>
+      <!-- Right sidebar -->
+      <div class="w-full md:w-1/4 bg-purple text-stone-600 py-4 px-8">
+        <div class="flex flex-col space-y-4">
+          <h2 class="text-2xl font-bold">Tools</h2>
+          <!-- Replace the following code with your actual tool controls -->
+          <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start" (click)="openCreatingThought()">New thought</button>
+          <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start" [routerLink]="['/terrain', nodeDetail.node.terrianId, 'nodes']">Back</button>
+        </div>
+      </div>
 
-    <div class="flex w-1/5 justify-between bg-gray-200 items-center rounded-md">
-        <div class="p-2 my-4"><b>THOUGHTS</b></div>
-        <button class="rounded-full w-10 h-10 bg-red-700 text-white px-4 py-2 m-2"
-        (click)="openCreatingThought()">
-      +
-  </button>
+      <!-- Left sidebar -->
+      <div class="w-full md:w-3/4 bg-stone-200 text-stone-600">
+        <!-- Head area with object name -->
+        <div class="bg-stone-300 py-4 px-8">
+          <h1 class="text-2xl font-bold">{{nodeDetail.node.name}}</h1>
+        </div>
 
+        <!-- Collection of items area -->
+        <div class="mt-8 px-8 pb-2">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Replace the following code with your actual collection of items -->
+            <app-thought *ngFor="let thought of nodeDetail.thoughts" [thought]="thought"></app-thought>
+
+<!--             <div class="bg-white shadow-md p-4 rounded-lg">
+              <h2 class="text-lg font-semibold mb-2">Item 1</h2>
+              <p>Description of Item 1</p>
+            </div> -->
+
+            <!-- Add more item cards as needed -->
+          </div>
+        </div>
+      </div>
+  
     </div>
-
-    <div class="flex flex-wrap mt-2">
-        <app-thought *ngFor="let thought of nodeDetail.thoughts" [thought]="thought"></app-thought>        
-    </div>
-
-    <app-modal *ngIf="startCreateThought" titleXA="Create a new THOUGHT">
-        <app-create-thought (finished)="Finished($event)"></app-create-thought>
-    </app-modal>
-
 </div>
+

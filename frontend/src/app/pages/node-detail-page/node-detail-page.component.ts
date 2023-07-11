@@ -52,7 +52,7 @@ export class NodeDetailPageComponent implements OnInit {
     this.startCreateThought = false
   }
 
-  Finished(eventdata: UserResponse<{text: string, descr: string}>){
+  FinishedCreatingThought(eventdata: UserResponse<{text: string, descr: string}>){
     
     if(!eventdata.hasUserAccepted) {this.closeCreatingThought(); return}
 

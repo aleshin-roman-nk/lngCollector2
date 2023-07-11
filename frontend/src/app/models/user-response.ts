@@ -1,3 +1,5 @@
+import { ButtonKind } from "./buttons-kind-enum"
+
 export class UserResponse<TResponse>{
 
     private data: TResponse

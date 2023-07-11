@@ -10,6 +10,6 @@ export class ModalComponent {
   constructor(public modalService: ModalService) {
   }
 
-@Input() titleXA: string
+@Input() title: string
 
 }

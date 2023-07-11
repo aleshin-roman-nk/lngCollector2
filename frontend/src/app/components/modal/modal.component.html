@@ -1,10 +1,30 @@
-<div class="bg-purple-900/50 fixed top-0 right-0 left-0 bottom-0 backdrop-blur-sm"
-></div>
+<div class="bg-stone-900/40 fixed top-0 right-0 left-0 bottom-0 backdrop-blur-sm"></div>
 
-<div
+<!-- <div
   class="w-[500px] absolute top-16 rounded p-6 bg-white left-1/2 -translate-x-1/2">
 <h1 class="text-center mb-2 text-lg">{{titleXA | titlecase}}</h1>
 
 <ng-content></ng-content>
 
-</div>
+</div> -->
+
+
+
+
+  <div class="bg-stone-100 shadow-lg w-[500px] absolute top-16 rounded p-6 left-1/2 -translate-x-1/2">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">{{title | titlecase}}</h2>
+
+      <ng-content></ng-content>
+<!--       <div>
+          <p class="text-gray-700 mb-4">{{ message }}</p>
+      </div>
+      <div class="flex justify-end">
+          <button type="button"
+              class="bg-green-300 text-green-600 py-2 px-4 rounded mr-2 hover:bg-green-400" (click)="yes()">Yes</button>
+          <button type="button"
+              class="bg-orange-300 text-orange-600 py-2 px-4 rounded hover:bg-orange-400" (click)="no()">No</button>
+      </div> -->
+
+
+  </div>
+

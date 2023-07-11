@@ -1,22 +1,28 @@
 <div class="container mx-auto my-4">
-  <a class="transition duration-300 ease-in-ou
+
+  <a class="transition duration-300 ease-in-out
   place-content-center hover:shadow-yellow-600
    hover:bg-yellow-400 p-2 shadow-lg shadow-purple-500 border-2
-    border-purple-600 bg-purple-300" href=""
+    border-purple-600 bg-purple-300 text-2xl" href="" 
     >back</a>
 
-    <button class=" bg-red-700 text-white ml-2 p-2"
-(click)="killme()"
->D</button>
+    <button class=" bg-red-700 text-white ml-2 p-2 text-2xl"
+(click)="startAskingToKill()">
+Kill</button>
 
-  <h1 *ngIf="terrain"
-  class="my-4 text-3xl font-bold underline bg-purple-900 text-purple-200 rounded-md text-center py-8">
+  <h1 *ngIf="terrain" class="my-4 text-3xl font-bold underline bg-purple-900 text-purple-200 rounded-md text-center py-8">
     Terrain : {{terrain.name}}
   </h1>
 </div>
 
+<!-- Node collection -->
 <div class="container mx-auto">
   <div class="grid grid-cols-3 justify-items-center my-4 gap-4 bg-purple-300 rounded-md">
     <app-node *ngFor="let node of nodeSrv.dataNodes$ | async" [node]="node"></app-node>
   </div>
 </div>
+
+<!-- Modal form. Start asking to kill -->
+<app-modal *ngIf="askingToKill" title="!!! KILLING !!!">
+  <app-confirmation message="Are you shure to kill? Are you shure to kill? Are you shure to kill? Are you shure to kill?" (finished)="finishedAskingToKill($event)"></app-confirmation>
+</app-modal>

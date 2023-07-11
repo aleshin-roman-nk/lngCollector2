@@ -16,6 +16,7 @@ import { PlayquestComponent } from './components/playquest/playquest.component';
 import { NodeDetailPageComponent } from './pages/node-detail-page/node-detail-page.component';
 import { ThoughtComponent } from './components/thought/thought.component';
 import { CreateThoughtComponent } from './components/create-thought/create-thought.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CreateThoughtComponent } from './components/create-thought/create-thoug
     PlayquestComponent,
     NodeDetailPageComponent,
     ThoughtComponent,
-    CreateThoughtComponent
+    CreateThoughtComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,
