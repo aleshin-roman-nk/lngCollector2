@@ -19,21 +19,21 @@ namespace Services.repo
             this._factory = factory;
         }
 
-        public IEnumerable<Thought> Get(int nodeId)
+        public Thought Get(int id)
         {
             using (var db = _factory.Create())
             {
-                return db.Thoughts.Include(x => x.expressions).Where(x => x.nodeId == nodeId).ToArray();
+                return db.Thoughts.Include(x => x.expressions).FirstOrDefault(x => x.id == id);
             }
         }
 
-        public Thought? GetThought(int thId)
-        {
-            using (var db = _factory.Create())
-            {
-                return db.Thoughts.FirstOrDefault(x => x.id == thId);
-            }
-        }
+        //public Thought? GetThought(int thId)
+        //{
+        //    using (var db = _factory.Create())
+        //    {
+        //        return db.Thoughts.FirstOrDefault(x => x.id == thId);
+        //    }
+        //}
 
         public Thought Create(int nodeId, Thought th)
         {
@@ -77,6 +77,10 @@ namespace Services.repo
                     {
                         _th.text = th.text;
                         _th.description = th.description;
+
+                        db.Entry(th).Property(x => x.text).IsModified = true;
+                        db.Entry(th).Property(x => x.description).IsModified = true;
+
                         db.SaveChanges();
                         return _th;
                     }

@@ -19,12 +19,12 @@ namespace appLngApi.Controllers
 
 
         // GET api/<ThoughtController>/5
-        [HttpGet("{nodeid}")]
-        public IEnumerable<Thought> Get(int nodeid)
+        [HttpGet("{id}")]
+        public Thought Get(int id)
         {
-            var thoughts = repo.Get(nodeid);
+            var thought = repo.Get(id);
 
-            return thoughts;
+            return thought;
         }
 
         // POST api/<ThoughtController>

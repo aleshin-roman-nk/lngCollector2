@@ -17,6 +17,7 @@ import { NodeDetailPageComponent } from './pages/node-detail-page/node-detail-pa
 import { ThoughtComponent } from './components/thought/thought.component';
 import { CreateThoughtComponent } from './components/create-thought/create-thought.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { ThoughtPageComponent } from './pages/thought-page/thought-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
     NodeDetailPageComponent,
     ThoughtComponent,
     CreateThoughtComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    ThoughtPageComponent
   ],
   imports: [
     BrowserModule,
