@@ -18,6 +18,9 @@ import { ThoughtComponent } from './components/thought/thought.component';
 import { CreateThoughtComponent } from './components/create-thought/create-thought.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import { ThoughtPageComponent } from './pages/thought-page/thought-page.component';
+import { EditThexpressionComponent } from './components/edit-thexpression/edit-thexpression.component';
+import { ElementFocusedDirective } from './directives/element-focused.directive';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { ThoughtPageComponent } from './pages/thought-page/thought-page.componen
     ThoughtComponent,
     CreateThoughtComponent,
     ConfirmationComponent,
-    ThoughtPageComponent
+    ThoughtPageComponent,
+    EditThexpressionComponent,
+    ElementFocusedDirective
   ],
   imports: [
     BrowserModule,

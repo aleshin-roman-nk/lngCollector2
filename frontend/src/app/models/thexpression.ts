@@ -1,3 +1,4 @@
+import { ThExpressionType } from "./thexpression-type";
 import { WhoMade } from "./whomade";
 
 export interface IThExpression {
@@ -8,4 +9,5 @@ export interface IThExpression {
     lngId: number,
     scores: number,
     madeBy: WhoMade
+    type: ThExpressionType
 }

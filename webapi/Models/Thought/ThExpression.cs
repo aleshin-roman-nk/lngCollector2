@@ -15,6 +15,6 @@ namespace Models.Thought
         public int lngId { get; set; }
         public int scores { get; set; }// сколько раз правильно ответил
         public WhoMade madeBy {  get; set; }// мой опыт или готовое выражение
-        //public ThExpressionTypeEnum type { get; set; }
+        public ThExpressionTypeEnum? type { get; set; }
     }
 }

@@ -17,7 +17,6 @@ namespace appLngApi.Controllers
             repo = rp;
         }
 
-
         // GET: api/<ThExpressionController>
         [HttpGet("one/{id}")]
         public ThExpression Get(int id)
@@ -34,21 +33,27 @@ namespace appLngApi.Controllers
 
         // POST api/<ThExpressionController>
         [HttpPost]
-        public void Create(int thoughtId, [FromBody] ThExpression value)
+        public ThExpression Create(int thoughtId, [FromBody] ThExpression value)
         {
-            repo.Create(thoughtId, value);
+            return repo.Create(thoughtId, value);
         }
 
         // PUT api/<ThExpressionController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("{id}/{prop}")]
+        public ThExpression Update(int id, string prop, [FromBody] UpdateTextFieldRequest value)
         {
+            return repo.UpdateText(id, prop, value.value);
         }
 
         // DELETE api/<ThExpressionController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            var res = repo.Delete(id);
+
+            if (res.success) return Ok(res.message);
+
+            return BadRequest(res.message);
         }
     }
 }

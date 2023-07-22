@@ -59,8 +59,8 @@ export class NodeDetailPageComponent implements OnInit {
     const th: IThought  = {
       id: 0,
       nodeId: this.nodeId,
-      text: eventdata.value.text,
-      description: eventdata.value.descr,
+      text: eventdata.value!.text,
+      description: eventdata.value!.descr,
       createdDate: new Date(),
       expressions: []
     }

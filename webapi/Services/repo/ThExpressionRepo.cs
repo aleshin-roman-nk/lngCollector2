@@ -53,7 +53,7 @@ namespace Services.repo
             }
         }
 
-        public ThExpression Update(int id, ThExpression expr)
+        public ThExpression UpdateText(int id, string propname, string newtext)
         {
             using (var db = _factory.Create())
             {
@@ -62,7 +62,10 @@ namespace Services.repo
                     var exp = db.ThExpressions.FirstOrDefault(x => x.id == id);
                     if (exp != null)
                     {
-                        exp.text = expr.text;
+                        var entry = db.Entry(exp);
+                        entry.Property(propname).CurrentValue = newtext;
+                        entry.Property(propname).IsModified = true;
+
                         db.SaveChanges();
                         return exp;
                     }
@@ -81,6 +84,27 @@ namespace Services.repo
             using (var db = _factory.Create())
             {
                 return db.ThExpressions.FirstOrDefault(x => x.id == id);
+            }
+        }
+
+        public RepoOperationResult Delete(int id)
+        {
+            using (var db = _factory.Create())
+            {
+                db.ThExpressions.Remove(new ThExpression { id = id });
+
+                bool sc;
+
+                try
+                {
+                    sc = db.SaveChanges() > 0;
+                }
+                catch (Exception e)
+                {
+                    return new RepoOperationResult(e.Message, false);
+                }
+
+                return new RepoOperationResult(sc ? "Deleted successfully" : "Something went wrong while deleting", sc);
             }
         }
     }
