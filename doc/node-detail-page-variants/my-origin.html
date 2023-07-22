@@ -1,0 +1,29 @@
+<div *ngIf="loading" class="flex justify-center items-center h-screen">
+    <app-loading-anim *ngIf="loading"></app-loading-anim>
+</div>
+
+<div *ngIf="!loading" class="p-4">
+
+    <a class="transition duration-300 ease-in-out
+    place-content-center hover:bg-yellow-400 p-2 border-2 border-purple-600 bg-purple-300" [routerLink]="['/terrain', nodeDetail.node.terrianId, 'nodes']">back</a>
+
+    <div class="border border-gray-500 rounded-md p-2 my-4 w-1/5"><b>NODE</b> : {{nodeDetail.node.name}}</div>
+
+    <div class="flex w-1/5 justify-between bg-gray-200 items-center rounded-md">
+        <div class="p-2 my-4"><b>THOUGHTS</b></div>
+        <button class="rounded-full w-10 h-10 bg-red-700 text-white px-4 py-2 m-2"
+        (click)="openCreatingThought()">
+      +
+  </button>
+
+    </div>
+
+    <div class="flex flex-wrap mt-2">
+        <app-thought *ngFor="let thought of nodeDetail.thoughts" [thought]="thought"></app-thought>        
+    </div>
+
+    <app-modal *ngIf="startCreateThought" titleXA="Create a new THOUGHT">
+        <app-create-thought (finished)="FinishedCreatingThought($event)"></app-create-thought>
+    </app-modal>
+
+</div>

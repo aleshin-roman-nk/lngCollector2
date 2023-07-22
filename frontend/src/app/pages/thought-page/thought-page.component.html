@@ -1,0 +1,25 @@
+<div *ngIf="loaded" class="flex justify-center items-center min-h-screen">
+    <div class="bg-stone-200 shadow-lg rounded-lg min-w-[50vw] min-h-[50vh] max-w-[80vw] relative p-4">
+
+        <button [routerLink]="['/node', thought.nodeId, 'detail']" class="border border-stone-600 rounded-lg mb-2 p-1">Back</button>
+
+        <p class="bg-stone-300 p-2 text-2xl rounded-lg">{{ thought.text }}</p>
+        
+        <div class="bg-stone-300 rounded-lg p-1 mt-2">
+            <div>expressions</div>
+            <button class="border border-stone-600 bg-stone-400
+             text-stone-600 hover:bg-stone-500
+              p-1 mt-2 rounded-lg hover:text-stone-300" (click)="startCreatingExpression()">add</button>
+            
+            <p class="ml-8 p-1 hover:border border-stone-700 cursor-pointer" *ngFor="let expr of thought.expressions" (click)="startEditingExpression(expr)">{{ expr.text }}</p>            
+        </div>
+    </div>
+</div>
+
+<app-modal *ngIf="creatingExpression" title="Create a new expression">
+    <app-edit-thexpression (finished)="finishedCreatingExpression($event)" [thoughtId]="thoughtId"></app-edit-thexpression>
+</app-modal>
+
+<app-modal *ngIf="editingExpression" title="Edit expression">
+    <app-edit-thexpression (finished)="finishedEditingExpression($event)" [thoughtId]="thoughtId" [thExpresion]="expressionToEdit"></app-edit-thexpression>
+</app-modal>
