@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Models.Common;
 using Models.Thought;
+using Services;
 using Services.repo;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -39,10 +41,10 @@ namespace appLngApi.Controllers
         }
 
         // PUT api/<ThExpressionController>/5
-        [HttpPut("{id}/{prop}")]
-        public ThExpression Update(int id, string prop, [FromBody] UpdateTextFieldRequest value)
+        [HttpPatch("{id}")]
+        public IActionResult Update(int id, [FromBody] UpdatePropertyDto o)
         {
-            return repo.UpdateText(id, prop, value.value);
+            return Ok(repo.UpdateString(id, o.name, o.value));
         }
 
         // DELETE api/<ThExpressionController>/5
@@ -51,7 +53,7 @@ namespace appLngApi.Controllers
         {
             var res = repo.Delete(id);
 
-            if (res.success) return Ok(res.message);
+            if (res.success) return Ok(new { txt = res.message });
 
             return BadRequest(res.message);
         }

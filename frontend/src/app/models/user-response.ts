@@ -1,20 +1,21 @@
 import { ButtonKind } from "./buttons-kind-enum"
+import { UserOperationEnum } from "./user-operation"
 
 export class UserResponse<TResponse>{
 
-    private data: TResponse | undefined
-    private userAccepted: boolean = false
+    private _data: TResponse | undefined
+    private _userOperation: UserOperationEnum
 
-    constructor(d: TResponse | undefined, ua: boolean){
-        this.data = d
-        this.userAccepted = ua
+    constructor(d: TResponse | undefined, uo: UserOperationEnum){
+        this._data = d
+        this._userOperation = uo
     }
 
     public get value() : TResponse | undefined {
-        return this.data
+        return this._data
     }
     
-    public get hasUserAccepted() : boolean {
-        return this.userAccepted
+    public get userOperation() : UserOperationEnum {
+        return this._userOperation
     }
 }

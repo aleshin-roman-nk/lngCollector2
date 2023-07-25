@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Models.Common;
+using Models.Location;
 using Models.Thought;
 using Services.repo;
 
@@ -17,34 +19,51 @@ namespace appLngApi.Controllers
             repo = rp;
         }
 
-
         // GET api/<ThoughtController>/5
         [HttpGet("{id}")]
-        public Thought Get(int id)
+        public IActionResult Get(int id)
         {
-            var thought = repo.Get(id);
+            var opres = repo.Get(id);
 
-            return thought;
+            if(opres.Success)
+                return Ok(opres);
+            else 
+                return BadRequest(opres.Message);
         }
 
         // POST api/<ThoughtController>
         [HttpPost]
-        public Thought Create(int nodeId, [FromBody] Thought value)
+        public IActionResult Create(int nodeId, [FromBody] Thought value)
         {
-            return repo.Create(nodeId, value);
+            var opres = repo.Create(nodeId, value);
+            
+            if (opres.Success)
+                return Ok(opres);
+            else
+                return BadRequest(opres.Message);
         }
 
         // PUT api/<ThoughtController>/5
-        [HttpPut("{id}")]
-        public void Update(int id, [FromBody] Thought value)
-        {
-            repo.Update(id, value);
-        }
+        //[HttpPut("{id}")]
+        //public void Update(int id, [FromBody] Thought value)
+        //{
+        //    repo.Update(id, value);
+        //}
 
         // DELETE api/<ThoughtController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+        }
+        [HttpPatch("{id}")]
+        public IActionResult UpdateProperty(int id, [FromBody] UpdatePropertyDto prop)
+        {
+            var opres = repo.UpdateString(id, prop.name, prop.value);
+
+            if (opres.Success)
+                return Ok(opres);
+            else
+                return BadRequest(opres.Message);
         }
     }
 }

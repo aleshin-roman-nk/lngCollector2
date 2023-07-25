@@ -1,0 +1,22 @@
+<mxfile host="Electron" modified="2023-07-23T09:39:32.177Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.1 Chrome/112.0.5615.204 Electron/24.6.1 Safari/537.36" etag="zIlo1Ttja5UikSOT0KvL" version="21.6.1" type="device">
+  <diagram name="Page-1" id="ICvyDjbCkjfzxByUFIJw">
+    <mxGraphModel dx="1101" dy="839" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="eHLpo9CqIv9JmMpmqw_g-1" value="Первый экран" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="360" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="eHLpo9CqIv9JmMpmqw_g-3" value="Коллекция территорий" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eHLpo9CqIv9JmMpmqw_g-4" value="Кнопка создания территории" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eHLpo9CqIv9JmMpmqw_g-5" value="Функциональная схема и описание идей и решений" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="150" width="200" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

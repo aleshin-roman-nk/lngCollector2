@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { EditThexpressionComponent } from 'src/app/comps-edit/edit-thexpression/edit-thexpression.component';
+import { TextInputComponent } from 'src/app/comps-tools/text-input/text-input.component';
 import { IThExpression } from 'src/app/models/thexpression';
 import { IThought } from 'src/app/models/thought';
-import { UserResponse } from 'src/app/models/user-response';
+import { UserOperationEnum } from 'src/app/models/user-operation';
 import { ThoughtService } from 'src/app/services/thought.service';
 
 @Component({
@@ -12,14 +15,16 @@ import { ThoughtService } from 'src/app/services/thought.service';
 })
 export class ThoughtPageComponent {
 
+  @ViewChild(EditThexpressionComponent, {static: false}) editThExpression!: EditThexpressionComponent
+  @ViewChild("inputText", {static: false}) textInput!: TextInputComponent
+  @ViewChild("inputDescription", {static: false}) descriptionInput!: TextInputComponent
+
   thoughtId: number
   thought: IThought
-  loaded: boolean = false
+  loaded: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
 
   creatingExpression: boolean = false
   editingExpression: boolean = false
-
-  expressionToEdit: IThExpression | undefined
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -34,17 +39,54 @@ export class ThoughtPageComponent {
     this.thoughtService.getThought(this.thoughtId)
       .subscribe(data => {
         this.thought = data
-        this.loaded = true
-      })
+        this.loaded.next(true)
+      })    
   }
 
-  startCreatingExpression(){
-    this.creatingExpression = true
+  ngAfterViewInit(){
+
+    // Subscribing edit expression dialog results
+    this.editThExpression.finished.subscribe(data => {
+
+      if(!data.value) return
+
+      switch(data.userOperation){
+        case UserOperationEnum.create:
+          this.createThExpression(data.value)
+          break
+        case UserOperationEnum.update:
+          this.updateThExpression(data.value)
+          break
+        case UserOperationEnum.delete:
+         this.deleteThExpression(data.value.id)
+         break
+        default:
+      }
+
+    })    
+
+    this.textInput.accepted.subscribe(data => {
+      this.thought.text = data
+    }) 
+
+    this.descriptionInput.accepted.subscribe(data => {
+      this.thought.description = data
+    }) 
+
   }
 
-  startEditingExpression(thexpr: IThExpression){
-    this.expressionToEdit = thexpr
-    this.editingExpression = true
+  onInputText(){
+    this.textInput.value = this.thought.text
+    this.textInput.isShown = true
+  }
+
+  onInputDescription(){
+    this.descriptionInput.value = this.thought.description
+    this.descriptionInput.isShown = true
+  }
+
+  openEditTheExpression(o: IThExpression | undefined){
+    this.editThExpression.openDialog(this.thoughtId, o)
   }
 
   /**
@@ -53,38 +95,24 @@ export class ThoughtPageComponent {
    * - добавить message-type [accepted, rejected, delete]
    *  
    */
-  finishedCreatingExpression(event: UserResponse<IThExpression>){
-
-    if(event.hasUserAccepted){
-
-      if(!event.value) return
-
-      this.thoughtService.createExpression(this.thoughtId, event.value)
+  createThExpression(o: IThExpression){
+      this.thoughtService.createExpression(this.thoughtId, o)
       .subscribe(data => {
-        //console.log(data)
         this.thought.expressions.push(data)
       })
-    }
-
-    this.creatingExpression = false
   }
 
-  finishedEditingExpression(event: UserResponse<IThExpression>){
+  updateThExpression(o: IThExpression){
+    this.thoughtService.updateExpression(o)
+    .subscribe(data => {})
+  }
 
-    if(event.hasUserAccepted && event.value){
-/*       this.thoughtService.createExpression(this.thoughtId, event.value)
-      .subscribe(data => {
-
-        this.thought.expressions.push(data)
-      }) */
-
-      this.thoughtService.updateExpression(event.value)
-      .subscribe(data => {
-
-      })
-    }
-
-    this.editingExpression = false
+  deleteThExpression(expId: number){
+    this.thoughtService.deleteExpression(expId)
+    .subscribe(data => { 
+      const i = this.thought.expressions.findIndex((item) => item.id === expId)
+      if(i !== -1) this.thought.expressions.splice(i, 1);
+    })
   }
 
 }

@@ -156,6 +156,12 @@ D:\prg\lngCollector2\appLng.WebAPI\appLngApi\appLngApi\obj\Debug\net6.0\refint\a
 D:\prg\lngCollector2\appLng.WebAPI\appLngApi\appLngApi\obj\Debug\net6.0\appLngApi.pdb
 D:\prg\lngCollector2\appLng.WebAPI\appLngApi\appLngApi\obj\Debug\net6.0\appLngApi.genruntimeconfig.cache
 D:\prg\lngCollector2\appLng.WebAPI\appLngApi\appLngApi\obj\Debug\net6.0\ref\appLngApi.dll
+D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\appLngApi.csproj.AssemblyReference.cache
+D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\appLngApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\appLngApi.AssemblyInfoInputs.cache
+D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\appLngApi.AssemblyInfo.cs
+D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\appLngApi.csproj.CoreCompileInputs.cache
+D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\appLngApi.MvcApplicationPartsAssemblyInfo.cache
 D:\prg\lngCollector2\webapi\appLngApi\bin\Debug\net6.0\appsettings.Development.json
 D:\prg\lngCollector2\webapi\appLngApi\bin\Debug\net6.0\appsettings.json
 D:\prg\lngCollector2\webapi\appLngApi\bin\Debug\net6.0\appLngApi.exe
@@ -214,13 +220,6 @@ D:\prg\lngCollector2\webapi\appLngApi\bin\Debug\net6.0\Models.dll
 D:\prg\lngCollector2\webapi\appLngApi\bin\Debug\net6.0\Services.dll
 D:\prg\lngCollector2\webapi\appLngApi\bin\Debug\net6.0\Models.pdb
 D:\prg\lngCollector2\webapi\appLngApi\bin\Debug\net6.0\Services.pdb
-D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\appLngApi.csproj.AssemblyReference.cache
-D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\appLngApi.GeneratedMSBuildEditorConfig.editorconfig
-D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\appLngApi.AssemblyInfoInputs.cache
-D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\appLngApi.AssemblyInfo.cs
-D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\appLngApi.csproj.CoreCompileInputs.cache
-D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\appLngApi.MvcApplicationPartsAssemblyInfo.cs
-D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\appLngApi.MvcApplicationPartsAssemblyInfo.cache
 D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\staticwebassets\msbuild.appLngApi.Microsoft.AspNetCore.StaticWebAssets.props
 D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\staticwebassets\msbuild.build.appLngApi.props
 D:\prg\lngCollector2\webapi\appLngApi\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.appLngApi.props

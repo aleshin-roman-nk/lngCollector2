@@ -8,7 +8,7 @@ namespace Services.repo
         ThExpression Create(int thoughtId, ThExpression thexp);
         IEnumerable<ThExpression> GetAllOf(int thoughtId);
         ThExpression GetOne(int id);
-        ThExpression UpdateText(int id, string propname, string newtext);
+        OperationResult UpdateString(int id, string propname, string newtext);
         RepoOperationResult Delete(int id);
     }
 }

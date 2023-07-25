@@ -1,7 +1,0 @@
-.card {
-    flex: 1 0 300px; /* Adjust the width of the cards as needed */
-    max-width: 300px; /* Set a maximum width for the cards */
-
-    border: 1px solid #e2e8f0; /* Add a border to the cards */
-    border-radius: 0.5rem; /* Apply border radius to round the corners of the cards */
-  }

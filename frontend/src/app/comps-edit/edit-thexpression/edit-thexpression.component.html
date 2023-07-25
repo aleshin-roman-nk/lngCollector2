@@ -1,0 +1,35 @@
+<app-modal *ngIf="isShown">
+  <div class="flex justify-center items-center bg-gray-100">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+      <form [formGroup]="creatingForm" (ngSubmit)="submit()">
+
+        <div class="mb-6">
+          <label for="textInput" class="block text-gray-700 text-sm font-bold mb-2">Text Input:</label>
+          <p class="text-red-600 font-medium mb-2" *ngIf="Text.invalid && submittingTried">
+            The text is required</p>
+          <textarea formControlName="text" type="text" placeholder="Enter expression" appElementFocused rows="5"
+            class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-stone-500"></textarea>
+        </div>
+
+        <div class="mb-6">
+          <label for="selectElement" class="block text-gray-700 text-sm font-bold mb-2">Select language:</label>
+          <p class="text-red-600 font-medium mb-2" *ngIf="LngId.errors?.['required'] && submittingTried">
+            The language is required</p>
+          <select formControlName="lngId"
+            class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-stone-500">
+            <option *ngFor="let lng of langs" [value]="lng.id">{{lng.name}}</option>
+            <!-- <option *ngFor="let lng of langs; let i = first" [value]="lng.id" [selected]="i">{{lng.name}} - {{ i }}</option> -->
+          </select>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="border border-green-600 bg-green-300 p-1 rounded-md">Submit</button>
+          <button type="button" (click)="refuse()" class="border border-stone-600 ml-2 p-1 rounded-md">Cancel</button>
+          <button *ngIf="thExpresion" type="button" (click)="delete()"
+            class="border border-red-600 bg-orange-300 ml-10 p-1 rounded-md">Delete</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</app-modal>

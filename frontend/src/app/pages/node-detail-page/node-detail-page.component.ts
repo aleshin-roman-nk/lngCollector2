@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, delay } from 'rxjs';
+import { CreateThoughtComponent } from 'src/app/comps-edit/create-thought/create-thought.component';
 import { INodeDetail } from 'src/app/models/nodedetail';
 import { IThought } from 'src/app/models/thought';
 import { UserResponse } from 'src/app/models/user-response';
@@ -15,11 +16,11 @@ import { NodeService } from 'src/app/services/node.service';
 })
 export class NodeDetailPageComponent implements OnInit {
 
+  @ViewChild(CreateThoughtComponent, {static: false}) createThoughtDlg!: CreateThoughtComponent
+
   nodeId: number
   nodeDetail: INodeDetail
   loading: boolean
-
-  startCreateThought: boolean = false
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -44,23 +45,23 @@ export class NodeDetailPageComponent implements OnInit {
       })
   }
 
-  openCreatingThought(){
-    this.startCreateThought = true
+  ngAfterViewInit(){
+    this.createThoughtDlg.finished.subscribe(data => {
+      if(data.value) this.createThought(data.value)
+    })
   }
 
-  closeCreatingThought(){
-    this.startCreateThought = false
+  opentCreatingThought(){
+    this.createThoughtDlg.openDialog()
   }
 
-  FinishedCreatingThought(eventdata: UserResponse<{text: string, descr: string}>){
+  createThought(o: {text: string, descr: string}){
     
-    if(!eventdata.hasUserAccepted) {this.closeCreatingThought(); return}
-
     const th: IThought  = {
       id: 0,
       nodeId: this.nodeId,
-      text: eventdata.value!.text,
-      description: eventdata.value!.descr,
+      text: o.text,
+      description: o.descr,
       createdDate: new Date(),
       expressions: []
     }
@@ -77,6 +78,5 @@ export class NodeDetailPageComponent implements OnInit {
         this.nodeDetail.thoughts.push(resp)
       })
 
-      this.closeCreatingThought()
   }
 }

@@ -1,6 +1,5 @@
-<app-modal *ngIf="startCreateThought" title="Create a new thought">
-    <app-create-thought (finished)="FinishedCreatingThought($event)"></app-create-thought>
-</app-modal>
+
+<app-create-thought></app-create-thought>
 
 <div *ngIf="!loading" class="bg-gray-100">
     <div class="flex flex-col md:flex-row">
@@ -11,7 +10,7 @@
         <div class="flex flex-col space-y-4">
           <h2 class="text-2xl font-bold">Tools</h2>
           <!-- Replace the following code with your actual tool controls -->
-          <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start" (click)="openCreatingThought()">New thought</button>
+          <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start" (click)="opentCreatingThought()">New thought</button>
           <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start" [routerLink]="['/terrain', nodeDetail.node.terrianId, 'nodes']">Back</button>
         </div>
       </div>

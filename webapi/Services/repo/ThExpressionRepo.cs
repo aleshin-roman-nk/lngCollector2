@@ -53,7 +53,7 @@ namespace Services.repo
             }
         }
 
-        public ThExpression UpdateText(int id, string propname, string newtext)
+        public OperationResult UpdateString(int id, string propname, string newtext)
         {
             using (var db = _factory.Create())
             {
@@ -67,14 +67,14 @@ namespace Services.repo
                         entry.Property(propname).IsModified = true;
 
                         db.SaveChanges();
-                        return exp;
+                        return new OperationResult(true, "operation is successful");
                     }
 
-                    throw new InvalidOperationException($"Not such ThExpression in db with id = {id}");
+                    return new OperationResult(false, $"Not such ThExpression in db with id = {id}");
                 }
                 catch (Exception ex)
                 {
-                    throw new InvalidOperationException(ex.Message);
+                    return new OperationResult(false, ex.Message);
                 }
             }
         }

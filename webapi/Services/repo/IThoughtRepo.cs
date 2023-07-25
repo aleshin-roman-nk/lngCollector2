@@ -2,12 +2,7 @@
 
 namespace Services.repo
 {
-    public interface IThoughtRepo
+    public interface IThoughtRepo: IRepository<Thought>
     {
-        Thought Create(int nodeId, Thought th);
-        void Delete(int thId);
-        Thought Get(int id);
-//        Thought? GetThought(int thId);
-        Thought Update(int thId, Thought th);
     }
 }

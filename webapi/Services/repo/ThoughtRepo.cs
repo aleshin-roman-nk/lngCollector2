@@ -10,20 +10,30 @@ using System.Threading.Tasks;
 
 namespace Services.repo
 {
-    public class ThoughtRepo : IThoughtRepo
+    public class ThoughtRepo : RepositoryBase<Thought>, IThoughtRepo
     {
-        private readonly IDbFactory _factory;
-
-        public ThoughtRepo(IDbFactory factory)
+        public ThoughtRepo(IDbFactory factory) : base(factory)
         {
-            this._factory = factory;
         }
 
-        public Thought Get(int id)
+        //private readonly IDbFactory _factory;
+
+        //public ThoughtRepo(IDbFactory factory)
+        //{
+        //    this._factory = factory;
+        //}
+
+        public OperationResult<Thought> Get(int id)
         {
             using (var db = _factory.Create())
             {
-                return db.Thoughts.Include(x => x.expressions).FirstOrDefault(x => x.id == id);
+                var ent = db.Thoughts.Include(x => x.expressions).FirstOrDefault(x => x.id == id);
+
+                if (ent != null)
+                {
+                    return new OperationResult<Thought>(true, "success", ent);
+                }
+                else return new OperationResult<Thought>(false, $"no object with it = { id }", null);
             }
         }
 
@@ -35,7 +45,7 @@ namespace Services.repo
         //    }
         //}
 
-        public Thought Create(int nodeId, Thought th)
+        public OperationResult<Thought> Create(int nodeId, Thought th)
         {
             using (var db = _factory.Create())
             {
@@ -45,8 +55,11 @@ namespace Services.repo
                 th.createdDate = DateTime.Now;
 
                 db.Thoughts.Add(th);
-                db.SaveChanges();
-                return th;
+                var success = db.SaveChanges() > 0;
+                if (success)
+                    return new OperationResult<Thought>(true, "success", th);
+                else
+                    return new OperationResult<Thought>(false, "something went wrong when creating an object", null);
             }
         }
 
@@ -66,40 +79,42 @@ namespace Services.repo
          * 
          */
 
-        public Thought Update(int thId, Thought th)
-        {
-            using (var db = _factory.Create())
-            {
-                try
-                {
-                    var _th = db.Thoughts.FirstOrDefault(x => x.id == thId);
-                    if (_th != null)
-                    {
-                        _th.text = th.text;
-                        _th.description = th.description;
+        //public OperationResult UpdateString(int thId, string name, string value)
+        //{
+        //    using (var db = _factory.Create())
+        //    {
+        //        try
+        //        {
+        //            var _th = db.Thoughts.FirstOrDefault(x => x.id == thId);
+                    
+        //            if (_th != null)
+        //            {
+        //                if(db.UpdateAndSaveString(_th, name, value))
+        //                {
+        //                    return new OperationResult(true, "operation is successful");
+        //                }
+        //            }
 
-                        db.Entry(th).Property(x => x.text).IsModified = true;
-                        db.Entry(th).Property(x => x.description).IsModified = true;
+        //            return new OperationResult(false, $"Not such object of {this.GetType().Name} in db");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            return new OperationResult(false, ex.Message);
+        //        }
+        //    }
+        //}
 
-                        db.SaveChanges();
-                        return _th;
-                    }
-
-                    throw new InvalidOperationException($"Not such Thought in db with id = {thId}");
-                }
-                catch (Exception ex)
-                {
-                    throw new InvalidOperationException(ex.Message);
-                }
-            }
-        }
-
-        public void Delete(int thId)
+        public OperationResult Delete(int thId)
         {
             using (var db = _factory.Create())
             {
                 db.Thoughts.Remove(new Thought { id = thId });
-                db.SaveChanges();
+                var success = db.SaveChanges() > 0;
+
+                if (success)
+                    return new OperationResult(true, $"object with id = {thId} is deleted");
+                else
+                    return new OperationResult(false, $"something went wrong when deleting an object id = {thId}");
             }
         }
     }
