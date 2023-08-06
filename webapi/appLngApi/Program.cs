@@ -1,11 +1,18 @@
-using Services;
-using Services.repo;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using ThoughtzLand.Core.Repos;
+using ThoughtzLand.Core.Services;
+using ThoughtzLand.ImplementRepo.SQLitePepo;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+    });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -14,13 +21,39 @@ builder.Services.AddSwaggerGen();
 //    return new AppData("lngapp.sqlite");
 //});
 
-builder.Services.AddScoped<IDbFactory>((f) => new DbFactory(@"..\db\lngapp.sqlite"));
-builder.Services.AddScoped<INodeRepo, NodeRepo>();
-builder.Services.AddScoped<IQuestionRepo, QuestionRepo>();
+//builder.Services.AddScoped<IDbFactory>((f) => new DbFactory(@"..\db\lngapp.sqlite"));
+
+builder.Services.AddDbContext<AppData>(options =>
+{
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+    //options.LogTo(Console.WriteLine);
+    //options.EnableSensitiveDataLogging(true);
+    //options.UseLoggerFactory(null);
+});
+
+builder.Host.ConfigureDefaults(args)
+            .ConfigureLogging(logging =>
+            {
+                //logging.ClearProviders();
+
+                // Set the logging level for Entity Framework Core
+                logging.AddFilter("Microsoft.EntityFrameworkCore.Database.Command", LogLevel.Warning);
+                // Add other logging filters if needed
+            });
+
 builder.Services.AddScoped<ITerrainRepo, TerrainRepo>();
-builder.Services.AddScoped<IThExpressionRepo, ThExpressionRepo>();
+builder.Services.AddScoped<TerrainService>();
+
+builder.Services.AddScoped<INodeRepo, NodeRepo>();
+builder.Services.AddScoped<NodeService>();
+
 builder.Services.AddScoped<IThoughtRepo, ThoughtRepo>();
-builder.Services.AddScoped<IExamService, ExamService>();
+builder.Services.AddScoped<ThoughtService>();
+
+builder.Services.AddScoped<IThExpressionRepo, ThExpressionRepo>();
+builder.Services.AddScoped<ThExpressionService>();
+
+builder.Services.AddScoped<ExamService>();
 
 
 builder.Services.AddCors(options => options.AddPolicy(name: "moyaDerevnya",

@@ -1,48 +1,63 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Models.Location;
-using Models.Location.dto;
-using Services.repo;
+using ThoughtzLand.Core.Models.Location;
+using ThoughtzLand.Core.Models.Location.dto;
+using ThoughtzLand.Core.Repos;
+using ThoughtzLand.Core.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace appLngApi.Controllers
+namespace ThoughtzLand.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class NodeController : ControllerBase
     {
-        private readonly INodeRepo repo;
+        private readonly NodeService srv;
 
-        public NodeController(INodeRepo rp) 
+        public NodeController(NodeService srv) 
         {
-            repo = rp;
+            this.srv = srv;
         }
 
         // GET api/<NodeController>/5
         [HttpGet("{nodeid}/detail")]
-        public NodeDetail GetDetail(int nodeid)
+        public IActionResult GetDetail(int nodeid)
         {
-            return repo.GetDetail(nodeid);
+            var opres = srv.GetDetail(nodeid);
+
+            return processResult(opres.Success, opres);
         }
 
         // POST api/<NodeController>
         [HttpPost]
-        public Node Create(int terrId, [FromBody] Node value)
+        public IActionResult Create([FromBody] Node value)
         {
-            return repo.Create(terrId, value);
+            var opres = srv.Create(value);
+            return processResult(opres.Success, opres);
         }
 
         // PUT api/<NodeController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Node value)
+        [HttpPut]
+        public IActionResult Put([FromBody] Node value)
         {
-            repo.Update(id, value);
+            var opres = srv.Update(value);
+            return processResult(opres.Success, opres);
         }
 
         // DELETE api/<NodeController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            var opres = srv.Remove(id);
+            return processResult(opres.Success, opres);
+        }
+
+        private IActionResult processResult(bool ok, object o)
+        {
+            if (ok)
+                return Ok(o);
+            else
+                return BadRequest(o);
         }
     }
 }

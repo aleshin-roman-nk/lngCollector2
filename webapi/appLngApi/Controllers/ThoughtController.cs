@@ -1,69 +1,62 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Models.Common;
-using Models.Location;
-using Models.Thought;
-using Services.repo;
+using ThoughtzLand.Core.Models.Common;
+using ThoughtzLand.Core.Models.Thoughts;
+using ThoughtzLand.Core.Repos;
+using ThoughtzLand.Core.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace appLngApi.Controllers
+namespace ThoughtzLand.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class ThoughtController : ControllerBase
     {
-        private readonly IThoughtRepo repo;
+        private readonly ThoughtService srv;
 
-        public ThoughtController(IThoughtRepo rp)
+        public ThoughtController(ThoughtService srv)
         {
-            repo = rp;
+            this.srv = srv;
         }
 
-        // GET api/<ThoughtController>/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var opres = repo.Get(id);
+            var opres = srv.GetById(id);
 
-            if(opres.Success)
-                return Ok(opres);
-            else 
-                return BadRequest(opres.Message);
+            return processResult(opres.Success, opres);
         }
 
-        // POST api/<ThoughtController>
         [HttpPost]
-        public IActionResult Create(int nodeId, [FromBody] Thought value)
+        public IActionResult Create([FromBody] Thought value)
         {
-            var opres = repo.Create(nodeId, value);
-            
-            if (opres.Success)
-                return Ok(opres);
-            else
-                return BadRequest(opres.Message);
+            var opres = srv.Add(value);
+
+            return processResult(opres.Success, opres);
         }
 
-        // PUT api/<ThoughtController>/5
-        //[HttpPut("{id}")]
-        //public void Update(int id, [FromBody] Thought value)
-        //{
-        //    repo.Update(id, value);
-        //}
-
-        // DELETE api/<ThoughtController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            var opres = srv.Remove(id);
+
+            return processResult(opres.Success, opres);
         }
+
         [HttpPatch("{id}")]
         public IActionResult UpdateProperty(int id, [FromBody] UpdatePropertyDto prop)
         {
-            var opres = repo.UpdateString(id, prop.name, prop.value);
+            var opres = srv.UpdateString(id, prop.name, prop.value);
 
-            if (opres.Success)
-                return Ok(opres);
+            return processResult(opres.Success, opres);
+        }
+
+        private IActionResult processResult(bool ok, object o)
+        {
+            if (ok)
+                return Ok(o);
             else
-                return BadRequest(opres.Message);
+                return BadRequest(o);
         }
     }
 }

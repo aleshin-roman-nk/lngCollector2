@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>ThoughtzLand.Api</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,8 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj" />
-    <ProjectReference Include="..\Services\Services.csproj" />
+    <Folder Include="Tools\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\SQLitePepo\SQLitePepo.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,23 +2,10 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "Microsoft.Data.Sqlite/7.0.2": {
+      "Microsoft.Data.Sqlite.Core/7.0.9": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Data.Sqlite.Core": "7.0.2",
-          "SQLitePCLRaw.bundle_e_sqlite3": "2.1.2"
-        },
-        "compile": {
-          "lib/netstandard2.0/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/_._": {}
-        }
-      },
-      "Microsoft.Data.Sqlite.Core/7.0.2": {
-        "type": "package",
-        "dependencies": {
-          "SQLitePCLRaw.core": "2.1.2"
+          "SQLitePCLRaw.core": "2.1.4"
         },
         "compile": {
           "lib/net6.0/Microsoft.Data.Sqlite.dll": {
@@ -31,11 +18,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/7.0.2": {
+      "Microsoft.EntityFrameworkCore/7.0.9": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.2",
-          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.2",
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.9",
+          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.9",
           "Microsoft.Extensions.Caching.Memory": "7.0.0",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Microsoft.Extensions.Logging": "7.0.0"
@@ -54,7 +41,7 @@
           "buildTransitive/net6.0/Microsoft.EntityFrameworkCore.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/7.0.2": {
+      "Microsoft.EntityFrameworkCore.Abstractions/7.0.9": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
@@ -67,7 +54,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/7.0.2": {
+      "Microsoft.EntityFrameworkCore.Analyzers/7.0.9": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -76,10 +63,10 @@
           "lib/netstandard2.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/7.0.2": {
+      "Microsoft.EntityFrameworkCore.Relational/7.0.9": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "7.0.2",
+          "Microsoft.EntityFrameworkCore": "7.0.9",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
         },
         "compile": {
@@ -93,11 +80,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Sqlite/7.0.2": {
+      "Microsoft.EntityFrameworkCore.Sqlite/7.0.9": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Sqlite.Core": "7.0.2",
-          "SQLitePCLRaw.bundle_e_sqlite3": "2.1.2"
+          "Microsoft.EntityFrameworkCore.Sqlite.Core": "7.0.9",
+          "SQLitePCLRaw.bundle_e_sqlite3": "2.1.4"
         },
         "compile": {
           "lib/net6.0/_._": {}
@@ -106,11 +93,11 @@
           "lib/net6.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Sqlite.Core/7.0.2": {
+      "Microsoft.EntityFrameworkCore.Sqlite.Core/7.0.9": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Data.Sqlite.Core": "7.0.2",
-          "Microsoft.EntityFrameworkCore.Relational": "7.0.2",
+          "Microsoft.Data.Sqlite.Core": "7.0.9",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.9",
           "Microsoft.Extensions.DependencyModel": "7.0.0"
         },
         "compile": {
@@ -341,11 +328,11 @@
           }
         }
       },
-      "SQLitePCLRaw.bundle_e_sqlite3/2.1.2": {
+      "SQLitePCLRaw.bundle_e_sqlite3/2.1.4": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.lib.e_sqlite3": "2.1.2",
-          "SQLitePCLRaw.provider.e_sqlite3": "2.1.2"
+          "SQLitePCLRaw.lib.e_sqlite3": "2.1.4",
+          "SQLitePCLRaw.provider.e_sqlite3": "2.1.4"
         },
         "compile": {
           "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
@@ -354,7 +341,7 @@
           "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll": {}
         }
       },
-      "SQLitePCLRaw.core/2.1.2": {
+      "SQLitePCLRaw.core/2.1.4": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.3"
@@ -366,7 +353,7 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "SQLitePCLRaw.lib.e_sqlite3/2.1.2": {
+      "SQLitePCLRaw.lib.e_sqlite3/2.1.4": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -422,6 +409,10 @@
             "assetType": "native",
             "rid": "linux-musl-x64"
           },
+          "runtimes/linux-ppc64le/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-ppc64le"
+          },
           "runtimes/linux-s390x/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-s390x"
@@ -468,10 +459,10 @@
           }
         }
       },
-      "SQLitePCLRaw.provider.e_sqlite3/2.1.2": {
+      "SQLitePCLRaw.provider.e_sqlite3/2.1.4": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.core": "2.1.2"
+          "SQLitePCLRaw.core": "2.1.4"
         },
         "compile": {
           "lib/net6.0/SQLitePCLRaw.provider.e_sqlite3.dll": {}
@@ -613,52 +604,41 @@
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
       },
-      "Models/1.0.0": {
+      "Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/Models.dll": {}
+          "bin/placeholder/Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Models.dll": {}
+          "bin/placeholder/Core.dll": {}
         }
       },
-      "Services/1.0.0": {
+      "SQLitePepo/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Microsoft.Data.Sqlite": "7.0.2",
-          "Microsoft.EntityFrameworkCore": "7.0.2",
-          "Microsoft.EntityFrameworkCore.Sqlite": "7.0.2",
-          "Models": "1.0.0"
+          "Core": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.9",
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.9",
+          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.9",
+          "Microsoft.EntityFrameworkCore.Sqlite": "7.0.9",
+          "Microsoft.Extensions.Caching.Abstractions": "7.0.0"
         },
         "compile": {
-          "bin/placeholder/Services.dll": {}
+          "bin/placeholder/SQLitePepo.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Services.dll": {}
+          "bin/placeholder/SQLitePepo.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "Microsoft.Data.Sqlite/7.0.2": {
-      "sha512": "nsmJ5aY1/iV5y9OnVM8WTFZ1Q1wu8iDNeK9VrW8ueyc0BuxwSjAmJNh6r6ZQG+UD3f7FD4RLOjEsE6nFYGS03Q==",
+    "Microsoft.Data.Sqlite.Core/7.0.9": {
+      "sha512": "ow2PPoeW0yFc7NhexacQUw/LVjkO1mLK3VZAxhVIVjmQWlgYl/4mo9/U7uz+z75I+ZN6LUvq9M0ftU3IE75Ilg==",
       "type": "package",
-      "path": "microsoft.data.sqlite/7.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "lib/netstandard2.0/_._",
-        "microsoft.data.sqlite.7.0.2.nupkg.sha512",
-        "microsoft.data.sqlite.nuspec"
-      ]
-    },
-    "Microsoft.Data.Sqlite.Core/7.0.2": {
-      "sha512": "JeATjPNhC0I4g44MRlG9xJ0hbOYgizlV/UAJXzzSGjVPn9ohwr8yO2SrC3jhvTwD3wpL/MrAck/aORhLM/ayoQ==",
-      "type": "package",
-      "path": "microsoft.data.sqlite.core/7.0.2",
+      "path": "microsoft.data.sqlite.core/7.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -667,14 +647,14 @@
         "lib/net6.0/Microsoft.Data.Sqlite.xml",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.dll",
         "lib/netstandard2.0/Microsoft.Data.Sqlite.xml",
-        "microsoft.data.sqlite.core.7.0.2.nupkg.sha512",
+        "microsoft.data.sqlite.core.7.0.9.nupkg.sha512",
         "microsoft.data.sqlite.core.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore/7.0.2": {
-      "sha512": "5QEspjTHk/cgM98AaB12mDXF7jlInlYhG0gxS6X8ZJ2rzmyIAsvYNEwoOUifd/gt5v5HblYClYfZ9YYIEjSkew==",
+    "Microsoft.EntityFrameworkCore/7.0.9": {
+      "sha512": "9YuCdQWuRAmYYHqwW1h5ukKMC1fmNvcVHdp3gb8zdHxwSQz7hkGpYOBEjm6dRXRmGRkpUyHL8rwUz4kd53Ev0A==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/7.0.2",
+      "path": "microsoft.entityframeworkcore/7.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -682,76 +662,76 @@
         "buildTransitive/net6.0/Microsoft.EntityFrameworkCore.props",
         "lib/net6.0/Microsoft.EntityFrameworkCore.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.7.0.2.nupkg.sha512",
+        "microsoft.entityframeworkcore.7.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/7.0.2": {
-      "sha512": "nszewdtuQAk2DbhNnGssRCYVxyBhm0DZHJobU8Bc4RGPuybraCv/lovFWPUeZlTT3bQndyV8Ko2NHKSc4qsKCg==",
+    "Microsoft.EntityFrameworkCore.Abstractions/7.0.9": {
+      "sha512": "cfY6Fn7cnP/5pXndL8QYaey/B2nGn1fwze5aSaMJymmbqwqYzFiszHuWbsdVBCDYJc8ok7eB1m/nCc3/rltulQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.abstractions/7.0.2",
+      "path": "microsoft.entityframeworkcore.abstractions/7.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
-        "microsoft.entityframeworkcore.abstractions.7.0.2.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.7.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/7.0.2": {
-      "sha512": "75dDCNXzoQFM86Mk/iY7lQ+XHb2DbpAh53hbAJUlxkL3XUVoCq6rWgO4y1EX7DdyKMF61dsdEKlF4/bmpi4urA==",
+    "Microsoft.EntityFrameworkCore.Analyzers/7.0.9": {
+      "sha512": "VvqFD3DdML6LhPCAR/lG2xNX66juylC8v57yUAAYnUSdEUOMRi3lNoT4OrNdG0rere3UOQPhvVl5FH2QdyoF8Q==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/7.0.2",
+      "path": "microsoft.entityframeworkcore.analyzers/7.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "lib/netstandard2.0/_._",
-        "microsoft.entityframeworkcore.analyzers.7.0.2.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.7.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/7.0.2": {
-      "sha512": "TbTGOdaGtjps3GP7rLWXEXzmP+EXhV8AwPE/ov0QYhs5i5vKZX5ZpVLMnco2MeMtiPgLyxE7DhQT8s1wlu190g==",
+    "Microsoft.EntityFrameworkCore.Relational/7.0.9": {
+      "sha512": "u7iN6cNd6SJUlpdk24JVIbkji/UbkEEQ7pXncTyT4eXXj+Hz2y4NSZFOAywPGcioIgX1YzbKWDiJhk7hjSFxBQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/7.0.2",
+      "path": "microsoft.entityframeworkcore.relational/7.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.7.0.2.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.7.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Sqlite/7.0.2": {
-      "sha512": "RDzWFVTbWvLMwanAyBpNYkKucruJZuw0Cg3fy7MoVWl0EMO3HopbE1qL+UeDTK6uQD2U4jeNHV1sBOll9k/nUg==",
+    "Microsoft.EntityFrameworkCore.Sqlite/7.0.9": {
+      "sha512": "otP72XqfG9UdO0+3O2p1UEx4MLXSAulXc8tIvuq+v1KPtBj/GuMZeJIz+eCu09Xv6fJ6k7aUb8J/x+H0rqOjjA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlite/7.0.2",
+      "path": "microsoft.entityframeworkcore.sqlite/7.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/_._",
-        "microsoft.entityframeworkcore.sqlite.7.0.2.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlite.7.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlite.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Sqlite.Core/7.0.2": {
-      "sha512": "/BLUhqNvZUr2GDzzPOUFJKS71VEqoEPZLA3DGflZMfoWqB6c1kSQMcsk7yW1YRBJuRnicp7U/fTdUWKfrCNDpg==",
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/7.0.9": {
+      "sha512": "uLy1swPL4AD6BQsu3SEIzSWKc6gIlmoSAYZX39VnbrqvzkGmMsgEgdCsJIZvdjAW/vzhPazACKMYna1iif04sg==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlite.core/7.0.2",
+      "path": "microsoft.entityframeworkcore.sqlite.core/7.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Sqlite.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Sqlite.xml",
-        "microsoft.entityframeworkcore.sqlite.core.7.0.2.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlite.core.7.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlite.core.nuspec"
       ]
     },
@@ -1121,10 +1101,10 @@
         "microsoft.openapi.nuspec"
       ]
     },
-    "SQLitePCLRaw.bundle_e_sqlite3/2.1.2": {
-      "sha512": "ilkvNhrTersLmIVAcDwwPqfhUFCg19Z1GVMvCSi3xk6Akq94f4qadLORQCq/T8+9JgMiPs+F/NECw5uauviaNw==",
+    "SQLitePCLRaw.bundle_e_sqlite3/2.1.4": {
+      "sha512": "EWI1olKDjFEBMJu0+3wuxwziIAdWDVMYLhuZ3Qs84rrz+DHwD00RzWPZCa+bLnHCf3oJwuFZIRsHT5p236QXww==",
       "type": "package",
-      "path": "sqlitepclraw.bundle_e_sqlite3/2.1.2",
+      "path": "sqlitepclraw.bundle_e_sqlite3/2.1.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1137,26 +1117,26 @@
         "lib/net6.0-tvos10.0/SQLitePCLRaw.batteries_v2.dll",
         "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll",
         "lib/xamarinios10/SQLitePCLRaw.batteries_v2.dll",
-        "sqlitepclraw.bundle_e_sqlite3.2.1.2.nupkg.sha512",
+        "sqlitepclraw.bundle_e_sqlite3.2.1.4.nupkg.sha512",
         "sqlitepclraw.bundle_e_sqlite3.nuspec"
       ]
     },
-    "SQLitePCLRaw.core/2.1.2": {
-      "sha512": "A8EBepVqY2lnAp3a8jnhbgzF2tlj2S3HcJQGANTYg/TbYbKa8Z5cM1h74An/vy0svhfzT7tVY0sFmUglLgv+2g==",
+    "SQLitePCLRaw.core/2.1.4": {
+      "sha512": "inBjvSHo9UDKneGNzfUfDjK08JzlcIhn1+SP5Y3m6cgXpCxXKCJDy6Mka7LpgSV+UZmKSnC8rTwB0SQ0xKu5pA==",
       "type": "package",
-      "path": "sqlitepclraw.core/2.1.2",
+      "path": "sqlitepclraw.core/2.1.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/SQLitePCLRaw.core.dll",
-        "sqlitepclraw.core.2.1.2.nupkg.sha512",
+        "sqlitepclraw.core.2.1.4.nupkg.sha512",
         "sqlitepclraw.core.nuspec"
       ]
     },
-    "SQLitePCLRaw.lib.e_sqlite3/2.1.2": {
-      "sha512": "zibGtku8M4Eea1R3ZCAxc86QbNvyEN17mAcQkvWKBuHvRpMiK2g5anG4R5Be7cWKSd1i6baYz8y4dMMAKcXKPg==",
+    "SQLitePCLRaw.lib.e_sqlite3/2.1.4": {
+      "sha512": "2C9Q9eX7CPLveJA0rIhf9RXAvu+7nWZu1A2MdG6SD/NOu26TakGgL1nsbc0JAspGijFOo3HoN79xrx8a368fBg==",
       "type": "package",
-      "path": "sqlitepclraw.lib.e_sqlite3/2.1.2",
+      "path": "sqlitepclraw.lib.e_sqlite3/2.1.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1177,6 +1157,7 @@
         "runtimes/linux-musl-arm/native/libe_sqlite3.so",
         "runtimes/linux-musl-arm64/native/libe_sqlite3.so",
         "runtimes/linux-musl-x64/native/libe_sqlite3.so",
+        "runtimes/linux-ppc64le/native/libe_sqlite3.so",
         "runtimes/linux-s390x/native/libe_sqlite3.so",
         "runtimes/linux-x64/native/libe_sqlite3.so",
         "runtimes/linux-x86/native/libe_sqlite3.so",
@@ -1192,21 +1173,21 @@
         "runtimes/win10-arm64/nativeassets/uap10.0/e_sqlite3.dll",
         "runtimes/win10-x64/nativeassets/uap10.0/e_sqlite3.dll",
         "runtimes/win10-x86/nativeassets/uap10.0/e_sqlite3.dll",
-        "sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",
+        "sqlitepclraw.lib.e_sqlite3.2.1.4.nupkg.sha512",
         "sqlitepclraw.lib.e_sqlite3.nuspec"
       ]
     },
-    "SQLitePCLRaw.provider.e_sqlite3/2.1.2": {
-      "sha512": "lxCZarZdvAsMl2zw9bXHrXK6RxVhB4b23iTFhCOdHFhxfbsxLxWf+ocvswJwR/9Wh/E//ddMi+wJGqUKV7VwoA==",
+    "SQLitePCLRaw.provider.e_sqlite3/2.1.4": {
+      "sha512": "CSlb5dUp1FMIkez9Iv5EXzpeq7rHryVNqwJMWnpq87j9zWZexaEMdisDktMsnnrzKM6ahNrsTkjqNodTBPBxtQ==",
       "type": "package",
-      "path": "sqlitepclraw.provider.e_sqlite3/2.1.2",
+      "path": "sqlitepclraw.provider.e_sqlite3/2.1.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net6.0-windows7.0/SQLitePCLRaw.provider.e_sqlite3.dll",
         "lib/net6.0/SQLitePCLRaw.provider.e_sqlite3.dll",
         "lib/netstandard2.0/SQLitePCLRaw.provider.e_sqlite3.dll",
-        "sqlitepclraw.provider.e_sqlite3.2.1.2.nupkg.sha512",
+        "sqlitepclraw.provider.e_sqlite3.2.1.4.nupkg.sha512",
         "sqlitepclraw.provider.e_sqlite3.nuspec"
       ]
     },
@@ -1439,21 +1420,21 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Models/1.0.0": {
+    "Core/1.0.0": {
       "type": "project",
-      "path": "../Models/Models.csproj",
-      "msbuildProject": "../Models/Models.csproj"
+      "path": "../Core/Core.csproj",
+      "msbuildProject": "../Core/Core.csproj"
     },
-    "Services/1.0.0": {
+    "SQLitePepo/1.0.0": {
       "type": "project",
-      "path": "../Services/Services.csproj",
-      "msbuildProject": "../Services/Services.csproj"
+      "path": "../SQLitePepo/SQLitePepo.csproj",
+      "msbuildProject": "../SQLitePepo/SQLitePepo.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Models >= 1.0.0",
-      "Services >= 1.0.0",
+      "Core >= 1.0.0",
+      "SQLitePepo >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -1485,11 +1466,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\prg\\lngCollector2\\webapi\\Models\\Models.csproj": {
-              "projectPath": "D:\\prg\\lngCollector2\\webapi\\Models\\Models.csproj"
+            "D:\\prg\\lngCollector2\\webapi\\Core\\Core.csproj": {
+              "projectPath": "D:\\prg\\lngCollector2\\webapi\\Core\\Core.csproj"
             },
-            "D:\\prg\\lngCollector2\\webapi\\Services\\Services.csproj": {
-              "projectPath": "D:\\prg\\lngCollector2\\webapi\\Services\\Services.csproj"
+            "D:\\prg\\lngCollector2\\webapi\\SQLitePepo\\SQLitePepo.csproj": {
+              "projectPath": "D:\\prg\\lngCollector2\\webapi\\SQLitePepo\\SQLitePepo.csproj"
             }
           }
         }

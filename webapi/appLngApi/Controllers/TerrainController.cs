@@ -1,80 +1,77 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Models.Location;
-using Services.repo;
+using ThoughtzLand.Core.Models.Location;
+using ThoughtzLand.Core.Services;
 
-namespace appLngApi.Controllers
+namespace ThoughtzLand.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class TerrainController : ControllerBase
     {
-        private readonly ITerrainRepo _repo;
-        private readonly INodeRepo nrepo;
+        private readonly TerrainService terrainSrv;
+        private readonly NodeService nodeSrv;
 
-        public TerrainController(ITerrainRepo repo, INodeRepo nrepo)
+        public TerrainController(TerrainService terrainSrv, NodeService nodeSrv)
         {
-            _repo = repo;
-            this.nrepo = nrepo;
+            this.terrainSrv = terrainSrv;
+            this.nodeSrv = nodeSrv;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_repo.GetAll());
+            var opres = terrainSrv.GetAll();
+
+            return processResult(opres.Success, opres);
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var res = _repo.Get(id);
+            var opres = terrainSrv.GetById(id);
 
-            if (res == null)
-                return StatusCode(500, $"Terrain id = {id} is not found");
-            else
-                return Ok(res);
+            return processResult(opres.Success, opres);
         }
 
         [HttpGet("{id}/nodes")]
         public IActionResult GetNodes(int id)
         {
-            var res = nrepo.GetAllOf(id);
+            var opres = nodeSrv.GetByTerrainId(id);
 
-            if (res == null)
-                return StatusCode(500, $"Terrain id = {id} is not found");
-            else
-                return Ok(res);
+            return processResult(opres.Success, opres);
         }
 
         [HttpPost]
         public IActionResult Post([FromBody] Terrain t)
         {
-            var res = _repo.Create(t);
+            var opres = terrainSrv.Create(t);
 
-            if (t.id == 0) return StatusCode(500, $"Something went wrong with creating a new terrain");
-            else return Ok(t);
+            return processResult(opres.Success, opres);
         }
 
         [HttpPut]
-        [Route("{id}")]
-        public IActionResult updateTerrain(int id, Terrain ter)
+        public IActionResult updateTerrain(Terrain ter)
         {
-            try
-            {
-                return Ok(_repo.Update(id, ter));
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
+            var opres = terrainSrv.Update(ter);
+
+            return processResult(opres.Success, opres);
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _repo.Delete(id);
+            var opres = terrainSrv.Remove(id);
 
-            return Ok(new {text = "Deleted"});
+            return processResult(opres.Success, opres);
+        }
+
+        private IActionResult processResult(bool ok, object o)
+        {
+            if (ok)
+                return Ok(o);
+            else
+                return BadRequest(o);
         }
     }
 }

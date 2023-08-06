@@ -3,24 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TerrianComponent } from './comps-ent/terrian/terrian.component';
-import { TerrainPageComponent } from './pages/terrain-page/terrain-page.component';
-import { TerrainsPageComponent } from './pages/terrains-page/terrains-page.component';
+import { TerrianComponent } from './Presentation/comps-ent/terrian/terrian.component';
+import { TerrainPageComponent } from './Presentation/pages/terrain-page/terrain-page.component';
+import { TerrainsPageComponent } from './Presentation/pages/terrains-page/terrains-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ModalComponent } from './comps-tools/modal/modal.component';
-import { CreateTerrainComponent } from './comps-edit/create-terrain/create-terrain.component';
-import { LoadingAnimComponent } from './comps-tools/loading-anim/loading-anim.component';
-import { NodeComponent } from './comps-ent/node/node.component';
-import { PlayquestComponent } from './comps-edit/playquest/playquest.component';
-import { NodeDetailPageComponent } from './pages/node-detail-page/node-detail-page.component';
-import { ThoughtComponent } from './comps-ent/thought/thought.component';
-import { CreateThoughtComponent } from './comps-edit/create-thought/create-thought.component';
-import { ConfirmationComponent } from './comps-tools/confirmation/confirmation.component';
-import { ThoughtPageComponent } from './pages/thought-page/thought-page.component';
-import { EditThexpressionComponent } from './comps-edit/edit-thexpression/edit-thexpression.component';
-import { ElementFocusedDirective } from './directives/element-focused.directive';
-import { TextInputComponent } from './comps-tools/text-input/text-input.component';
+import { ModalComponent } from './Presentation/comps-tools/modal/modal.component';
+import { CreateTerrainComponent } from './Presentation/comps-edit/create-terrain/create-terrain.component';
+import { LoadingAnimComponent } from './Presentation/comps-tools/loading-anim/loading-anim.component';
+import { NodeComponent } from './Presentation/comps-ent/node/node.component';
+import { PlayquestComponent } from './Presentation/comps-play/playquest/playquest.component';
+import { NodeDetailPageComponent } from './Presentation/pages/node-detail-page/node-detail-page.component';
+import { ThoughtComponent } from './Presentation/comps-ent/thought/thought.component';
+import { CreateThoughtComponent } from './Presentation/comps-edit/create-thought/create-thought.component';
+import { ConfirmationComponent } from './Presentation/comps-tools/confirmation/confirmation.component';
+import { ThoughtPageComponent } from './Presentation/pages/thought-page/thought-page.component';
+import { EditThexpressionComponent } from './Presentation/comps-edit/edit-thexpression/edit-thexpression.component';
+import { ElementFocusedDirective } from './Presentation/directives/element-focused.directive';
+import { TextInputComponent } from './Presentation/comps-tools/text-input/text-input.component';
 
 
 @NgModule({

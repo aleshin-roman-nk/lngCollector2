@@ -1,48 +1,48 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Models;
-using Services;
-using Models.Location;
-using Models.Exam.dto;
-using Services.repo;
+using ThoughtzLand.Core.Models.Exam.dto;
+using ThoughtzLand.Core.Services;
 
-namespace appLngApi.Controllers
+namespace ThoughtzLand.Api.Controllers
 {
     [Route("api/exam")]
     [ApiController]
     public class ExamController : ControllerBase
     {
-        private readonly IExamService service;
+        private readonly ExamService srv;
 
-        public ExamController(IExamService srv)
+        public ExamController(ExamService s)
         {
-            service = srv;
+            this.srv = s;
         }
 
         [HttpPost("check")]
         public IActionResult Check(QuestSolution p)
         {
-            try
-            {
-                return Ok(service.Check(p));
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
+            var opres = srv.Check(p);
+
+            return processResult(opres.Success, opres);
         }
 
-        [HttpGet("questions")]
-        public IActionResult GetQuestions(int nodeid)
+        //[HttpGet("questions")]
+        //public IActionResult GetQuestions(int nodeid)
+        //{
+        //    try
+        //    {
+        //        return Ok(srv.GetQuestions(nodeid));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, ex.Message);
+        //    }
+        //}
+
+        private IActionResult processResult(bool ok, object o)
         {
-            try
-            {
-                return Ok(service.GetQuestions(nodeid));
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
+            if (ok)
+                return Ok(o);
+            else
+                return BadRequest(o);
         }
     }
 }

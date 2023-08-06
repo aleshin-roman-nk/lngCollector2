@@ -1,4 +1,6 @@
-# Fluent Thoughtz
+# ThoughtzLand - Language Adventures
+
+The emphasis is on how to express a thought.
 
 We can improve a language we are learning by repeating things regularly.
 If you do not know how to express a thought you wanted to say, you can write it down, find out the ways to express it and then repeat, repeat and repeat.

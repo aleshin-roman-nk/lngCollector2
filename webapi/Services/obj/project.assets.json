@@ -525,16 +525,6 @@
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
-      },
-      "Models/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Models.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Models.dll": {}
-        }
       }
     }
   },
@@ -1210,19 +1200,13 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "Models/1.0.0": {
-      "type": "project",
-      "path": "../Models/Models.csproj",
-      "msbuildProject": "../Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Microsoft.Data.Sqlite >= 7.0.2",
       "Microsoft.EntityFrameworkCore >= 7.0.2",
-      "Microsoft.EntityFrameworkCore.Sqlite >= 7.0.2",
-      "Models >= 1.0.0"
+      "Microsoft.EntityFrameworkCore.Sqlite >= 7.0.2"
     ]
   },
   "packageFolders": {
@@ -1251,11 +1235,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "D:\\prg\\lngCollector2\\webapi\\Models\\Models.csproj": {
-              "projectPath": "D:\\prg\\lngCollector2\\webapi\\Models\\Models.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

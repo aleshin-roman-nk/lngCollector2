@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TerriansService } from './services/terrians.service';
+import { TerriansService } from './Core/services/terrians.service';
 
 @Component({
   selector: 'app-root',
