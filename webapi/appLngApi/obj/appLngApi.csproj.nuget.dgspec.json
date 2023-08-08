@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\prg\\lngCollector2\\webapi\\appLngApi\\appLngApi.csproj": {}
+    "D:\\prg\\lngCollectorV2\\webapi\\appLngApi\\appLngApi.csproj": {}
   },
   "projects": {
-    "D:\\prg\\lngCollector2\\webapi\\appLngApi\\appLngApi.csproj": {
+    "D:\\prg\\lngCollectorV2\\webapi\\appLngApi\\appLngApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\prg\\lngCollector2\\webapi\\appLngApi\\appLngApi.csproj",
+        "projectUniqueName": "D:\\prg\\lngCollectorV2\\webapi\\appLngApi\\appLngApi.csproj",
         "projectName": "appLngApi",
-        "projectPath": "D:\\prg\\lngCollector2\\webapi\\appLngApi\\appLngApi.csproj",
+        "projectPath": "D:\\prg\\lngCollectorV2\\webapi\\appLngApi\\appLngApi.csproj",
         "packagesPath": "C:\\Users\\alesh\\.nuget\\packages\\",
-        "outputPath": "D:\\prg\\lngCollector2\\webapi\\appLngApi\\obj\\",
+        "outputPath": "D:\\prg\\lngCollectorV2\\webapi\\appLngApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alesh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,11 +29,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\prg\\lngCollector2\\webapi\\Core\\Core.csproj": {
-                "projectPath": "D:\\prg\\lngCollector2\\webapi\\Core\\Core.csproj"
+              "D:\\prg\\lngCollectorV2\\webapi\\Core\\Core.csproj": {
+                "projectPath": "D:\\prg\\lngCollectorV2\\webapi\\Core\\Core.csproj"
               },
-              "D:\\prg\\lngCollector2\\webapi\\SQLitePepo\\SQLitePepo.csproj": {
-                "projectPath": "D:\\prg\\lngCollector2\\webapi\\SQLitePepo\\SQLitePepo.csproj"
+              "D:\\prg\\lngCollectorV2\\webapi\\SQLitePepo\\SQLitePepo.csproj": {
+                "projectPath": "D:\\prg\\lngCollectorV2\\webapi\\SQLitePepo\\SQLitePepo.csproj"
               }
             }
           }
@@ -76,14 +76,14 @@
         }
       }
     },
-    "D:\\prg\\lngCollector2\\webapi\\Core\\Core.csproj": {
+    "D:\\prg\\lngCollectorV2\\webapi\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\prg\\lngCollector2\\webapi\\Core\\Core.csproj",
+        "projectUniqueName": "D:\\prg\\lngCollectorV2\\webapi\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "D:\\prg\\lngCollector2\\webapi\\Core\\Core.csproj",
+        "projectPath": "D:\\prg\\lngCollectorV2\\webapi\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\alesh\\.nuget\\packages\\",
-        "outputPath": "D:\\prg\\lngCollector2\\webapi\\Core\\obj\\",
+        "outputPath": "D:\\prg\\lngCollectorV2\\webapi\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alesh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -131,14 +131,14 @@
         }
       }
     },
-    "D:\\prg\\lngCollector2\\webapi\\SQLitePepo\\SQLitePepo.csproj": {
+    "D:\\prg\\lngCollectorV2\\webapi\\SQLitePepo\\SQLitePepo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\prg\\lngCollector2\\webapi\\SQLitePepo\\SQLitePepo.csproj",
+        "projectUniqueName": "D:\\prg\\lngCollectorV2\\webapi\\SQLitePepo\\SQLitePepo.csproj",
         "projectName": "SQLitePepo",
-        "projectPath": "D:\\prg\\lngCollector2\\webapi\\SQLitePepo\\SQLitePepo.csproj",
+        "projectPath": "D:\\prg\\lngCollectorV2\\webapi\\SQLitePepo\\SQLitePepo.csproj",
         "packagesPath": "C:\\Users\\alesh\\.nuget\\packages\\",
-        "outputPath": "D:\\prg\\lngCollector2\\webapi\\SQLitePepo\\obj\\",
+        "outputPath": "D:\\prg\\lngCollectorV2\\webapi\\SQLitePepo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alesh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -155,8 +155,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\prg\\lngCollector2\\webapi\\Core\\Core.csproj": {
-                "projectPath": "D:\\prg\\lngCollector2\\webapi\\Core\\Core.csproj"
+              "D:\\prg\\lngCollectorV2\\webapi\\Core\\Core.csproj": {
+                "projectPath": "D:\\prg\\lngCollectorV2\\webapi\\Core\\Core.csproj"
               }
             }
           }
