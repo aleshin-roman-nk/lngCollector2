@@ -26,7 +26,7 @@ export class TerrainsPageComponent {
       .getAll()
       //.subscribe((result: ITerrain[]) => this.terrains = result)
       .subscribe(data => {
-        console.log(data)
+        //console.log(data)
 
         if(data.Success){
           this.loading = false

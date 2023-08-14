@@ -71,7 +71,7 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 
         public IEnumerable<Node> GetByTerrainId(int terrainId)
         {
-            return db.Nodes.Where(x => x.terrianId == terrainId).ToArray();
+            return db.Nodes.Where(x => x.terrainId == terrainId).ToArray();
         }
 
         public Node GetById(int id)

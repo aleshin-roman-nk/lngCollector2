@@ -40,9 +40,11 @@ export class NodeDetailPageComponent implements OnInit {
       //delay(2000)
     )
       .subscribe(data => {
+
         if(data.Success){
+
           this.nodeDetail = data.Content
-          this.loading = false          
+          this.loading = false
         }
       })
   }
@@ -58,7 +60,7 @@ export class NodeDetailPageComponent implements OnInit {
   }
 
   createThought(o: {text: string, descr: string}){
-    
+
     const th: IThought  = {
       id: 0,
       nodeId: this.nodeId,
@@ -79,7 +81,7 @@ export class NodeDetailPageComponent implements OnInit {
       .subscribe(resp => {
 
         if(resp.Success){
-          this.nodeDetail.thoughts.push(resp.Content)
+          this.nodeDetail.Thoughts.push(resp.Content)
         }
       })
 
