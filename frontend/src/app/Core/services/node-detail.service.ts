@@ -4,7 +4,7 @@ import { INodeDetail } from '../Models/nodedetail';
 import { environment } from 'src/environment';
 import { HttpClient } from '@angular/common/http';
 import { IThought } from '../Models/thought';
-import { ResponseExt } from '../Models/response';
+import { ApiResponseWithContent } from '../Models/response';
 
 @Injectable({
   providedIn: 'root'
@@ -42,16 +42,16 @@ export class NodeDetailService {
    *
    *
    */
-  getNodeDetail(nodeId: number): Observable<ResponseExt<INodeDetail>> {
+  getNodeDetail(nodeId: number): Observable<ApiResponseWithContent<INodeDetail>> {
     const url = `${environment.apiUrl}/node/${nodeId}/detail`;
 
-    return this.http.get<ResponseExt<INodeDetail>>(url)
+    return this.http.get<ApiResponseWithContent<INodeDetail>>(url)
   }
 
-  createThought(nodeId: number, th: IThought): Observable<ResponseExt<IThought>> {
+  createThought(nodeId: number, th: IThought): Observable<ApiResponseWithContent<IThought>> {
     const url = `${environment.apiUrl}/thought?nodeId=${nodeId}`;
 
-    return this.http.post<ResponseExt<IThought>>(url, th)
+    return this.http.post<ApiResponseWithContent<IThought>>(url, th)
   }
 
 }

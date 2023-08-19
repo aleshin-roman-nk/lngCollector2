@@ -37,7 +37,7 @@ export class TerrainPageComponent {
     this.srvTerr
       .getOne(this.id)
       .subscribe((result) => {
-        this.terrain = result
+        this.terrain = result.Content
       })
 
     //this.nodeSrv.dataNodes$.subscribe()

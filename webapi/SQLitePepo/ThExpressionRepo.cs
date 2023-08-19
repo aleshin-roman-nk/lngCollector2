@@ -74,7 +74,12 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 
         public bool HasWork(int id)
         {
-            return db.ThExpressions.Where(x => x.id == id).Sum(x => x.scores) > 0;
+            var sc = db.ThExpressions
+                .Where(x => x.id == id)
+                .Select(x => x.scores)
+                .FirstOrDefault();
+
+            return sc > 0;
         }
     }
 }

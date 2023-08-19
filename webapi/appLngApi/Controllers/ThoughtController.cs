@@ -43,10 +43,10 @@ namespace ThoughtzLand.Api.Controllers
             return processResult(opres.Success, opres);
         }
 
-        [HttpPatch("{id}")]
-        public IActionResult UpdateProperty(int id, [FromBody] UpdatePropertyDto prop)
+        [HttpPatch]
+        public IActionResult UpdateProperty([FromBody] UpdateStringPropertyDto prop)
         {
-            var opres = srv.UpdateString(id, prop.name, prop.value);
+            var opres = srv.UpdateString(prop.id, prop.name, prop.value);
 
             return processResult(opres.Success, opres);
         }

@@ -1,9 +1,9 @@
-export class Response {
+export class ApiResponse {
     Success: boolean
     Message: string
 }
 
-export class ResponseExt<TContent> {
+export class ApiResponseWithContent<TContent> {
     Success: boolean
     Message: string
     Content: TContent

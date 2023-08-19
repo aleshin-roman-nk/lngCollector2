@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, delay, Observable, tap, throwError } from 'rxjs';
 import { environment } from 'src/environment';
 import { ITerrain } from '../Models/terrain';
-import { ResponseExt } from '../Models/response';
+import { ApiResponseWithContent } from '../Models/response';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +20,8 @@ export class TerriansService {
     return this.instance++;
   }
 
-  getAll(): Observable<ResponseExt<ITerrain[]>> {
-    return this.http.get<ResponseExt<ITerrain[]>>(`${environment.apiUrl}/terrain`)
+  getAll(): Observable<ApiResponseWithContent<ITerrain[]>> {
+    return this.http.get<ApiResponseWithContent<ITerrain[]>>(`${environment.apiUrl}/terrain`)
 /*       .pipe(
         delay(50),
         tap(resp => {
@@ -32,17 +32,13 @@ export class TerriansService {
       ) */
   }
 
-  getOne(id: number): Observable<ITerrain> {
+  getOne(id: number): Observable<ApiResponseWithContent<ITerrain>> {
     return this.http
-      //.get<ITerrain>(`${environment.apiUrl}/terrain`, {
-      //  params: new HttpParams().append("id", id)
-      //})
-
-      .get<ITerrain>(`${environment.apiUrl}/terrain/${id}`)
+      .get<ApiResponseWithContent<ITerrain>>(`${environment.apiUrl}/terrain/${id}`)
   }
 
-  create(terr: ITerrain): Observable<ITerrain> {
-    return this.http.post<ITerrain>(`${environment.apiUrl}/terrain`, terr)
+  create(terr: ITerrain): Observable<ApiResponseWithContent<ITerrain>> {
+    return this.http.post<ApiResponseWithContent<ITerrain>>(`${environment.apiUrl}/terrain`, terr)
 /*       .pipe(
         tap(resp => {
           const a = [...this.items$.value] 
@@ -51,8 +47,8 @@ export class TerriansService {
       ) */
   }
 
-  delete(tid: number): Observable<any> {
-    return this.http.delete<any>(`${environment.apiUrl}/terrain/${tid}`)
+  delete(tid: number): Observable<Response> {
+    return this.http.delete<Response>(`${environment.apiUrl}/terrain/${tid}`)
   }
 
   private errorHandler(error: HttpErrorResponse) {

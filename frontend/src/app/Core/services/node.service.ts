@@ -4,7 +4,7 @@ import { INode } from '../Models/node';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environment';
 import { INodeDetail } from '../Models/nodedetail';
-import { ResponseExt } from '../Models/response';
+import { ApiResponseWithContent } from '../Models/response';
 
 @Injectable({
   providedIn: 'root'
@@ -24,9 +24,9 @@ export class NodeService {
     })
   } */
 
-  getNodesByTerrainId(terrId: number): Observable<ResponseExt<INode[]>>{
+  getNodesByTerrainId(terrId: number): Observable<ApiResponseWithContent<INode[]>>{
     const url = `${environment.apiUrl}/terrain/${terrId}/nodes`
-    return this.http.get<ResponseExt<INode[]>>(url)
+    return this.http.get<ApiResponseWithContent<INode[]>>(url)
   }
 
 }

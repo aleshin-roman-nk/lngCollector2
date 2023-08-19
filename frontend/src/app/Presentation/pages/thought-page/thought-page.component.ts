@@ -37,8 +37,8 @@ export class ThoughtPageComponent {
     });
 
     this.thoughtService.getThought(this.thoughtId)
-      .subscribe(data => {
-        this.thought = data
+      .subscribe(resp => {
+        this.thought = resp.Content
         this.loaded.next(true)
       })    
   }
@@ -67,6 +67,8 @@ export class ThoughtPageComponent {
 
     this.textInput.accepted.subscribe(data => {
       this.thought.text = data
+      this.thoughtService.updateThoughtStrginProperty(this.thoughtId, "text", data)
+      .subscribe()
     }) 
 
     this.descriptionInput.accepted.subscribe(data => {
@@ -97,19 +99,20 @@ export class ThoughtPageComponent {
    */
   createThExpression(o: IThExpression){
       this.thoughtService.createExpression(this.thoughtId, o)
-      .subscribe(data => {
-        this.thought.expressions.push(data)
+      .subscribe(resp => {
+        this.thought.expressions.push(resp.Content)
       })
   }
 
   updateThExpression(o: IThExpression){
+
     this.thoughtService.updateExpression(o)
-    .subscribe(data => {})
+    .subscribe()
   }
 
   deleteThExpression(expId: number){
     this.thoughtService.deleteExpression(expId)
-    .subscribe(data => { 
+    .subscribe(resp => { 
       const i = this.thought.expressions.findIndex((item) => item.id === expId)
       if(i !== -1) this.thought.expressions.splice(i, 1);
     })
