@@ -8,14 +8,27 @@ import { ButtonKind } from 'src/app/Presentation/Models/buttons-kind-enum';
 })
 export class ConfirmationComponent {
   @Input() message: string
+  @Input() title: string
+  @Input() strong_confirm_text: string
+
+  strong_confirm_value: string
+  isShown: boolean = false
 
   @Output() finished: EventEmitter<ButtonKind> = new EventEmitter<ButtonKind>()
 
-  yes(){
-    this.finished.emit(ButtonKind.yes)
+  yes() {
+    if (this.strong_confirm_text === this.strong_confirm_value) {
+      this.finished.emit(ButtonKind.yes)
+      this.isShown = false
+    }
   }
 
-  no(){
+  no() {
     this.finished.emit(ButtonKind.no)
+    this.isShown = false
+  }
+
+  openDialog() {
+    this.isShown = true
   }
 }

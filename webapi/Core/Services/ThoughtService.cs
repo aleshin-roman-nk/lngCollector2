@@ -21,7 +21,7 @@ namespace ThoughtzLand.Core.Services
         {
             try
             {
-                if (!_repo.ThoughtHasWork(thoughtId))
+                if (_repo.ThoughtHasWork(thoughtId))
                 {
                     return new OperationResult(false, "this object has commited work which you can't forget");
                 }

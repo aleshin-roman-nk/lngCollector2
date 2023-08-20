@@ -60,4 +60,10 @@ export class ThoughtService {
 
     return this.http.delete<ApiResponse>(url)
   }
+
+  deleteThought(id: number): Observable<ApiResponse>{
+    const url = `${environment.apiUrl}/thought/${id}`;
+
+    return this.http.delete<ApiResponse>(url)
+  }
 }

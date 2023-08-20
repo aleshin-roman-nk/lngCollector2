@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ButtonKind } from 'src/app/Presentation/Models/buttons-kind-enum';
@@ -6,6 +6,8 @@ import { ITerrain } from 'src/app/Core/Models/terrain';
 import { NodeService } from 'src/app/Core/services/node.service';
 import { TerriansService } from 'src/app/Core/services/terrians.service';
 import { INode } from 'src/app/Core/Models/node';
+import { TextInputOnpageComponent } from '../../comps-tools/text-input-onpage/text-input-onpage.component';
+import { ConfirmationComponent } from '../../comps-tools/confirmation/confirmation.component';
 
 @Component({
   selector: 'app-terrain-page',
@@ -14,12 +16,14 @@ import { INode } from 'src/app/Core/Models/node';
 })
 export class TerrainPageComponent {
 
+  @ViewChild(TextInputOnpageComponent, { static: false }) newNodeDlg!: TextInputOnpageComponent
+  @ViewChild(ConfirmationComponent, { static: false }) confirmDeleteDlg!: ConfirmationComponent
+
   private subscription: Subscription;
 
   id: number
   terrain: ITerrain
   nodes: INode[] = []
-  askingToKill: boolean = false
 
   constructor(
     activateRoute: ActivatedRoute,
@@ -44,22 +48,36 @@ export class TerrainPageComponent {
     //this.nodeSrv.loadNodesOf(this.id)
 
     this.nodeSrv.getNodesByTerrainId(this.id)
-    .subscribe(data => {
-      if(data.Success){
-        this.nodes = data.Content
+      .subscribe(data => {
+        if (data.Success) {
+          this.nodes = data.Content
+        }
+      })
+  }
+
+  ngAfterViewInit() {
+    this.newNodeDlg.accepted.subscribe(resp => {
+      if(resp.trim() === "") return
+      this.nodeSrv.addNode(resp, this.terrain.id!)
+      .subscribe(resp => {
+        this.nodes.push(resp.Content)
+      })
+    })
+
+    this.confirmDeleteDlg.finished.subscribe(resp => {
+      if(resp === ButtonKind.yes){
+        this.srvTerr.delete(this.id)
+        .subscribe(() => { this.router.navigate(['']) })
       }
     })
   }
 
   startAskingToKill(): void {
-    this.askingToKill = true
+    this.confirmDeleteDlg.openDialog()
   }
 
-  finishedAskingToKill(event: ButtonKind){
-    if(event === ButtonKind.yes){
-    this.srvTerr.delete(this.id)
-      .subscribe(() => { this.router.navigate(['']) })     
-    }
-    this.askingToKill = false
+  startNewNodeDlg() {
+    this.newNodeDlg.value = ""
+    this.newNodeDlg.openDialog()
   }
 }

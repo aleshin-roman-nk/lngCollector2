@@ -1,0 +1,7 @@
+<app-modal *ngIf="isShown">
+    <textarea [(ngModel)]="value" rows="1" class="w-full mt-2 p-2 rounded-md bg-stone-100 border border-stone-400">Input Text</textarea>
+    <div>
+        <button class="border border-stone-700 rounded-md p-1" (click)="onAccept()">Accept</button>
+        <button class="border border-stone-700 rounded-md p-1 ml-2" (click)="isShown = false">Cancel</button>
+    </div>
+</app-modal>

@@ -4,15 +4,16 @@
 
         <button *ngIf="thought" [routerLink]="['/node', thought.nodeId, 'detail']"
             class="border border-stone-600 rounded-lg mb-2 p-1">Back</button>
+        <button *ngIf="thought" (click)="onDeleteThought()" class="border border-stone-600 bg-orange-400 rounded-lg mb-2 ml-2 p-1">Delete</button>
 
-        <p (click)="onInputText()" *ngIf="thought" class="bg-stone-300 p-2 text-2xl rounded-lg grow cursor-pointer">{{
+        <p (click)="onShowInputText()" *ngIf="thought" class="bg-stone-300 p-2 text-2xl rounded-lg grow cursor-pointer">{{
             thought.text }}</p>
-        <app-text-input #inputText></app-text-input>
+        <app-text-input-inline #inputText></app-text-input-inline>
 
 
-        <p (click)="onInputDescription()" *ngIf="thought && thought.description"
+        <p (click)="onShowInputDescription()" *ngIf="thought && thought.description"
             class="bg-stone-300 p-2 text-xs rounded-lg mt-2 cursor-pointer">{{ thought.description }}</p>
-        <app-text-input #inputDescription></app-text-input>
+        <app-text-input-inline #inputDescription></app-text-input-inline>
 
         <div *ngIf="thought" class="bg-stone-300 rounded-lg mt-2">
 

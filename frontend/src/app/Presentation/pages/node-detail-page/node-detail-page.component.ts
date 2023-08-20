@@ -1,13 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, delay } from 'rxjs';
-import { CreateThoughtComponent } from 'src/app/Presentation/comps-edit/create-thought/create-thought.component';
+import { EditThoughtComponent } from 'src/app/Presentation/comps-edit/edit-thought/edit-thought.component';
 import { INodeDetail } from 'src/app/Core/Models/nodedetail';
 import { IThought } from 'src/app/Core/Models/thought';
 import { UserResponse } from 'src/app/Presentation/Models/user-response';
 import { ModalService } from 'src/app/Presentation/services/modal.service';
 import { NodeDetailService } from 'src/app/Core/services/node-detail.service';
 import { NodeService } from 'src/app/Core/services/node.service';
+import { ConfirmationComponent } from '../../comps-tools/confirmation/confirmation.component';
+import { ButtonKind } from '../../Models/buttons-kind-enum';
 
 @Component({
   selector: 'app-node-detail-page',
@@ -16,7 +18,8 @@ import { NodeService } from 'src/app/Core/services/node.service';
 })
 export class NodeDetailPageComponent implements OnInit {
 
-  @ViewChild(CreateThoughtComponent, {static: false}) createThoughtDlg!: CreateThoughtComponent
+  @ViewChild(EditThoughtComponent, {static: false}) editThoughtDlg!: EditThoughtComponent
+  @ViewChild("confirmDeleteNodeDlg", {static: false}) confirmDeleteNodeDlg!: ConfirmationComponent
 
   nodeId: number
   nodeDetail: INodeDetail
@@ -25,7 +28,8 @@ export class NodeDetailPageComponent implements OnInit {
   constructor(
     private activateRoute: ActivatedRoute,
     private router: Router,
-    public nodeDetailSrv: NodeDetailService
+    public nodeDetailSrv: NodeDetailService,
+    private nodeService: NodeService
   ) {}
 
   ngOnInit() {
@@ -50,13 +54,26 @@ export class NodeDetailPageComponent implements OnInit {
   }
 
   ngAfterViewInit(){
-    this.createThoughtDlg.finished.subscribe(data => {
+    this.editThoughtDlg.finished.subscribe(data => {
       if(data.value) this.createThought(data.value)
+    })
+
+    this.confirmDeleteNodeDlg.finished.subscribe(resp => {
+      if(resp === ButtonKind.yes){
+        this.nodeService.deleteNode(this.nodeId)
+        .subscribe(resp => {
+          this.router.navigate(['terrain', this.nodeDetail.Node.terrainId, 'nodes'])
+        })
+      }
     })
   }
 
+  openDeletingNode(){
+    this.confirmDeleteNodeDlg.openDialog()
+  }
+
   opentCreatingThought(){
-    this.createThoughtDlg.openDialog()
+    this.editThoughtDlg.openDialog()
   }
 
   createThought(o: {text: string, descr: string}){

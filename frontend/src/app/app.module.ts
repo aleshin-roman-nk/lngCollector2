@@ -9,18 +9,19 @@ import { TerrainsPageComponent } from './Presentation/pages/terrains-page/terrai
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './Presentation/comps-tools/modal/modal.component';
-import { CreateTerrainComponent } from './Presentation/comps-edit/create-terrain/create-terrain.component';
+import { EditTerrainComponent } from './Presentation/comps-edit/edit-terrain/edit-terrain.component';
 import { LoadingAnimComponent } from './Presentation/comps-tools/loading-anim/loading-anim.component';
 import { NodeComponent } from './Presentation/comps-ent/node/node.component';
 import { PlayquestComponent } from './Presentation/comps-play/playquest/playquest.component';
 import { NodeDetailPageComponent } from './Presentation/pages/node-detail-page/node-detail-page.component';
 import { ThoughtComponent } from './Presentation/comps-ent/thought/thought.component';
-import { CreateThoughtComponent } from './Presentation/comps-edit/create-thought/create-thought.component';
+import { EditThoughtComponent } from './Presentation/comps-edit/edit-thought/edit-thought.component';
 import { ConfirmationComponent } from './Presentation/comps-tools/confirmation/confirmation.component';
 import { ThoughtPageComponent } from './Presentation/pages/thought-page/thought-page.component';
 import { EditThexpressionComponent } from './Presentation/comps-edit/edit-thexpression/edit-thexpression.component';
 import { ElementFocusedDirective } from './Presentation/directives/element-focused.directive';
-import { TextInputComponent } from './Presentation/comps-tools/text-input/text-input.component';
+import { TextInputComponent } from './Presentation/comps-tools/text-input-inline/text-input-inline.component';
+import { TextInputOnpageComponent } from './Presentation/comps-tools/text-input-onpage/text-input-onpage.component';
 
 
 @NgModule({
@@ -30,18 +31,19 @@ import { TextInputComponent } from './Presentation/comps-tools/text-input/text-i
     TerrainPageComponent,
     TerrainsPageComponent,
     ModalComponent,
-    CreateTerrainComponent,
+    EditTerrainComponent,
     LoadingAnimComponent,
     NodeComponent,
     PlayquestComponent,
     NodeDetailPageComponent,
     ThoughtComponent,
-    CreateThoughtComponent,
+    EditThoughtComponent,
     ConfirmationComponent,
     ThoughtPageComponent,
     EditThexpressionComponent,
     ElementFocusedDirective,
-    TextInputComponent
+    TextInputComponent,
+    TextInputOnpageComponent
   ],
   imports: [
     BrowserModule,

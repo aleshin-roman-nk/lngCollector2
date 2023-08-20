@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { EditThexpressionComponent } from 'src/app/Presentation/comps-edit/edit-thexpression/edit-thexpression.component';
-import { TextInputComponent } from 'src/app/Presentation/comps-tools/text-input/text-input.component';
+import { TextInputComponent } from 'src/app/Presentation/comps-tools/text-input-inline/text-input-inline.component';
 import { IThExpression } from 'src/app/Core/Models/thexpression';
 import { IThought } from 'src/app/Core/Models/thought';
 import { UserOperationEnum } from 'src/app/Presentation/Models/user-operation';
@@ -28,6 +28,7 @@ export class ThoughtPageComponent {
 
   constructor(
     private activateRoute: ActivatedRoute,
+    private router: Router,
     private thoughtService: ThoughtService
     ) { }
 
@@ -77,18 +78,25 @@ export class ThoughtPageComponent {
 
   }
 
-  onInputText(){
+  onShowInputText(){
     this.textInput.value = this.thought.text
     this.textInput.isShown = true
   }
 
-  onInputDescription(){
+  onShowInputDescription(){
     this.descriptionInput.value = this.thought.description
     this.descriptionInput.isShown = true
   }
 
   openEditTheExpression(o: IThExpression | undefined){
     this.editThExpression.openDialog(this.thoughtId, o)
+  }
+
+  onDeleteThought(){
+    this.thoughtService.deleteThought(this.thoughtId)
+      .subscribe(resp => {
+        this.router.navigate(['/node', this.thought.nodeId, 'detail'])
+      })
   }
 
   /**
