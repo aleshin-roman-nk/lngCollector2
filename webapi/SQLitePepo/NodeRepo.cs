@@ -31,7 +31,7 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
             db.Nodes.Add(node);
             var success = db.SaveChanges() > 0;
             if (!success)
-                throw new InvalidOperationException("something went wrong when updating a node");
+                throw new InvalidOperationException("something went wrong when creating a node");
             return node;
         }
 
@@ -63,7 +63,7 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 
         public void Remove(int nodeId)
         {
-            db.Nodes.Remove(new Node { id = nodeId });
+			db.Nodes.Remove(new Node { id = nodeId });
             var success = db.SaveChanges() > 0;
             if (!success)
                 throw new InvalidOperationException("something went wrong when deleting a node");
