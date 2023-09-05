@@ -22,6 +22,7 @@ import { EditThexpressionComponent } from './Presentation/comps-edit/edit-thexpr
 import { ElementFocusedDirective } from './Presentation/directives/element-focused.directive';
 import { TextInputComponent } from './Presentation/comps-tools/text-input-inline/text-input-inline.component';
 import { TextInputOnpageComponent } from './Presentation/comps-tools/text-input-onpage/text-input-onpage.component';
+import { QuestionWorkPageComponent } from './Presentation/pages/question-work-page/question-work-page.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { TextInputOnpageComponent } from './Presentation/comps-tools/text-input-
     EditThexpressionComponent,
     ElementFocusedDirective,
     TextInputComponent,
-    TextInputOnpageComponent
+    TextInputOnpageComponent,
+    QuestionWorkPageComponent
   ],
   imports: [
     BrowserModule,

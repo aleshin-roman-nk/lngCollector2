@@ -19,7 +19,8 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 
 		public bool ThoughtHasWork(int thId)
 		{
-			return db.ThExpressions.Where(x => x.thoughtId == thId).Sum(x => x.scores) > 0;
+		//	return db.ThExpressions.Where(x => x.thoughtId == thId).Sum(x => x.scores) > 0;
+			throw new NotImplementedException();
 		}
 
 		public Thought GetById(int id)

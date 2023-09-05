@@ -25,7 +25,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppData>(options =>
 {
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("appLngApi"));
     //options.LogTo(Console.WriteLine);
     //options.EnableSensitiveDataLogging(true);
     //options.UseLoggerFactory(null);
@@ -52,6 +52,9 @@ builder.Services.AddScoped<ThoughtService>();
 
 builder.Services.AddScoped<IThExpressionRepo, ThExpressionRepo>();
 builder.Services.AddScoped<ThExpressionService>();
+
+builder.Services.AddScoped<ILanguageRepo, LanguageRepo>();
+builder.Services.AddScoped<LanguagesService>();
 
 builder.Services.AddScoped<ExamService>();
 

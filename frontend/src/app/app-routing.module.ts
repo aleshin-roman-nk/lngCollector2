@@ -4,12 +4,14 @@ import { TerrainPageComponent } from './Presentation/pages/terrain-page/terrain-
 import { TerrainsPageComponent } from './Presentation/pages/terrains-page/terrains-page.component';
 import { NodeDetailPageComponent } from './Presentation/pages/node-detail-page/node-detail-page.component';
 import { ThoughtPageComponent } from './Presentation/pages/thought-page/thought-page.component';
+import { QuestionWorkPageComponent } from './Presentation/pages/question-work-page/question-work-page.component';
 
 const routes: Routes = [
   { path: '', component: TerrainsPageComponent },
   { path: 'terrain/:id/nodes', component: TerrainPageComponent },
   { path: 'node/:id/detail', component: NodeDetailPageComponent },
-  { path: 'thought/:id', component: ThoughtPageComponent }
+  { path: 'thought/:id', component: ThoughtPageComponent },
+  { path: 'node/:id/question-work', component: QuestionWorkPageComponent }
 ];
 
 @NgModule({

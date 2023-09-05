@@ -3,6 +3,7 @@ using ThoughtzLand.Core.Models.Common;
 using ThoughtzLand.Core.Models.Exam;
 using ThoughtzLand.Core.Models.Location;
 using ThoughtzLand.Core.Models.Thoughts;
+using ThoughtzLand.ImplementRepo.SQLitePepo.Entities;
 
 namespace ThoughtzLand.ImplementRepo.SQLitePepo
 {
@@ -16,5 +17,6 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
         public DbSet<ThExpression> ThExpressions { get; set; }
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Language> Languages { get; set; }
+        public DbSet<FlashCardDb> FlashCards { get; set; }
     }
 }

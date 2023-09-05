@@ -10,6 +10,6 @@ namespace ThoughtzLand.Core.Models.Common
 	{
 		public int id { get; set; }
 		public string name { get; set; }
-		public string shortName { get; set; }
+		public string tag { get; set; }
 	}
 }

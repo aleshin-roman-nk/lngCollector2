@@ -5,6 +5,8 @@ import { ThExpressionType } from 'src/app/Core/Models/thexpression-type';
 import { UserOperationEnum } from 'src/app/Presentation/Models/user-operation';
 import { UserResponse } from 'src/app/Presentation/Models/user-response';
 import { WhoMade } from 'src/app/Core/Models/whomade';
+import { LangService } from 'src/app/Core/services/lang.service';
+import { ILanguage } from 'src/app/Core/Models/language';
 
 @Component({
   selector: 'app-edit-thexpression',
@@ -13,6 +15,7 @@ import { WhoMade } from 'src/app/Core/Models/whomade';
 })
 export class EditThexpressionComponent {
   finished: EventEmitter<UserResponse<IThExpression>> = new EventEmitter<UserResponse<IThExpression>>()
+  updateStringProperty: EventEmitter<{id: number, propName: string, newValue: string}> = new EventEmitter<{id: number, propName: string, newValue: string}>()
 
   isShown: boolean = false
 
@@ -23,7 +26,19 @@ export class EditThexpressionComponent {
 
   submittingTried: boolean = false
 
-  langs: { name: string, id: number }[] = [{ name: "Russian", id: 1 }, { name: "English", id: 2 }, { name: "Turkish", id: 3 }]
+  langs: ILanguage[] = []
+  selectedLanguage: ILanguage | undefined
+
+  constructor(private lngSrv: LangService){
+    lngSrv.getAll().subscribe(resp => {
+      this.langs = resp.Content
+    })
+
+    this.creatingForm = new FormGroup({
+      textControl: new FormControl<string>(this.thExpresion?.text ?? '', [Validators.required]),
+      lngControl: new FormControl<ILanguage | undefined>(this.selectedLanguage, [Validators.required])
+    })
+  }
 
   ngOnInit() {
 
@@ -32,26 +47,28 @@ export class EditThexpressionComponent {
   ngAfterViewInit(){
   }
 
-  private firstOrUndefined<T>(arr: T[]): T | undefined {
-    return arr.length > 0 ? arr[0] : undefined;
+  get TextControl() {
+    return (this.creatingForm.controls.textControl as FormControl)
   }
 
-  get Text() {
-    return (this.creatingForm.controls.text as FormControl)
-  }
-
-  get LngId() {
-    return (this.creatingForm.controls.lngId as FormControl)
+  get LngControl() {
+    return (this.creatingForm.controls.lngControl as FormControl)
   }
 
   openDialog(thId: number, thexpr: IThExpression | undefined){
     this.thoughtId = thId
     this.thExpresion = thexpr
     this.isShown = true
+    this.submittingTried = false
 
-    this.creatingForm = new FormGroup({
-      text: new FormControl<string>(this.thExpresion?.text ?? '', [Validators.required]),
-      lngId: new FormControl<number>(this.firstOrUndefined(this.langs)?.id ?? 0, [Validators.required])
+    if(thexpr)
+      this.selectedLanguage = this.langs.find(x => x.id == thexpr.lngId)
+    else
+      this.selectedLanguage = this.langs[0]
+
+    this.creatingForm.patchValue({
+      textControl: this.thExpresion?.text ?? '',
+      lngControl: this.selectedLanguage
     })
   }
 
@@ -75,8 +92,8 @@ export class EditThexpressionComponent {
     if(this.thExpresion === undefined){
 
       this.finished.emit(new UserResponse<IThExpression>({
-        lngId: this.LngId.value,
-        text: this.Text.value,
+        lngId: this.LngControl.value.id,
+        text: this.TextControl.value,
         createdDate: new Date(),
         id: 0,
         madeBy: WhoMade.Natives,
@@ -87,10 +104,15 @@ export class EditThexpressionComponent {
 
     }
     else{
-      this.thExpresion.text = this.Text.value
+      this.thExpresion.text = this.TextControl.value
+      this.thExpresion.lngId = this.LngControl.value.id
       this.finished.emit(new UserResponse<IThExpression>(this.thExpresion, UserOperationEnum.update)) 
     }
 
     this.isShown = false
+  }
+
+  submitStringProperty(){
+
   }
 }

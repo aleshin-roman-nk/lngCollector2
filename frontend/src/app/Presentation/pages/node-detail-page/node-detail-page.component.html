@@ -13,7 +13,7 @@
           <h2 class="text-2xl font-bold">Tools</h2>
           <!-- Replace the following code with your actual tool controls -->
           <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start" (click)="opentCreatingThought()">New thought</button>
-          <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start">Start quest</button>
+          <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start" [routerLink]="['/node', nodeDetail.Node.id, 'question-work']">Start quest</button>
           <button class="bg-orange-300 text-red-800 hover:bg-orange-500 hover:text-red-50 py-2 px-4 rounded text-start" (click)="openDeletingNode()">Delete</button>
           <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start" [routerLink]="['/terrain', nodeDetail.Node.terrainId, 'nodes']">Back</button>
         </div>

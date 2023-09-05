@@ -43,5 +43,18 @@ namespace ThoughtzLand.Core.Services
 				return new OperationResult<Language?>(false, e.Message, null);
 			}
 		}
+
+		public OperationResult<Language?> Update(Language lng)
+		{
+			try
+			{
+				var res = repo.Update(lng);
+				return new OperationResult<Language?>(true, "success", res);
+			}
+			catch (Exception e)
+			{
+				return new OperationResult<Language?>(false, e.Message, null);
+			}
+		}
 	}
 }

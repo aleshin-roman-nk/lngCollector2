@@ -47,8 +47,8 @@ namespace ThoughtzLand.Core.Services
                 {
                     if (exp.text.ToUpper().Equals(sol.solution.ToUpper()))
                     {
-                        exp.scores += 1;
-                        thexprepo.UpdateInt(exp.id, "scores", exp.scores);
+                        //exp.scores += 1;
+                        //thexprepo.UpdateInt(exp.id, "scores", exp.scores);
 
                         return new OperationResult<CheckResult>(true, "success", new CheckResult
                         {

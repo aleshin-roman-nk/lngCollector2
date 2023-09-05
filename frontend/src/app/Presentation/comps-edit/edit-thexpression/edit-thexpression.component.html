@@ -4,20 +4,20 @@
       <form [formGroup]="creatingForm" (ngSubmit)="submit()">
 
         <div class="mb-6">
-          <label for="textInput" class="block text-gray-700 text-sm font-bold mb-2">Text Input:</label>
-          <p class="text-red-600 font-medium mb-2" *ngIf="Text.invalid && submittingTried">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Expression<span *ngIf="thExpresion?.id"> in {{ selectedLanguage?.name }}</span>:</label>
+          <p class="text-red-600 font-medium mb-2" *ngIf="TextControl.invalid && submittingTried">
             The text is required</p>
-          <textarea formControlName="text" type="text" placeholder="Enter expression" appElementFocused rows="5"
+          <textarea formControlName="textControl" type="text" placeholder="Enter expression" appElementFocused rows="5"
             class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-stone-500"></textarea>
         </div>
 
-        <div class="mb-6">
+        <div class="mb-6" *ngIf="!thExpresion?.id">
           <label for="selectElement" class="block text-gray-700 text-sm font-bold mb-2">Select language:</label>
-          <p class="text-red-600 font-medium mb-2" *ngIf="LngId.errors?.['required'] && submittingTried">
+          <p class="text-red-600 font-medium mb-2" *ngIf="LngControl.errors?.['required'] && submittingTried">
             The language is required</p>
-          <select formControlName="lngId"
+          <select formControlName="lngControl"
             class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-stone-500">
-            <option *ngFor="let lng of langs" [value]="lng.id">{{lng.name}}</option>
+            <option *ngFor="let lng of langs" [ngValue]="lng">{{lng.name}}</option>
             <!-- <option *ngFor="let lng of langs; let i = first" [value]="lng.id" [selected]="i">{{lng.name}} - {{ i }}</option> -->
           </select>
         </div>

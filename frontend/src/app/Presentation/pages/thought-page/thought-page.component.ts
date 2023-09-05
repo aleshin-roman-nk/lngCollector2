@@ -7,6 +7,7 @@ import { IThExpression } from 'src/app/Core/Models/thexpression';
 import { IThought } from 'src/app/Core/Models/thought';
 import { UserOperationEnum } from 'src/app/Presentation/Models/user-operation';
 import { ThoughtService } from 'src/app/Core/services/thought.service';
+import { ThexpressionService } from 'src/app/Core/services/thexpression.service';
 
 @Component({
   selector: 'app-thought-page',
@@ -29,7 +30,8 @@ export class ThoughtPageComponent {
   constructor(
     private activateRoute: ActivatedRoute,
     private router: Router,
-    private thoughtService: ThoughtService
+    private thoughtService: ThoughtService,
+    private thExpressionSrv: ThexpressionService
     ) { }
 
   ngOnInit(){
@@ -56,7 +58,7 @@ export class ThoughtPageComponent {
           this.createThExpression(data.value)
           break
         case UserOperationEnum.update:
-          this.updateThExpression(data.value)
+          this.updateThExpressionStringProperty(data.value.id, "text", data.value.text)
           break
         case UserOperationEnum.delete:
          this.deleteThExpression(data.value.id)
@@ -68,7 +70,7 @@ export class ThoughtPageComponent {
 
     this.textInput.accepted.subscribe(data => {
       this.thought.text = data
-      this.thoughtService.updateThoughtStrginProperty(this.thoughtId, "text", data)
+      this.thoughtService.updateStrginProperty(this.thoughtId, "text", data)
       .subscribe()
     }) 
 
@@ -106,20 +108,19 @@ export class ThoughtPageComponent {
    *  
    */
   createThExpression(o: IThExpression){
-      this.thoughtService.createExpression(this.thoughtId, o)
+      this.thExpressionSrv.createExpression(this.thoughtId, o)
       .subscribe(resp => {
         this.thought.expressions.push(resp.Content)
       })
   }
 
-  updateThExpression(o: IThExpression){
-
-    this.thoughtService.updateExpression(o)
+  updateThExpressionStringProperty(id: number, propName: string, newValue: string){
+    this.thExpressionSrv.updateStringProperty(id, propName, newValue)
     .subscribe()
   }
 
   deleteThExpression(expId: number){
-    this.thoughtService.deleteExpression(expId)
+    this.thExpressionSrv.deleteExpression(expId)
     .subscribe(resp => { 
       const i = this.thought.expressions.findIndex((item) => item.id === expId)
       if(i !== -1) this.thought.expressions.splice(i, 1);

@@ -20,30 +20,7 @@ export class ThoughtService {
     return this.http.get<ApiResponseWithContent<IThought>>(url)
   }
 
-  createExpression(thoughtId: number, thexp: IThExpression): Observable<ApiResponseWithContent<IThExpression>>  {
-    const url = `${environment.apiUrl}/expression?thoughtId=${thoughtId}`;
-
-    return this.http.post<ApiResponseWithContent<IThExpression>>(url, thexp)
-  }
-
-  updateExpression(thexp: IThExpression): Observable<ApiResponseWithContent<IThExpression>> {
-    const url = `${environment.apiUrl}/expression/`;
-/*     const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    }; */
-
-    const o: IUpdateStringPropertyDto = {
-      id: thexp.id,
-      name: "text",
-      value: thexp.text
-    }
-
-    return this.http.patch<ApiResponseWithContent<IThExpression>>(url, o)
-  }
-
-  updateThoughtStrginProperty(id: number, propName: string, newValue: string): Observable<ApiResponse>{
+  updateStrginProperty(id: number, propName: string, newValue: string): Observable<ApiResponse>{
     const url = `${environment.apiUrl}/thought/`;
 
     const o: IUpdateStringPropertyDto = {
@@ -53,12 +30,6 @@ export class ThoughtService {
     }
 
     return this.http.patch<ApiResponse>(url, o)
-  }
-
-  deleteExpression(id: number): Observable<ApiResponse> {
-    const url = `${environment.apiUrl}/expression/${id}`;
-
-    return this.http.delete<ApiResponse>(url)
   }
 
   deleteThought(id: number): Observable<ApiResponse>{
