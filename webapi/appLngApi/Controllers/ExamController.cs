@@ -9,9 +9,9 @@ namespace ThoughtzLand.Api.Controllers
     [ApiController]
     public class ExamController : ControllerBase
     {
-        private readonly ExamService srv;
+        private readonly SRBoxService srv;
 
-        public ExamController(ExamService s)
+        public ExamController(SRBoxService s)
         {
             this.srv = s;
         }

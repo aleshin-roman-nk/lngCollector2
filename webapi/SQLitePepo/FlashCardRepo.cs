@@ -29,7 +29,7 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 				LastExam = e.LastExam,
 				NextExamDate = e.NextExamDate,
 				rightSolutionScores = e.rightSolutionScores,
-				SpacedRepetitionBoxCellId = e.SpacedRepetitionBoxCellId
+				boxCellNo = e.SpacedRepetitionBoxCellId
 			};
 		}
 
@@ -43,7 +43,7 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 				LastExam = e.LastExam,
 				NextExamDate = e.NextExamDate,
 				rightSolutionScores = e.rightSolutionScores,
-				SpacedRepetitionBoxCellId = e.SpacedRepetitionBoxCellId
+				SpacedRepetitionBoxCellId = e.boxCellNo
 			};
 		}
 

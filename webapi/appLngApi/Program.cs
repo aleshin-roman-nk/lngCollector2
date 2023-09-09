@@ -56,7 +56,7 @@ builder.Services.AddScoped<ThExpressionService>();
 builder.Services.AddScoped<ILanguageRepo, LanguageRepo>();
 builder.Services.AddScoped<LanguagesService>();
 
-builder.Services.AddScoped<ExamService>();
+builder.Services.AddScoped<SRBoxService>();
 
 
 builder.Services.AddCors(options => options.AddPolicy(name: "moyaDerevnya",

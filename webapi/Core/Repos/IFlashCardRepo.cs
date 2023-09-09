@@ -10,6 +10,6 @@ namespace ThoughtzLand.Core.Repos
 {
 	public interface IFlashCardRepo: IRepository<FlashCard>
 	{
-
+		IEnumerable<FlashCard> GetFlashCards(int nodeId, DateTime date);
 	}
 }
