@@ -36,6 +36,23 @@ namespace ThoughtzLand.Api.Migrations
                     b.ToTable("Languages");
                 });
 
+            modelBuilder.Entity("ThoughtzLand.Core.Models.Exam.BoxCell", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("cellName")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<double>("nextIntervalInDays")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("id");
+
+                    b.ToTable("BoxCells");
+                });
+
             modelBuilder.Entity("ThoughtzLand.Core.Models.Exam.Grade", b =>
                 {
                     b.Property<int>("id")
@@ -93,6 +110,9 @@ namespace ThoughtzLand.Api.Migrations
 
                     b.Property<string>("name")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("userId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("id");
 
@@ -159,13 +179,10 @@ namespace ThoughtzLand.Api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("LastExam")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateTime>("NextExamDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("SpacedRepetitionBoxCellId")
+                    b.Property<int>("boxCellNo")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("expressionId")
@@ -183,11 +200,13 @@ namespace ThoughtzLand.Api.Migrations
 
             modelBuilder.Entity("ThoughtzLand.Core.Models.Thoughts.ThExpression", b =>
                 {
-                    b.HasOne("ThoughtzLand.Core.Models.Thoughts.Thought", null)
+                    b.HasOne("ThoughtzLand.Core.Models.Thoughts.Thought", "Thought")
                         .WithMany("expressions")
                         .HasForeignKey("thoughtId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Thought");
                 });
 
             modelBuilder.Entity("ThoughtzLand.ImplementRepo.SQLitePepo.Entities.FlashCardDb", b =>

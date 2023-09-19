@@ -6,15 +6,15 @@ using ThoughtzLand.Core.Services;
 
 namespace ThoughtzLand.ImplementRepo.SQLitePepo
 {
-	public class ThoughtRepo : IThoughtRepo
+	public class ThoughtRepo : PropertyUpdaterByName<Thought>, IThoughtRepo
 	{
 		private readonly AppData db;
-		private PropertyUpdater<Thought> propertyUpdater;
+		//private DtoPropertyUpdater<Thought> propertyUpdater;
 
-		public ThoughtRepo(AppData db)
+		public ThoughtRepo(AppData db): base(db)
 		{
 			this.db = db;
-			propertyUpdater = new PropertyUpdater<Thought>(db);
+			//propertyUpdater = new DtoPropertyUpdater<Thought>(db);
 		}
 
 		public bool ThoughtHasWork(int thId)
@@ -57,7 +57,7 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 
 		public Thought Update(Thought entity)
 		{
-			throw new NotImplementedException("Updating whole Thought object is not supported. Consider using UpdateString/UpdateInt");
+			throw new NotImplementedException("Updating whole Thought object is not supported. Consider using Update(int id, string propname, TPropType propvalue)");
 		}
 
 		public void Remove(int entId)
@@ -73,16 +73,6 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 			db.ThExpressions.RemoveRange(expressions);
 			db.Thoughts.Remove(o);
 			db.SaveChanges();
-		}
-
-		public void UpdateInt(int entId, string propname, int propvalue)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void UpdateString(int entId, string propname, string propvalue)
-		{
-			propertyUpdater.UpdateString(entId, propname, propvalue);
 		}
 	}
 }

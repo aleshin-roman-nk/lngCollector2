@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2023-09-09T15:51:36.736Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="hV28gx4730CRVvN7dU6q" version="21.6.8" type="device">
+<mxfile host="Electron" modified="2023-09-12T11:31:50.566Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.5.0 Safari/537.36" etag="uDQaK49nWaAyl1LCO5wM" version="21.6.8" type="device" pages="2">
   <diagram name="Page-1" id="AVeU3xbpbOefrnCGKHZW">
-    <mxGraphModel dx="5163" dy="567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="6252" dy="1262" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -214,47 +214,91 @@
         <mxCell id="jU1Kle7eXEpHHygMN8hs-70" value="При открытии страницы ящика проверка, есть ли элементы (выражения) не зарегистрированные в ящике" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;spacingBottom=4;" parent="1" vertex="1">
           <mxGeometry x="-1720" y="560" width="320" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="ptHlfjkCanBGZvTcIWE--2" value="Реализация" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="ptHlfjkCanBGZvTcIWE--2" value="Реализация" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-2230" y="480" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ptHlfjkCanBGZvTcIWE--4" value="На странице ящика доступные вопросы" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" vertex="1" parent="1">
+        <mxCell id="ptHlfjkCanBGZvTcIWE--4" value="На странице ящика доступные вопросы" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" parent="1" vertex="1">
           <mxGeometry x="-2320" y="520" width="240" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="ptHlfjkCanBGZvTcIWE--5" value="Вопрос на случайном языке, но ответ должен быть дан на указанном" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" vertex="1" parent="1">
+        <mxCell id="ptHlfjkCanBGZvTcIWE--5" value="Вопрос на случайном языке, но ответ должен быть дан на указанном" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" parent="1" vertex="1">
           <mxGeometry x="-2320" y="575" width="240" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="ptHlfjkCanBGZvTcIWE--6" value="Именно текст ответа - решение задачи. Ответ, соответсвующий целевому выражению, на которое указывает карточка, продвигается в сл ящик, либо ложится в первый, если ответ не верен или воспользовался подсказкой." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" vertex="1" parent="1">
+        <mxCell id="ptHlfjkCanBGZvTcIWE--6" value="Именно текст ответа - решение задачи. Ответ, соответсвующий целевому выражению, на которое указывает карточка, продвигается в сл ящик, либо ложится в первый, если ответ не верен или воспользовался подсказкой." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" parent="1" vertex="1">
           <mxGeometry x="-2580" y="575" width="240" height="95" as="geometry" />
         </mxCell>
-        <mxCell id="ptHlfjkCanBGZvTcIWE--14" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="1" source="ptHlfjkCanBGZvTcIWE--7" target="ptHlfjkCanBGZvTcIWE--12">
+        <mxCell id="ptHlfjkCanBGZvTcIWE--14" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="ptHlfjkCanBGZvTcIWE--7" target="ptHlfjkCanBGZvTcIWE--12" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="ptHlfjkCanBGZvTcIWE--7" value="На клиенте при открытии страницы ящика, запрос на сервер о получении всех thought указанной ноды." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" vertex="1" parent="1">
+        <mxCell id="ptHlfjkCanBGZvTcIWE--7" value="На клиенте при открытии страницы ящика, запрос на сервер о получении всех thought указанной ноды." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" parent="1" vertex="1">
           <mxGeometry x="-2880" y="670" width="240" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="ptHlfjkCanBGZvTcIWE--8" value="Клиент формирует объекты карточки." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" vertex="1" parent="1">
+        <mxCell id="ptHlfjkCanBGZvTcIWE--8" value="Клиент формирует объекты карточки." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" parent="1" vertex="1">
           <mxGeometry x="-2880" y="745" width="240" height="35" as="geometry" />
         </mxCell>
-        <mxCell id="ptHlfjkCanBGZvTcIWE--9" value="После вводе решения пользователя формируется объект ответа, где содержится текст ответа, язык ответа, thoughtId, которой принадлежит это выражение." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" vertex="1" parent="1">
+        <mxCell id="ptHlfjkCanBGZvTcIWE--9" value="После вводе решения пользователя формируется объект ответа, где содержится текст ответа, язык ответа, thoughtId, которой принадлежит это выражение." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" parent="1" vertex="1">
           <mxGeometry x="-2880" y="795" width="240" height="85" as="geometry" />
         </mxCell>
-        <mxCell id="ptHlfjkCanBGZvTcIWE--10" value="На сервере достается thought, попытка найти выражение на указанном языке." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" vertex="1" parent="1">
+        <mxCell id="ptHlfjkCanBGZvTcIWE--10" value="На сервере достается thought, попытка найти выражение на указанном языке." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" parent="1" vertex="1">
           <mxGeometry x="-2880" y="905" width="240" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="ptHlfjkCanBGZvTcIWE--11" value="Если решение верно, достается карточка этого выражения и перекладывается в сл ячейку." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" vertex="1" parent="1">
+        <mxCell id="ptHlfjkCanBGZvTcIWE--11" value="Если решение верно, достается карточка этого выражения и перекладывается в сл ячейку." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" parent="1" vertex="1">
           <mxGeometry x="-2880" y="975" width="240" height="55" as="geometry" />
         </mxCell>
-        <mxCell id="ptHlfjkCanBGZvTcIWE--12" value="Вернее не всех, и не мыслей, а выражения, в соотвествии с доступностью в данный момент из ящика для данной ноды." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" vertex="1" parent="1">
+        <mxCell id="ptHlfjkCanBGZvTcIWE--12" value="Вернее не всех, и не мыслей, а выражения, в соотвествии с доступностью в данный момент из ящика для данной ноды." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" parent="1" vertex="1">
           <mxGeometry x="-3150" y="670" width="240" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="ptHlfjkCanBGZvTcIWE--15" value="Доступ ко всем ендпоинтам рабочих функциий через work/{feature}&lt;br&gt;&lt;br&gt;node/3/work/{feature}&lt;br&gt;&lt;br&gt;works/node/3/{feature}" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" vertex="1" parent="1">
+        <mxCell id="ptHlfjkCanBGZvTcIWE--15" value="Доступ ко всем ендпоинтам рабочих функциий через work/{feature}&lt;br&gt;&lt;br&gt;node/3/work/{feature}&lt;br&gt;&lt;br&gt;works/node/3/{feature}" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;" parent="1" vertex="1">
           <mxGeometry x="-2880" y="490" width="240" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="ptHlfjkCanBGZvTcIWE--16" value="В ящике содержатся выражения, а не thought;&lt;br&gt;&lt;br&gt;- поэтому запрос запрашиваем удобные нам dto.&lt;br&gt;Для формирования вопроса, надо выражение которое должен ввести пользователь и выражение которое используется как вопрос." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="ptHlfjkCanBGZvTcIWE--16" value="В ящике содержатся выражения, а не thought;&lt;br&gt;&lt;br&gt;- поэтому запрос запрашиваем удобные нам dto.&lt;br&gt;Для формирования вопроса, надо выражение которое должен ввести пользователь и выражение которое используется как вопрос." style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="-3420" y="680" width="240" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="ptHlfjkCanBGZvTcIWE--17" value="Такие dto карточки - вопросы будет формировать всетаки сервер.&lt;br&gt;Клиент отвечает и отправляет&lt;br&gt;- язык ответа&lt;br&gt;- thoughtId&lt;br&gt;- текст ответа" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="ptHlfjkCanBGZvTcIWE--17" value="Такие dto карточки - вопросы будет формировать всетаки сервер.&lt;br&gt;Клиент отвечает и отправляет&lt;br&gt;- язык ответа&lt;br&gt;- thoughtId&lt;br&gt;- текст ответа" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=4;spacingTop=0;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="-3480" y="840" width="240" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="rh22cC62JBoScADh-0mE" name="Page-2">
+    <mxGraphModel dx="1717" dy="1647" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1r-fDEFgGR_ZaAU43TrO-2" value="Expression" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-420" y="50" width="140" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="1r-fDEFgGR_ZaAU43TrO-3" value="id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1r-fDEFgGR_ZaAU43TrO-2">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1r-fDEFgGR_ZaAU43TrO-4" value="cardId" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1r-fDEFgGR_ZaAU43TrO-2">
+          <mxGeometry y="60" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1r-fDEFgGR_ZaAU43TrO-5" value="Card" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1r-fDEFgGR_ZaAU43TrO-2">
+          <mxGeometry y="90" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1r-fDEFgGR_ZaAU43TrO-6" value="Card" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-160" y="80" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="1r-fDEFgGR_ZaAU43TrO-7" value="id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1r-fDEFgGR_ZaAU43TrO-6">
+          <mxGeometry y="30" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1r-fDEFgGR_ZaAU43TrO-8" value="expressionId" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="1r-fDEFgGR_ZaAU43TrO-6">
+          <mxGeometry y="60" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1r-fDEFgGR_ZaAU43TrO-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="1r-fDEFgGR_ZaAU43TrO-11" target="1r-fDEFgGR_ZaAU43TrO-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1r-fDEFgGR_ZaAU43TrO-11" value="Там где редактирование expressions, карточка не нужна" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-440" y="-120" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="1r-fDEFgGR_ZaAU43TrO-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="1r-fDEFgGR_ZaAU43TrO-12" target="1r-fDEFgGR_ZaAU43TrO-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1r-fDEFgGR_ZaAU43TrO-12" value="Вся информация о работе на странице ящика" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-220" y="-120" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="1r-fDEFgGR_ZaAU43TrO-14" value="Карточка создается автоматически при создании expression" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-10" y="-120" width="180" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

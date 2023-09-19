@@ -8,8 +8,8 @@ using ThoughtzLand.Core.Repos.Common;
 
 namespace ThoughtzLand.Core.Repos
 {
-	public interface IFlashCardRepo: IRepository<FlashCard>
+	public interface IFlashCardRepo: IRepository<FlashCard>, IDtoPropertyUpdater<FlashCard>
 	{
-		IEnumerable<FlashCard> GetFlashCards(int nodeId, DateTime date);
+		IEnumerable<FlashCard> GetCards(int nodeId, DateTime dt);
 	}
 }

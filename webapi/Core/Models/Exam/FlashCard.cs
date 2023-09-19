@@ -29,13 +29,17 @@ namespace ThoughtzLand.Core.Models.Exam
 	 * - но тогда клиенту отдавать ответ со списком языков ответа, доступном для
 	 * карты в пределах данной мысли
 	 * 
+	 * 10-09-2023
+	 * 
+	 * 
 	 */
 	public class FlashCard: IDbEntity
 	{
 		public int id { get; set; }
-		public ThExpression? expression { get; set; }
+		public ThExpression? expressionUnderTest { get; set; }
+		public IEnumerable<ThExpression> questions { get; set; }
 		public int boxCellNo { get; set; }
-		public DateTime LastExam { get; set; }
+		public bool passed { get; set; }
 		public DateTime NextExamDate { get; set; }
 		public int rightSolutionScores { get; set; }
 	}

@@ -11,12 +11,20 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
     {
         public AppData(DbContextOptions<AppData> options): base(options) { }
 
-        public DbSet<Terrain> Terrains { get; set; }
+		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+			//optionsBuilder.EnableSensitiveDataLogging();
+            optionsBuilder.LogTo(x => Console.WriteLine(x));
+		}
+
+
+		public DbSet<Terrain> Terrains { get; set; }
         public DbSet<Node> Nodes { get; set; }
         public DbSet<Thought> Thoughts { get; set; }
         public DbSet<ThExpression> ThExpressions { get; set; }
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<FlashCardDb> FlashCards { get; set; }
+        public DbSet<BoxCell> BoxCells { get; set; }
     }
 }

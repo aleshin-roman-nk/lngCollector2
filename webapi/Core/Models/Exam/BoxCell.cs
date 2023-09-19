@@ -11,6 +11,6 @@ namespace ThoughtzLand.Core.Models.Exam
 	{
 		public int id { get; set; }
 		public int cellName { get; set; }
-		public double nextIntervalInDays { get; set; }
+		public double nextIntervalInMinutes { get; set; }
 	}
 }

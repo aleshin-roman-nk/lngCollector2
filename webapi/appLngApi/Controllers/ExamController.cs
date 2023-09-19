@@ -17,7 +17,7 @@ namespace ThoughtzLand.Api.Controllers
         }
 
         [HttpPost("check")]
-        public IActionResult Check(QuestSolution p)
+        public IActionResult Check(CardSolution p)
         {
             var opres = srv.Check(p);
 
@@ -36,6 +36,22 @@ namespace ThoughtzLand.Api.Controllers
         //        return StatusCode(500, ex.Message);
         //    }
         //}
+
+        [HttpGet("node/{id}/cards")]
+        public IActionResult GetCards(int id, DateTime d)
+        {
+            var opres = srv.GetCards(id, d);
+
+			return processResult(opres.Success, opres);
+		}
+
+        [HttpGet("card/{id}")]
+        public IActionResult GetCard(int id)
+        {
+			var opres = srv.GetCard(id);
+
+			return processResult(opres.Success, opres);
+		}
 
         private IActionResult processResult(bool ok, object o)
         {

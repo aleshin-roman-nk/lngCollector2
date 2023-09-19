@@ -65,7 +65,7 @@ namespace ThoughtzLand.Core.Services
         {
             try
             {
-                _repo.UpdateString(id, propname, propvalue);
+                _repo.Update(id, propname, propvalue);
                 return new OperationResult(true, "success");
             }
             catch (Exception e)

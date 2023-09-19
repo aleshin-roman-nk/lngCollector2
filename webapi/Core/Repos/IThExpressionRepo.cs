@@ -3,7 +3,7 @@ using ThoughtzLand.Core.Repos.Common;
 
 namespace ThoughtzLand.Core.Repos
 {
-    public interface IThExpressionRepo: IRepository<ThExpression>, IPropertyUpdater
+    public interface IThExpressionRepo: IRepository<ThExpression>, IPropertyUpdaterByName
     {
         IEnumerable<ThExpression> GetByThoughtId(int thoughtId);
         bool HasWork(int id);

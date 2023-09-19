@@ -12,11 +12,13 @@ namespace ThoughtzLand.Api.Controllers
     public class ThExpressionController : ControllerBase
     {
         private readonly ThExpressionService srv;
+		private readonly SRBoxService srbSrv;
 
-        public ThExpressionController(ThExpressionService s)
+		public ThExpressionController(ThExpressionService s, SRBoxService srbSrv)
         {
             this.srv = s;
-        }
+			this.srbSrv = srbSrv;
+		}
 
         [HttpGet("one/{id}")]
         public IActionResult Get(int id)
@@ -39,7 +41,11 @@ namespace ThoughtzLand.Api.Controllers
         {
             var opres = srv.Add(value);
 
-            return processResult(opres.Success, opres);
+            // Плохо
+            if (opres.Success)
+                srbSrv.CreateCard(opres.Content.thoughtId);
+
+			return processResult(opres.Success, opres);
         }
 
         [HttpPatch]

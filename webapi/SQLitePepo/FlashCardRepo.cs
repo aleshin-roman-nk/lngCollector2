@@ -1,35 +1,41 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net.WebSockets;
 using System.Text;
 using System.Threading.Tasks;
 using ThoughtzLand.Core.Models.Exam;
 using ThoughtzLand.Core.Models.Location;
+using ThoughtzLand.Core.Models.Thoughts;
 using ThoughtzLand.Core.Repos;
+using ThoughtzLand.Core.Repos.Common;
 using ThoughtzLand.ImplementRepo.SQLitePepo.Entities;
 
 namespace ThoughtzLand.ImplementRepo.SQLitePepo
 {
-	public class FlashCardRepo : IFlashCardRepo
+	public class FlashCardRepo: /*PropertyUpdater<FlashCard>,*/ IFlashCardRepo
 	{
 		private readonly AppData db;
+		private readonly DtoPropertyUpdater<FlashCard, FlashCardDb> tool;
 
-		public FlashCardRepo(AppData db) 
+		public FlashCardRepo(AppData db)/*: base(db)*/
 		{
 			this.db = db;
+			tool = new DtoPropertyUpdater<FlashCard, FlashCardDb>(db);
 		}
 
 		private FlashCard toDomain(FlashCardDb e)
 		{
 			return new FlashCard
 			{
-				expression = e.expression,
+				//expressionUnderTest = e.expression,
 				id = e.id,
-				LastExam = e.LastExam,
+				passed = e.passed,
 				NextExamDate = e.NextExamDate,
 				rightSolutionScores = e.rightSolutionScores,
-				boxCellNo = e.SpacedRepetitionBoxCellId
+				boxCellNo = e.boxCellNo,
 			};
 		}
 
@@ -37,13 +43,13 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 		{
 			return new FlashCardDb
 			{
-				expression = e.expression,
-				expressionId = e.expression.id,
+				//expression = e.expressionUnderTest,
+				expressionId = e.expressionUnderTest.id,
+				passed = e.passed,
 				id = e.id,
-				LastExam = e.LastExam,
 				NextExamDate = e.NextExamDate,
 				rightSolutionScores = e.rightSolutionScores,
-				SpacedRepetitionBoxCellId = e.boxCellNo
+				boxCellNo = e.boxCellNo
 			};
 		}
 
@@ -57,15 +63,48 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 			var success = db.SaveChanges() > 0;
 			if (!success)
 				throw new InvalidOperationException("something went wrong when creating a node");
-			return toDomain(e);
+			return GetById(e.id);
+		}
+
+		public IEnumerable<FlashCard> GetCards(int nodeId, DateTime dt)
+		{
+			/*
+			 * найти все карты, выражение которых указывают на мысли, которые принадлежат ноде
+			 * 
+			 * 
+			 */
+
+			var res = db.FlashCards
+
+				.Join(db.ThExpressions,
+					card => card.expressionId,
+					expression => expression.id,
+					(card, expression) => new { Card = card, Expression = expression })
+
+				.Join(db.Thoughts,
+					combined => combined.Expression.thoughtId,
+					thought => thought.id,
+					(combined, thought) => new { combined.Card, combined.Expression, Thought = thought })
+
+				.Where(combined => combined.Thought.nodeId == nodeId && combined.Card.NextExamDate <= dt)
+
+				.Select(x => new FlashCard
+				{
+					id = x.Card.id,
+					boxCellNo = x.Card.boxCellNo,
+					passed = x.Card.passed,
+					expressionUnderTest = x.Expression,
+					NextExamDate = x.Card.NextExamDate,
+					rightSolutionScores = x.Card.rightSolutionScores,
+					questions = db.ThExpressions.Where(e => e.thoughtId == x.Thought.id && e.lngId != x.Expression.lngId).ToArray()
+				})
+
+				.ToArray();
+
+			return res;
 		}
 
 		public IEnumerable<FlashCard> GetAll()
-		{
-			throw new NotImplementedException();
-		}
-
-		public FlashCard GetById(int id)
 		{
 			throw new NotImplementedException();
 		}
@@ -77,7 +116,49 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 
 		public FlashCard Update(FlashCard entity)
 		{
-			throw new NotImplementedException();
+			var ent = toDb(entity);
+
+			db.Entry(ent).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+			db.SaveChanges();
+
+			return GetById(ent.id);
+		}
+
+		public FlashCard GetById(int cid)
+		{
+			var res = db.FlashCards
+				.Join(db.ThExpressions,
+						card => card.expressionId,
+						expression => expression.id,
+						(card, expression) => new { Card = card, Expression = expression })
+				.Join(db.Thoughts,
+						ce => ce.Expression.thoughtId,
+						thought => thought.id,
+						(ce, thought) => new { ce.Card, ce.Expression, Thought = thought }
+				)
+
+				.Where(x => x.Card.id == cid)
+
+				.Select(x => new FlashCard
+				{
+					boxCellNo = x.Card.boxCellNo,
+					id = x.Card.id,
+					NextExamDate = x.Card.NextExamDate,
+					passed = x.Card.passed,
+					rightSolutionScores = x.Card.rightSolutionScores,
+					expressionUnderTest = x.Expression,
+					questions = db.ThExpressions.Where(e => e.thoughtId == x.Thought.id && e.lngId != x.Expression.lngId).ToArray()
+				})
+
+			   .FirstOrDefault();
+
+			return res;
+		}
+
+		public int Update<TProperty>(FlashCard ent, Expression<Func<FlashCard, TProperty>> propSelector)
+		{
+			return tool.Update(ent, propSelector);
 		}
 	}
 }

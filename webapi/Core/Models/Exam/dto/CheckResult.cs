@@ -3,6 +3,6 @@
     public class CheckResult
     {
         public bool isCorrect { get; set; }
-        public string[]? correctStrings { get; set; }
+        public string? correctString { get; set; }
     }
 }

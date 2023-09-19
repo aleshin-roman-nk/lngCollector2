@@ -56,6 +56,10 @@ builder.Services.AddScoped<ThExpressionService>();
 builder.Services.AddScoped<ILanguageRepo, LanguageRepo>();
 builder.Services.AddScoped<LanguagesService>();
 
+builder.Services.AddScoped<IBoxCellRepo, BoxCellRepo>();
+
+builder.Services.AddScoped<IFlashCardRepo, FlashCardRepo>();
+
 builder.Services.AddScoped<SRBoxService>();
 
 
