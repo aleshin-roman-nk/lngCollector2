@@ -115,7 +115,7 @@ namespace ThoughtzLand.Core.Services
 
 					card.rightSolutionScores += 1;
 
-					fcrepo.Update(card, x => x.rightSolutionScores);
+					fcrepo.UpdateProperties(card, x => x.rightSolutionScores);
 
 					bool passed = false;
 					putToNext(card, out passed); // отработать случай, когда карта вышла из последней ячейки.
@@ -162,15 +162,14 @@ namespace ThoughtzLand.Core.Services
 
 			if (currentCell != null)
 			{
-				var nextCell = cells.FirstOrDefault(x => x.cellName + 1 == currentCell.cellName);
+				var nextCell = cells.FirstOrDefault(x => x.cellName == currentCell.cellName + 1);
 
 				if(nextCell != null)
 				{
 					card.boxCellNo = nextCell.cellName;
 					card.NextExamDate = card.NextExamDate.AddMinutes(currentCell.nextIntervalInMinutes);
 
-					fcrepo.Update(card, x => x.boxCellNo);
-					fcrepo.Update(card, x => x.NextExamDate);
+					fcrepo.UpdateProperties(card, x => x.boxCellNo, x => x.NextExamDate);
 				}
 				else
 				{
@@ -178,8 +177,7 @@ namespace ThoughtzLand.Core.Services
 					card.boxCellNo = 0;
 					card.passed = true;
 
-					fcrepo.Update(card, x => x.passed);
-					fcrepo.Update(card, x => x.boxCellNo);
+					fcrepo.UpdateProperties(card, x => x.passed, x => x.boxCellNo);
 				}
 			}
 		}
@@ -189,10 +187,11 @@ namespace ThoughtzLand.Core.Services
 			var cell = cbrepo.GetFirstCell();
 
 			card.boxCellNo = cell.cellName;
-			card.NextExamDate = card.NextExamDate.AddMinutes(30);
+			//card.NextExamDate = card.NextExamDate.AddMinutes(30);
 
-			fcrepo.Update(card, x => x.boxCellNo);
-			fcrepo.Update(card, x => x.NextExamDate);
+			//fcrepo.UpdateProperties(card, x => x.boxCellNo, x => x.NextExamDate);
+			fcrepo.UpdateProperty(card, x => x.boxCellNo);
+			//fcrepo.UpdateProperty(card, x => x.NextExamDate);
 		}
 	}
 }

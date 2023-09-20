@@ -11,6 +11,7 @@ namespace ThoughtzLand.Core.Repos.Common
     public interface IDtoPropertyUpdater<TEntity>
 		where TEntity : class, IDbEntity
     {
-		int Update<TProperty>(TEntity ent, Expression<Func<TEntity, TProperty>> propSelector);
+		int UpdateProperties(TEntity ent, params Expression<Func<TEntity, object>>[] propSelectors);
+		int UpdateProperty<TProperty>(TEntity ent, Expression<Func<TEntity, TProperty>> propSelector);
 	}
 }

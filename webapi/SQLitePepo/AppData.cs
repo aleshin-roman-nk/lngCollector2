@@ -14,7 +14,7 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 			//optionsBuilder.EnableSensitiveDataLogging();
-            optionsBuilder.LogTo(x => Console.WriteLine(x));
+            //optionsBuilder.LogTo(x => Console.WriteLine(x));
 		}
 
 

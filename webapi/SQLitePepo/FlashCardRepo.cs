@@ -156,9 +156,14 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 			return res;
 		}
 
-		public int Update<TProperty>(FlashCard ent, Expression<Func<FlashCard, TProperty>> propSelector)
+		public int UpdateProperties(FlashCard ent, params Expression<Func<FlashCard, object>>[] propSelectors)
 		{
-			return tool.Update(ent, propSelector);
+			return tool.UpdateProperties(ent, propSelectors);
+		}
+
+		public int UpdateProperty<TProperty>(FlashCard ent, Expression<Func<FlashCard, TProperty>> propSelector)
+		{
+			return tool.UpdateProperty(ent, propSelector);
 		}
 	}
 }
