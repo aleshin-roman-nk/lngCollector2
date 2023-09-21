@@ -320,3 +320,7 @@ d:\prg\lngCollector2\webapi\appLngApi\bin\Debug\net6.0\Humanizer.dll
 d:\prg\lngCollector2\webapi\appLngApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 d:\prg\lngCollector2\webapi\appLngApi\bin\Debug\net6.0\Mono.TextTemplating.dll
 d:\prg\lngCollector2\webapi\appLngApi\bin\Debug\net6.0\System.CodeDom.dll
+D:\prg\lngCollectorV2\webapi\appLngApi\bin\Debug\net6.0\Humanizer.dll
+D:\prg\lngCollectorV2\webapi\appLngApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\prg\lngCollectorV2\webapi\appLngApi\bin\Debug\net6.0\Mono.TextTemplating.dll
+D:\prg\lngCollectorV2\webapi\appLngApi\bin\Debug\net6.0\System.CodeDom.dll
