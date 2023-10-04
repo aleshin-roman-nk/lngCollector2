@@ -39,6 +39,11 @@ namespace ThoughtzLand.Core.Services
 			}
 		}
 
+		/// <summary>
+		/// Create a card for an expression
+		/// </summary>
+		/// <param name="expressionId">Expression id</param>
+		/// <returns></returns>
 		public OperationResult<FlashCard> CreateCard(int expressionId)
 		{
 			ThExpression expr;

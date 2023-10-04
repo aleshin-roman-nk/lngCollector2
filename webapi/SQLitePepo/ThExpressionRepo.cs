@@ -70,7 +70,7 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 
             //return sc > 0;
 
-            throw new NotImplementedException();
+            return false;
         }
     }
 }

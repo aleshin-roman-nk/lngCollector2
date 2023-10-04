@@ -15,4 +15,8 @@ export class QuestionWorkPageComponent {
       this.nodeId = params['id']
     })
   }
+
+  goCardDlg(){
+    console.log("goCardDlg")
+  }
 }

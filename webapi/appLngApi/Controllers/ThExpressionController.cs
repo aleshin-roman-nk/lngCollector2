@@ -42,8 +42,10 @@ namespace ThoughtzLand.Api.Controllers
             var opres = srv.Add(value);
 
             // Плохо
+            // Сделаеи контроллер для ящика
+            // пусть пока так, но сделать документацию всего api в формате тинькова
             if (opres.Success)
-                srbSrv.CreateCard(opres.Content.thoughtId);
+                srbSrv.CreateCard(opres.Content.id);
 
 			return processResult(opres.Success, opres);
         }

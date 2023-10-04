@@ -12,7 +12,7 @@ import { ModalComponent } from './Presentation/comps-tools/modal/modal.component
 import { EditTerrainComponent } from './Presentation/comps-edit/edit-terrain/edit-terrain.component';
 import { LoadingAnimComponent } from './Presentation/comps-tools/loading-anim/loading-anim.component';
 import { NodeComponent } from './Presentation/comps-ent/node/node.component';
-import { PlayquestComponent } from './Presentation/comps-play/playquest/playquest.component';
+import { FlashCardComponent } from './Presentation/comps-play/playquest/flash-card.component';
 import { NodeDetailPageComponent } from './Presentation/pages/node-detail-page/node-detail-page.component';
 import { ThoughtComponent } from './Presentation/comps-ent/thought/thought.component';
 import { EditThoughtComponent } from './Presentation/comps-edit/edit-thought/edit-thought.component';
@@ -23,6 +23,7 @@ import { ElementFocusedDirective } from './Presentation/directives/element-focus
 import { TextInputComponent } from './Presentation/comps-tools/text-input-inline/text-input-inline.component';
 import { TextInputOnpageComponent } from './Presentation/comps-tools/text-input-onpage/text-input-onpage.component';
 import { QuestionWorkPageComponent } from './Presentation/pages/question-work-page/question-work-page.component';
+import { CardInputComponent } from './Presentation/comps-play/card-input/card-input.component';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { QuestionWorkPageComponent } from './Presentation/pages/question-work-pa
     EditTerrainComponent,
     LoadingAnimComponent,
     NodeComponent,
-    PlayquestComponent,
+    FlashCardComponent,
     NodeDetailPageComponent,
     ThoughtComponent,
     EditThoughtComponent,
@@ -45,7 +46,8 @@ import { QuestionWorkPageComponent } from './Presentation/pages/question-work-pa
     ElementFocusedDirective,
     TextInputComponent,
     TextInputOnpageComponent,
-    QuestionWorkPageComponent
+    QuestionWorkPageComponent,
+    CardInputComponent
   ],
   imports: [
     BrowserModule,
