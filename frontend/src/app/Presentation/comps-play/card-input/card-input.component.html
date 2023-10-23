@@ -1,5 +1,8 @@
-<app-modal>
-    <p>Enter in [TUR]</p>
-    <p>Коты не умеют летать</p>
-    <textarea rows="1" class="w-full mt-2 p-2 rounded-md bg-stone-100 border border-gray-300">Input Text</textarea>
+<app-modal *ngIf="isShown">
+    <p>Enter in [{{ card.answerLng }}]</p>
+    <p>{{ card.question }}</p>
+    <textarea [(ngModel)] = "answer" rows="1" class="w-full mt-2 p-2 rounded-md bg-stone-100 border border-gray-300" placeholder="Your solution" appElementFocused></textarea>
+    <button class="border border-stone-700 rounded-md p-1" (click)="accept()">Accept</button>
+    <button class="border border-stone-700 rounded-md p-1 ml-2" (click)="isShown = false">Cancel</button>
+    <button class="border border-orange-500 bg-orange-200 rounded-md p-1 ml-4" (click)="isShown = false">Help</button>
 </app-modal>

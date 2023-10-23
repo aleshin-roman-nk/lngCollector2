@@ -12,7 +12,7 @@ import { ModalComponent } from './Presentation/comps-tools/modal/modal.component
 import { EditTerrainComponent } from './Presentation/comps-edit/edit-terrain/edit-terrain.component';
 import { LoadingAnimComponent } from './Presentation/comps-tools/loading-anim/loading-anim.component';
 import { NodeComponent } from './Presentation/comps-ent/node/node.component';
-import { FlashCardComponent } from './Presentation/comps-play/playquest/flash-card.component';
+import { FlashCardComponent } from './Presentation/comps-play/flash-card/flash-card.component';
 import { NodeDetailPageComponent } from './Presentation/pages/node-detail-page/node-detail-page.component';
 import { ThoughtComponent } from './Presentation/comps-ent/thought/thought.component';
 import { EditThoughtComponent } from './Presentation/comps-edit/edit-thought/edit-thought.component';

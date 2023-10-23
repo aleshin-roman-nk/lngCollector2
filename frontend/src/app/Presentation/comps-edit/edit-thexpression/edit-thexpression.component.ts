@@ -112,7 +112,7 @@ export class EditThexpressionComponent {
     this.isShown = false
   }
 
-  submitStringProperty(){
+/*   submitStringProperty(){
 
-  }
+  } */
 }

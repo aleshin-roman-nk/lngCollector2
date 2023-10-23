@@ -3,14 +3,8 @@
 
 <!-- Блок первоначальной настройки языков упражнения. Выбрав языки этот объект скрывается, формируется набор вопросов и начинается упражнение -->
 <div class="flex">
-    <app-flash-card (click)="goCardDlg()"></app-flash-card>
-    <app-flash-card></app-flash-card>
-    <app-flash-card></app-flash-card>
-    <app-flash-card></app-flash-card>
-    <app-flash-card></app-flash-card>
-    <app-flash-card></app-flash-card>
+    <app-flash-card *ngFor="let card of cards" [card]="card" (click)="goCardDlg(card)"></app-flash-card>
 </div>
 
-<app-card-input>
-    
+<app-card-input #inputCardDlg>
 </app-card-input>

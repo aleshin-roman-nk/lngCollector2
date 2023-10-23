@@ -44,8 +44,11 @@ namespace ThoughtzLand.Core.Services
 		/// </summary>
 		/// <param name="expressionId">Expression id</param>
 		/// <returns></returns>
-		public OperationResult<FlashCard> CreateCard(int expressionId)
+		public OperationResult<FlashCard> CreateCard(FlashCard card)
 		{
+			// карта уже сконструирована клиентом
+			// здесь только доп верификация, можно
+
 			ThExpression expr;
 
 			try

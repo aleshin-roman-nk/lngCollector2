@@ -31,13 +31,18 @@ namespace ThoughtzLand.Core.Models.Exam
 	 * 
 	 * 10-09-2023
 	 * 
+	 * 15-10-2023
+	 * Принято решение тестировать выражение, которое идет в вопросе
+	 * Карта конструируется вручную добавлением вариантов правильных ответов
+	 * 
+	 * 
 	 * 
 	 */
 	public class FlashCard: IDbEntity
 	{
 		public int id { get; set; }
-		public ThExpression? expressionUnderTest { get; set; }
-		public IEnumerable<ThExpression> questions { get; set; }
+		public ThExpression? question { get; set; }
+		public IEnumerable<FlashCardAnswer> answers { get; set; }
 		public int boxCellNo { get; set; }
 		public bool passed { get; set; }
 		public DateTime NextExamDate { get; set; }
