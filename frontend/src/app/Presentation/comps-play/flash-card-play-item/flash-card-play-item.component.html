@@ -1,0 +1,32 @@
+<div [class.opacity-50]="isDisabled" [class.pointer-events-none]="isDisabled"
+ (click)="onClichForPlay()" class="border-2 m-2 rounded-md
+shadow-md shadow-blue-800 cursor-pointer w-96 h-40"
+
+[ngClass]="{
+  'bg-green-400 border-green-600': card.level === 1,
+  'bg-purple-400 border-purple-600': card.level === 2,
+  'bg-orange-400 border-orange-600': card.level === 3,
+  'bg-cyan-400 border-cyan-600': card.level === 4
+  }">
+
+  <!-- title info section -->
+  <div class="border-b border-stone-400 h-6 flex items-center justify-between">
+    <div class="ml-1 text-xs">T: {{card.totalHits}}</div>
+    <!--     <div class="ml-2">{{card.requiredHits}}</div>
+      <div class="ml-2">{{card.hitsInRow}}</div> -->
+
+    <div class="flex flex-wrap ml-1 mr-1">
+      <div *ngFor="let i of card.requiredHits! | fill; let index = index"
+        class="w-2 h-2 mt-1 ml-1 rounded-full border border-stone-600"
+        [ngClass]="{'bg-green-800': index + 1 <= card.hitsInRow!}">
+      </div>
+    </div>
+
+    <div class="pr-2 font-bold">{{card.level}}</div>
+
+
+  </div>
+
+  <p *ngIf="timeLeft" class="pt-2 pl-2">{{timeLeft}}</p>
+  <p class="text-gray-700 text-xl p-2">{{ card.question }}</p>
+</div>

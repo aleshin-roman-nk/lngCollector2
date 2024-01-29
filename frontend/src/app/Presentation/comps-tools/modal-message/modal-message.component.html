@@ -1,0 +1,7 @@
+<app-modal *ngIf="isShown">
+  <div class="bg-stone-100 shadow-lg rounded border border-stone-600 p-2">
+    <h2 *ngIf="title" class="text-2xl font-bold text-gray-800 mb-4 text-center">{{title | titlecase}}</h2>
+    <p>{{message}}</p>
+    <button class="border border-stone-700 rounded-md p-1 mt-2" (click)="isShown = false">Close</button>
+  </div>
+</app-modal>

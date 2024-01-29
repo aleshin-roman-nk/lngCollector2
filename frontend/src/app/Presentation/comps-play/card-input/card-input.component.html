@@ -1,8 +1,24 @@
 <app-modal *ngIf="isShown">
-    <p>Enter in [{{ card.answerLng }}]</p>
+
+  <div *ngIf="isShown">
     <p>{{ card.question }}</p>
-    <textarea [(ngModel)] = "answer" rows="1" class="w-full mt-2 p-2 rounded-md bg-stone-100 border border-gray-300" placeholder="Your solution" appElementFocused></textarea>
-    <button class="border border-stone-700 rounded-md p-1" (click)="accept()">Accept</button>
-    <button class="border border-stone-700 rounded-md p-1 ml-2" (click)="isShown = false">Cancel</button>
-    <button class="border border-orange-500 bg-orange-200 rounded-md p-1 ml-4" (click)="isShown = false">Help</button>
+    <textarea [(ngModel)]="answer" rows="1" [disabled]="helpShown"
+      class="w-full mt-2 p-2 rounded-md bg-stone-100 border border-gray-300" placeholder="Your solution"
+      appElementFocused></textarea>
+
+    <div *ngIf="helpShown">
+      Ответы:
+      <div *ngFor="let ans of card.answers" class="mt-2 bg-lime-400 shadow-md rounded-md p-2">
+        {{ans.text}}
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <button class="border border-stone-700 rounded-md p-1" (click)="accept()">Accept</button>
+      <button *ngIf="!helpShown" class="border border-stone-700 rounded-md p-1 ml-2"
+        (click)="isShown = false">Cancel</button>
+      <button class="border border-orange-500 bg-orange-200 rounded-md p-1 ml-4" (click)="btnHelp()">Give up</button>
+    </div>
+  </div>
+
 </app-modal>

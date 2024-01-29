@@ -7,23 +7,32 @@ import { IFlashCard } from 'src/app/Core/Models/flash-card';
   styleUrls: ['./card-input.component.css']
 })
 export class CardInputComponent {
-  
+
   answer: string
-  
+
   card: IFlashCard
 
   isShown: boolean = false
 
-  finished: EventEmitter<{ answer: string, cardId: number, needHelp: boolean }> = new EventEmitter<{ answer: string, cardId: number, needHelp: boolean }>()
+  helpShown: boolean = false
+
+  finished: EventEmitter<{ answer: string, cardId: number, helpIsShown: boolean }>
+    = new EventEmitter<{ answer: string, cardId: number, helpIsShown: boolean }>()
 
   openDialog(c: IFlashCard) {
     this.card = c
     this.answer = ""
     this.isShown = true
+    this.helpShown = false
   }
 
-  accept(){
+  btnHelp() {
+    this.helpShown = true
+  }
+
+  accept() {
     this.isShown = false
+    this.finished.emit({ answer: this.answer, cardId: this.card.id, helpIsShown: this.helpShown })
   }
 
 }

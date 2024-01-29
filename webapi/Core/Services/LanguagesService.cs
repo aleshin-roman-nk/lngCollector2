@@ -18,43 +18,19 @@ namespace ThoughtzLand.Core.Services
 		{
 			this.repo = r;
 		}
-		public OperationResult<IEnumerable<Language>?> GetAll()
+		public IEnumerable<Language> GetAll()
 		{
-			try
-			{
-				var res = repo.GetAll();
-				return new OperationResult<IEnumerable<Language>?>(true, "success", res);
-			}
-			catch (Exception e)
-			{
-				return new OperationResult<IEnumerable<Language>?>(false, e.Message, null);
-			}
+			return repo.GetAll();
 		}
 
-		public OperationResult<Language?> Create(Language language)
+		public Language Create(Language language)
 		{
-			try
-			{
-				var res = repo.Create(language);
-				return new OperationResult<Language?>(true, "success", res);
-			}
-			catch (Exception e)
-			{
-				return new OperationResult<Language?>(false, e.Message, null);
-			}
+			return repo.Create(language);
 		}
 
-		public OperationResult<Language?> Update(Language lng)
+		public Language Update(Language lng)
 		{
-			try
-			{
-				var res = repo.Update(lng);
-				return new OperationResult<Language?>(true, "success", res);
-			}
-			catch (Exception e)
-			{
-				return new OperationResult<Language?>(false, e.Message, null);
-			}
+			return repo.Update(lng);
 		}
 	}
 }

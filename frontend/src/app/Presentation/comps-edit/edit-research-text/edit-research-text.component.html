@@ -1,0 +1,9 @@
+<app-modal *ngIf="isShown">
+  <div class="border border-stone-600 p-1 w-[700px]">
+    <textarea [(ngModel)]="researchText.text" rows="5"
+      class="w-full mt-2 p-2 rounded-md bg-stone-100 border border-stone-400">Input Text</textarea>
+  </div>
+  <button class="border border-stone-700 rounded-md p-1 mt-2" (click)="__accept()">Accept</button>
+  <button *ngIf="researchText.id > 0" class="border border-stone-700 rounded-md p-1 mt-2 ml-2" (click)="__delete()">Delete</button>
+  <button class="border border-stone-700 rounded-md p-1 mt-2 ml-2" (click)="isShown = false">Close</button>
+</app-modal>

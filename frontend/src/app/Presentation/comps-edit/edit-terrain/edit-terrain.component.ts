@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ModalService } from 'src/app/Presentation/services/modal.service';
 import { NodeService } from 'src/app/Core/services/node.service';
 import { TerriansService } from 'src/app/Core/services/terrians.service';
+import { ITerrain } from 'src/app/Core/Models/terrain';
+import { AuthService } from 'src/app/Core/services/auth.service';
 
 @Component({
   selector: 'app-edit-terrain',
@@ -13,8 +14,14 @@ export class EditTerrainComponent {
 
   submitted: boolean = false
 
-  constructor(private modalService: ModalService,
-    public terrSrv: TerriansService) {
+  isShown: boolean = false
+
+  @Output() finished = new EventEmitter<ITerrain>()
+
+  constructor(
+    private terrSrv: TerriansService,
+    private userSrv: AuthService
+    ) {
 
   }
 
@@ -32,18 +39,30 @@ export class EditTerrainComponent {
     this.submitted = true
     if (this.creatingForm.valid) {
 
-      this.terrSrv.create({
+      this.terrSrv
+      .create({
         name: this.creatingForm.value.terrainName as string,
-        description: this.creatingForm.value.terrainDescription as string
-      }).subscribe(() => {
-        this.modalService.close()
-      })
+        description: this.creatingForm.value.terrainDescription as string,
+        userId: parseInt(this.userSrv.currentUser!.Id)})
+        .subscribe({
+          next: (resp) => {
+            this.finished.emit(resp)
+            this.isShown = false
+          },
+          error: (error) => {
+// doing nothing
+          }
+        })
     }
 
   }
 
   close() {
-    this.modalService.close()
+    this.isShown = false
+  }
+
+  openCreateDialog(){
+    this.isShown = true
   }
 
 }

@@ -1,3 +1,40 @@
+<div class=" bg-slate-400 p-1">
+  {{authUser?.Email}}
+
+  <div *ngIf="!authUser" class="flex">
+    <div>
+      Email:
+      <input [(ngModel)]="user.Email" placeholder="Name" class="bg-stone-400 border border-stone-700 m-2">
+    </div>
+    <div>
+      Password:
+      <input [(ngModel)]="user.Password" placeholder="Password" type="password" class="bg-stone-400 border border-stone-700 m-2">
+    </div>
+  </div>
+
+  <button *ngIf="!authUser" (click)="register(user)" class="bg-stone-400 border border-stone-700 p-1">Register</button>
+  <button *ngIf="!authUser" (click)="login(user)" class="bg-stone-400 border border-stone-700 ml-2 p-1">Login</button>
+
+  <button *ngIf="authUser" (click)="logout()" class="bg-stone-400 border border-stone-700 ml-2 p-1">Logout</button>
+
+</div>
+
+<div *ngIf="!authUser" class="font-sans bg-gray-100 text-gray-800 m-5">
+
+  <!-- Call to Action -->
+  <div class="bg-blue-600 text-white text-center p-8 mt-8">
+      <h2 class="text-2xl font-bold">Start Your Language Journey Today!</h2>
+      <p class="mt-4">Join our community and start learning now</p>
+  </div>
+
+</div>
 
 
 <router-outlet></router-outlet>
+
+  <!-- Footer -->
+<footer class="bg-white text-center p-4 shadow mt-8">
+    © 2024 FlashLang. All rights reserved.
+</footer>
+
+<app-global-error></app-global-error>

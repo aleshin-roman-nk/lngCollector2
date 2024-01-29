@@ -4,83 +4,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ThoughtzLand.Core.Models.Location;
-using ThoughtzLand.Core.Models.Thoughts;
+using ThoughtzLand.Core.Models.Location.dto;
 using ThoughtzLand.Core.Repos;
 
 namespace ThoughtzLand.Core.Services
 {
-    public class TerrainService
-    {
-        private readonly ITerrainRepo _repo;
+	public class TerrainService
+	{
+		private readonly ITerrainRepo _repo;
 
-        public TerrainService(ITerrainRepo r) 
-        {
-            this._repo = r;
-        }
+		public TerrainService(ITerrainRepo r) 
+		{
+			this._repo = r;
+		}
 
-        public OperationResult<IEnumerable<Terrain>?> GetAll()
-        {
-            try
-            {
-                var res = _repo.GetAll();
-                return new OperationResult<IEnumerable<Terrain>?>(true, "success", res);
-            }
-            catch (Exception e)
-            {
-                return new OperationResult<IEnumerable<Terrain>?>(false, e.Message, null);
-            }
-        }
+		public IEnumerable<Terrain> GetAll()
+		{
+			return _repo.GetAll();
+		}
 
-        public OperationResult<Terrain?> GetById(int id)
-        {
-            try
-            {
-                var res = _repo.GetById(id);
-                return new OperationResult<Terrain?>(true, "success", res);
-            }
-            catch (Exception e)
-            {
-                return new OperationResult<Terrain?>(false, e.Message, null);
-            }
-        }
+		public Terrain Get(int id)
+		{
+			return _repo.Get(id);
+		}
 
-        public OperationResult<Terrain?> Create(Terrain entity)
-        {
-            try
-            {
-                var res = _repo.Create(entity);
-                return new OperationResult<Terrain?>(true, "success", res);
-            }
-            catch (Exception e)
-            {
-                return new OperationResult<Terrain?>(false, e.Message, null);
-            }
-        }
+		public Terrain Create(CreateTerrainDto entity)
+		{
+			return _repo.Create(entity);
+		}
 
-        public OperationResult<Terrain?> Update(Terrain entity)
-        {
-            try
-            {
-                var res = _repo.Update(entity);
-                return new OperationResult<Terrain?>(true, "success", res);
-            }
-            catch (Exception e)
-            {
-                return new OperationResult<Terrain?>(false, e.Message, null);
-            }
-        }
+		public void UpdateProperty(int entityId, string propertyName, object propertyValue)
+		{
+			_repo.UpdateProperty(entityId, propertyName, propertyValue);
+		}
 
-        public OperationResult Remove(int entId)
-        {
-            try
-            {
-                _repo.Remove(entId);
-                return new OperationResult(true, "success");
-            }
-            catch (Exception e)
-            {
-                return new OperationResult(false, e.Message);
-            }
-        }
-    }
+		public void Remove(int entId)
+		{
+			_repo.Remove(entId);
+		}
+
+		public void Update(UpdateTerrainDto dto)
+		{
+			_repo.Update(dto);
+		}
+	}
 }

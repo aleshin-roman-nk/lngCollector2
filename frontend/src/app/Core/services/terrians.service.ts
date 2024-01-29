@@ -1,58 +1,69 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, catchError, delay, Observable, tap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, delay, first, Observable, tap, throwError } from 'rxjs';
 import { environment } from 'src/environment';
-import { ITerrain } from '../Models/terrain';
-import { ApiResponseWithContent } from '../Models/response';
+import { ITerrain, ITerrainUpdateDto } from '../Models/terrain';
+import { ErrorHandlerService } from 'src/app/Core/services/error-handler.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TerriansService {
 
-  constructor(private http: HttpClient) { }
-
-  //items: ITerrain[] = []
-  //items$: BehaviorSubject<ITerrain[]> = new BehaviorSubject<ITerrain[]>([])
+  constructor(
+    private http: HttpClient,
+    private errorService: ErrorHandlerService
+    ) { }
 
   private instance: number = 0;
   getNextInstanceNumber(): number{
     return this.instance++;
   }
 
-  getAll(): Observable<ApiResponseWithContent<ITerrain[]>> {
-    return this.http.get<ApiResponseWithContent<ITerrain[]>>(`${environment.apiUrl}/terrain`)
-/*       .pipe(
-        delay(50),
-        tap(resp => {
-          this.items$.next(resp.Data)
-          console.log(resp)
-        }),
-        catchError(this.errorHandler.bind(this))
-      ) */
-  }
-
-  getOne(id: number): Observable<ApiResponseWithContent<ITerrain>> {
+  getAll(): Observable<ITerrain[]> {
     return this.http
-      .get<ApiResponseWithContent<ITerrain>>(`${environment.apiUrl}/terrain/${id}`)
+    .get<ITerrain[]>(`${environment.apiUrl}/terrain`)
+    .pipe(
+      delay(10),
+      first(),
+      catchError(error => this.errorService.httpErrorHandle(error))
+    )
   }
 
-  create(terr: ITerrain): Observable<ApiResponseWithContent<ITerrain>> {
-    return this.http.post<ApiResponseWithContent<ITerrain>>(`${environment.apiUrl}/terrain`, terr)
-/*       .pipe(
-        tap(resp => {
-          const a = [...this.items$.value] 
-          a.push(resp)
-        })
-      ) */
+  getOne(id: number): Observable<ITerrain> {
+    return this.http
+      .get<ITerrain>(`${environment.apiUrl}/terrain/${id}`)
+      .pipe(
+        first(),
+        catchError(error => this.errorService.httpErrorHandle(error))
+      )
   }
 
-  delete(tid: number): Observable<Response> {
-    return this.http.delete<Response>(`${environment.apiUrl}/terrain/${tid}`)
+  create(terr: ITerrain): Observable<ITerrain> {
+    return this.http
+    .post<ITerrain>(`${environment.apiUrl}/terrain`, terr)
+    .pipe(
+      first(),
+      catchError(error => this.errorService.httpErrorHandle(error))
+    )
   }
 
-  private errorHandler(error: HttpErrorResponse) {
-    console.log(error.message)
-    return throwError(() => error.message)
+  delete(tid: number): Observable<void> {
+    return this.http
+    .delete<void>(`${environment.apiUrl}/terrain/${tid}`)
+    .pipe(
+      first(),
+      catchError(error => this.errorService.httpErrorHandle(error))
+    )
+  }
+
+  update(terr: ITerrainUpdateDto): Observable<void>{
+    console.log("update(terr: ITerrainUpdateDto)")
+    return this.http
+    .put<void>(`${environment.apiUrl}/terrain`, terr)
+    .pipe(
+      first(),
+      catchError(error => this.errorService.httpErrorHandle(error))
+    )
   }
 }

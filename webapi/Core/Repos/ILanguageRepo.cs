@@ -8,7 +8,10 @@ using ThoughtzLand.Core.Repos.Common;
 
 namespace ThoughtzLand.Core.Repos
 {
-	public interface ILanguageRepo: IRepository<Language>
+	public interface ILanguageRepo: 
+		IRepoCreator<Language>, 
+		IRepoGetterAll<Language>, 
+		IRepoEntityUpdater<Language>
 	{
 	}
 }

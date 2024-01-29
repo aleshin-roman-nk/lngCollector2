@@ -1,17 +1,19 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ThoughtzLand.Core.Models.Exam.dto;
-using ThoughtzLand.Core.Services;
+using ThoughtzLand.Core.Services.FlashCards;
 
 namespace ThoughtzLand.Api.Controllers
 {
-    [Route("api/exam")]
+    [Route("api/flashcard")]
     [ApiController]
+    [Authorize]
     public class ExamController : ControllerBase
     {
-        private readonly SRBoxService srv;
+        private readonly FlashCardExamService srv;
 
-        public ExamController(SRBoxService s)
+        public ExamController(FlashCardExamService s)
         {
             this.srv = s;
         }
@@ -19,9 +21,7 @@ namespace ThoughtzLand.Api.Controllers
         [HttpPost("check")]
         public IActionResult Check(CardSolution p)
         {
-            var opres = srv.Check(p);
-
-            return processResult(opres.Success, opres);
+            return Ok(srv.Check(p));
         }
 
         //[HttpGet("questions")]
@@ -37,28 +37,20 @@ namespace ThoughtzLand.Api.Controllers
         //    }
         //}
 
-        [HttpGet("node/{id}/cards")]
-        public IActionResult GetCards(int id, DateTime d)
-        {
-            var opres = srv.GetCards(id, d);
+  //      [HttpGet("node/{id}/cards")]
+  //      public IActionResult GetCards(int id, DateTime d)
+  //      {
+  //          var opres = srv.GetCards(id, d);
 
-			return processResult(opres.Success, opres);
-		}
+		//	return processResult(opres.Success, opres);
+		//}
 
-        [HttpGet("card/{id}")]
-        public IActionResult GetCard(int id)
-        {
-			var opres = srv.GetCard(id);
+  //      [HttpGet("card/{id}")]
+  //      public IActionResult GetCard(int id)
+  //      {
+		//	var opres = srv.GetCard(id);
 
-			return processResult(opres.Success, opres);
-		}
-
-        private IActionResult processResult(bool ok, object o)
-        {
-            if (ok)
-                return Ok(o);
-            else
-                return BadRequest(o);
-        }
+		//	return processResult(opres.Success, opres);
+		//}
     }
 }

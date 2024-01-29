@@ -2,7 +2,7 @@
 
 namespace ThoughtzLand.Core.Models.Location
 {
-    public class Terrain: IDbEntity
+    public class Terrain
     {
         public int id { get; set; }
         public string? name { get; set; }

@@ -1,16 +1,15 @@
-﻿namespace ThoughtzLand.Core.Models.Common
-{
-    public class UpdateStringPropertyDto
-    {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string value { get; set; }
-    }
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-	public class UpdateNumberPropertyDto
+namespace ThoughtzLand.Core.Models.Common
+{
+	public class UpdatePropertyDto<TType>
 	{
-		public int id { get; set; }
-		public string name { get; set; }
-		public decimal value { get; set; }
+		public int id {  get; set; }
+		public string? name { get; set; }
+		public TType? value { get; set; }
 	}
 }

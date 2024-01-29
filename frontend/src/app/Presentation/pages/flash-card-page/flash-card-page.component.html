@@ -1,0 +1,50 @@
+<app-loading-anim *ngIf="!card"></app-loading-anim>
+
+    <div *ngIf="card" class="bg-stone-200 shadow-lg rounded-lg p-4 m-4">
+
+        <button [routerLink]="['/node', card.nodeId, 'detail']"
+            class="border border-stone-600 rounded-lg mb-2 p-1">Back</button>
+        <button *ngIf="card" (click)="onSaveCard()" class="border border-stone-600 bg-green-500 rounded-lg mb-2 ml-2 p-1">
+          {{isNewCard ? "Create" : "Save"}}</button>
+<!--         <button *ngIf="card && !isNewCard" (click)="onDeleteCard()" class="border border-stone-600 bg-orange-400 rounded-lg mb-2 ml-2 p-1">Delete</button> -->
+        <p><b>{{card.language?.name}}</b></p>
+
+
+        <p class="text-red-600 font-medium mb-2" *ngIf="!selectedLng && savingTried">A language is required</p>
+        <label for="languageSelect">Language:</label>
+        <select [(ngModel)]="selectedLng" name="languageSelect" id="languageSelect"
+        class="ml-4 border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-stone-500">
+          <option *ngFor="let language of langs" [ngValue]="language">
+            {{ language.name }}
+          </option>
+        </select>
+
+        <p class="text-red-600 font-medium mb-2" *ngIf="checkString(card.question) && savingTried">
+          Question text is required</p>
+        <p>question</p>
+        <textarea [(ngModel)]="card.question" rows="1" class="w-full mt-2 p-2 rounded-md bg-stone-100"></textarea>
+        <p>desctiption</p>
+        <textarea [(ngModel)]="card.description" rows="1" class="w-full mt-2 p-2 rounded-md bg-stone-100"></textarea>
+
+        <div *ngIf="!isNewCard" class="bg-stone-300 rounded-lg mt-2">
+
+            <div class="flex justify-between bg-stone-400 rounded-t-lg">
+                <div class="m-1">card answers</div>
+                <button class="border border-stone-600 bg-stone-400
+             text-stone-600 hover:bg-stone-500
+              p-1 mt-2 rounded-full hover:text-stone-300 w-8 h-8 m-1"
+                    (click)="goCreateFlashCardAnswer()">+</button>
+            </div>
+
+            <p class="p-1 hover:border border-stone-700 cursor-pointer"
+                *ngFor="let answer of card.answers"
+                (click)="goEditFlashCardAnswer(answer)">{{ answer.text }}</p>
+        </div>
+
+    </div>
+
+<app-modal-message #modalMessage></app-modal-message>
+
+<app-edit-flash-card-answer-modal [languages]="langs"
+#editFlashCardAnswer>
+</app-edit-flash-card-answer-modal>

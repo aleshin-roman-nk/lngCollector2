@@ -6,3 +6,9 @@ export interface INode {
   x: number
   y: number
 }
+
+export interface INodeNameAndDescriptionUpdateDto {
+  id: number
+  name: string
+  description: string
+}

@@ -5,18 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ThoughtzLand.Core.Models.Common;
-using ThoughtzLand.Core.Models.Thoughts;
 
 namespace ThoughtzLand.ImplementRepo.SQLitePepo.Entities
 {
-	public class FlashCardDb: IDbEntity
+	[Table("FlashCards")]
+	public class FlashCardDb
 	{
 		public int id { get; set; }
-		[ForeignKey("expression")]
-		public int expressionId { get; set; }
-		public int boxCellNo { get; set; }
-		public bool passed { get; set; }
-		public DateTime NextExamDate { get; set; }
-		public int rightSolutionScores { get; set; }
+		public int nodeId { get; set; }
+		public string? question { get; set; }
+		public string? description { get; set; }
+		public DateTime nextExamDate { get; set; }
+		public ICollection<FlashCardAnswerDb> answers { get; set; } = new List<FlashCardAnswerDb>();
+		public int languageId { get; set; }
+		public Language? language { get; set; }
+		public int hitsInRow { get; set; }
+		public int requiredHits { get; set; }
+		public int totalHits { get; set; }
+		public int level { get; set; }
 	}
 }

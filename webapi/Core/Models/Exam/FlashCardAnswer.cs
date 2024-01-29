@@ -7,11 +7,11 @@ using ThoughtzLand.Core.Models.Common;
 
 namespace ThoughtzLand.Core.Models.Exam
 {
-	public class FlashCardAnswer : IDbEntity
+	public class FlashCardAnswer
 	{
 		public int id { get; set; }
 		public int cardId { get; set; }
 		public string? text { get; set; }
-		public Language Language { get; set; }
+		public Language? language { get; set; }
 	}
 }

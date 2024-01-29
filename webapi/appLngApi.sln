@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQLitePepo", "SQLitePepo\SQLitePepo.csproj", "{A38E8451-3CEA-4CA3-8837-D4E49D88BCB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserRegistry", "UserRegistry\UserRegistry.csproj", "{05C17EE6-4D32-4DD9-B558-946A94CE8882}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A38E8451-3CEA-4CA3-8837-D4E49D88BCB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A38E8451-3CEA-4CA3-8837-D4E49D88BCB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A38E8451-3CEA-4CA3-8837-D4E49D88BCB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05C17EE6-4D32-4DD9-B558-946A94CE8882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05C17EE6-4D32-4DD9-B558-946A94CE8882}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05C17EE6-4D32-4DD9-B558-946A94CE8882}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05C17EE6-4D32-4DD9-B558-946A94CE8882}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

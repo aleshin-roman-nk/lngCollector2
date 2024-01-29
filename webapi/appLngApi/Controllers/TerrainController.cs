@@ -1,77 +1,70 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ThoughtzLand.Core.Models.Common;
 using ThoughtzLand.Core.Models.Location;
+using ThoughtzLand.Core.Models.Location.dto;
 using ThoughtzLand.Core.Services;
 
 namespace ThoughtzLand.Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class TerrainController : ControllerBase
-    {
-        private readonly TerrainService terrainSrv;
-        private readonly NodeService nodeSrv;
+	[Route("api/[controller]")]
+	[ApiController]
+	[Authorize]
+	public class TerrainController : ControllerBase
+	{
+		private readonly TerrainService terrainSrv;
+		private readonly NodeService nodeSrv;
 
-        public TerrainController(TerrainService terrainSrv, NodeService nodeSrv)
-        {
-            this.terrainSrv = terrainSrv;
-            this.nodeSrv = nodeSrv;
-        }
+		public TerrainController(TerrainService terrainSrv, NodeService nodeSrv)
+		{
+			this.terrainSrv = terrainSrv;
+			this.nodeSrv = nodeSrv;
+		}
 
-        [HttpGet]
-        public IActionResult Get()
-        {
-            var opres = terrainSrv.GetAll();
+		[HttpGet]
+		public IActionResult Get()
+		{
+			return Ok(terrainSrv.GetAll());
+		}
 
-            return processResult(opres.Success, opres);
-        }
+		[HttpGet("{id}")]
+		public IActionResult Get(int id)
+		{
+			return Ok(terrainSrv.Get(id));
+		}
 
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var opres = terrainSrv.GetById(id);
+		[HttpGet("{id}/nodes")]
+		public IActionResult GetNodes(int id)
+		{
+			return Ok(nodeSrv.GetByTerrainId(id));
+		}
 
-            return processResult(opres.Success, opres);
-        }
+		[HttpPost]
+		public IActionResult Post([FromBody] CreateTerrainDto t)
+		{
+			return Ok(terrainSrv.Create(t));
+		}
 
-        [HttpGet("{id}/nodes")]
-        public IActionResult GetNodes(int id)
-        {
-            var opres = nodeSrv.GetByTerrainId(id);
+		[HttpPatch("update-string")]
+		public IActionResult updateString([FromBody] UpdatePropertyDto<string> dto)
+		{
+			terrainSrv.UpdateProperty(dto.id, dto.name, dto.value);
+			return Ok();
+		}
 
-            return processResult(opres.Success, opres);
-        }
+		[HttpPut]
+		public IActionResult update([FromBody] UpdateTerrainDto dto)
+		{
+			terrainSrv.Update(dto);
+			return Ok();
+		}
 
-        [HttpPost]
-        public IActionResult Post([FromBody] Terrain t)
-        {
-            var opres = terrainSrv.Create(t);
-
-            return processResult(opres.Success, opres);
-        }
-
-        [HttpPut]
-        public IActionResult updateTerrain(Terrain ter)
-        {
-            var opres = terrainSrv.Update(ter);
-
-            return processResult(opres.Success, opres);
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            var opres = terrainSrv.Remove(id);
-
-            return processResult(opres.Success, opres);
-        }
-
-        private IActionResult processResult(bool ok, object o)
-        {
-            if (ok)
-                return Ok(o);
-            else
-                return BadRequest(o);
-        }
-    }
+		[HttpDelete("{id}")]
+		public IActionResult Delete(int id)
+		{
+			terrainSrv.Remove(id);
+			return Ok();
+		}
+	}
 }

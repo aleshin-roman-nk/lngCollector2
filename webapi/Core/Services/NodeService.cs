@@ -6,83 +6,42 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using ThoughtzLand.Core.Models.Location;
 using ThoughtzLand.Core.Models.Location.dto;
-using ThoughtzLand.Core.Models.Thoughts;
 using ThoughtzLand.Core.Repos;
 
 namespace ThoughtzLand.Core.Services
 {
-    public class NodeService
-    {
-        private readonly INodeRepo _repo;
+	public class NodeService
+	{
+		private readonly INodeRepo _repo;
 
-        public NodeService(INodeRepo r) 
-        {
-            this._repo = r;
-        }
+		public NodeService(INodeRepo r) 
+		{
+			this._repo = r;
+		}
 
-        public OperationResult<NodeDetailDto?> GetDetail(int nodeId)
-        {
-            try
-            {
-                var res = _repo.GetDetail(nodeId);
-                return new OperationResult<NodeDetailDto?>(true, "success", res);
-            }
-            catch (Exception e)
-            {
-                return new OperationResult<NodeDetailDto?>(false, e.Message, null);
-            }
-        }
+		public NodeDetailDto GetDetail(int nodeId)
+		{
+			return _repo.GetDetail(nodeId);
+		}
 
-        public OperationResult<Node?> Create(Node node)
-        {
-            try
-            {
-                var res = _repo.Create(node);
-                return new OperationResult<Node?>(true, "success", res);
-            }
-            catch (Exception e)
-            {
-                return new OperationResult<Node?>(false, e.Message, null);
-            }
-        }
+		public Node Create(Node node)
+		{
+			return _repo.Create(node);
+		}
 
-        public OperationResult<Node?> Update(Node node)
-        {
-            try
-            {
-                var res = _repo.Update(node);
-                return new OperationResult<Node?>(true, "success", res);
-            }
-            catch (Exception e)
-            {
-                return new OperationResult<Node?>(false, e.Message, null);
-            }
-        }
+		public void Update(UpdateNodeNameAndDescriptionDto node)
+		{
+			_repo.Update(node);
+		}
 
-        public OperationResult Remove(int nodeId)
-        {
-            try
-            {
-                _repo.Remove(nodeId);
-                return new OperationResult(true, "success");
-            }
-            catch (Exception e)
-            {
-                return new OperationResult(false, e.Message);
-            }
-        }
+		public void Remove(int nodeId)
+		{
+			_repo.Remove(nodeId);
+		}
 
-        public OperationResult<IEnumerable<Node>?> GetByTerrainId(int terrainId)
-        {
-            try
-            {
-                var res = _repo.GetByTerrainId(terrainId);
-                return new OperationResult<IEnumerable<Node>?>(true, "success", res);
-            }
-            catch (Exception e)
-            {
-                return new OperationResult<IEnumerable<Node>?>(false, e.Message, null);
-            }
-        }
-    }
+		public IEnumerable<Node> GetByTerrainId(int terrainId)
+		{
+			return _repo.GetByTerrainId(terrainId);
+		}
+	}
 }

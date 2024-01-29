@@ -1,0 +1,7 @@
+<app-modal *ngIf="errorService.error$ | async as error">
+  <div class="bg-orange-300 shadow-lg rounded
+    p-6 border border-orange-800">
+    <button class="absolute top-5 right-7 text-white" (click)="errorService.clear()">&times;</button>
+    {{error}}
+  </div>
+</app-modal>

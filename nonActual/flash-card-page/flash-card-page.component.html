@@ -1,0 +1,35 @@
+<div class="flex justify-center items-center min-h-screen">
+
+    <div class="bg-stone-200 shadow-lg rounded-lg min-w-[50vw] min-h-[50vh] max-w-[80vw] relative p-4">
+
+        <button *ngIf="card" [routerLink]="['/node', card.nodeId, 'detail']"
+            class="border border-stone-600 rounded-lg mb-2 p-1">Back</button>
+        <button *ngIf="card" (click)="onDeleteCard()" class="border border-stone-600 bg-orange-400 rounded-lg mb-2 ml-2 p-1">Delete</button>
+
+        <p (click)="onShowCardQuestionInput()" *ngIf="card" class="bg-stone-300 p-2 text-2xl rounded-lg grow cursor-pointer h-14">{{
+            card.question }}</p>
+        <app-text-input-inline #inputQuestion></app-text-input-inline>
+
+
+        <p (click)="onShowInputDescription()" *ngIf="card && card.description || isNewCard"
+            class="bg-stone-300 p-2 text-xs rounded-lg mt-2 cursor-pointer h-14">{{ card.description }}</p>
+        <app-text-input-inline #inputDescription></app-text-input-inline>
+
+        <div *ngIf="card" class="bg-stone-300 rounded-lg mt-2">
+
+            <div class="flex justify-between bg-stone-400 rounded-t-lg">
+                <div class="m-1">card answers</div>
+                <button class="border border-stone-600 bg-stone-400
+             text-stone-600 hover:bg-stone-500
+              p-1 mt-2 rounded-full hover:text-stone-300 w-8 h-8 m-1"
+                    (click)="openEditFlashCardAnswer(undefined)">+</button>
+            </div>
+
+            <p class="p-1 hover:border border-stone-700 cursor-pointer" *ngFor="let answer of card.answers"
+                (click)="openEditFlashCardAnswer(answer)">{{ answer.text }}</p>
+        </div>
+    </div>
+
+</div>
+
+<app-edit-flash-card-answer #editFlashCardAnswer></app-edit-flash-card-answer>

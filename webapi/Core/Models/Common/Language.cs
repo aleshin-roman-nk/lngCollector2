@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ThoughtzLand.Core.Models.Common
 {
-	public class Language : IDbEntity
+	public class Language
 	{
 		public int id { get; set; }
 		public string name { get; set; }

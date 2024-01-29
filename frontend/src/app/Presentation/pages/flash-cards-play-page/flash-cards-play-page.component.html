@@ -1,0 +1,16 @@
+<button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 m-2 rounded text-start"
+    [routerLink]="['/node', nodeId, 'detail']">Back</button>
+
+<div class="flex flex-wrap justify-around">
+    <app-flash-card-play-item *ngFor="let card of cards" [card]="card" (goPlayThisCard)="goInputCardDlg($event)">
+    </app-flash-card-play-item>
+</div>
+
+<app-loading-anim *ngIf="loading"></app-loading-anim>
+
+<app-card-input #inputCardDlg>
+</app-card-input>
+
+<app-card-check-result #checkResultDlg>
+
+</app-card-check-result>

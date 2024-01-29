@@ -1,17 +1,23 @@
-<form [formGroup]="creatingForm" (ngSubmit)="submit()">
+<app-modal *ngIf="isShown">
 
-  <p class="text-red-600 font-medium mb-2"
-    *ngIf="terrainName.errors?.['required'] && (terrainName.touched || submitted)">
-    The name is required</p>
-  <input type="text" class="border w-full py-2 px-4 mb-2" placeholder="Terrian name" formControlName="terrainName">
+  <div class="bg-stone-100 shadow-lg rounded p-6 border border-stone-600">
+    <form [formGroup]="creatingForm" (ngSubmit)="submit()">
 
-  <input type="text" class="border w-full py-2 px-4 mb-2" placeholder="Terrian description"
-    formControlName="terrainDescription">
+      <p class="text-red-600 font-medium mb-2"
+        *ngIf="terrainName.errors?.['required'] && (terrainName.touched || submitted)">
+        The name is required</p>
+      <input type="text" class="border w-full py-2 px-4 mb-2" placeholder="Terrian name" formControlName="terrainName">
 
-  <button type="submit" class="rounded-md py-2 px-4 bg-red-600 text-white">
-    Create
-  </button>
-  <button type="button" (click)="close()" class="rounded-md ml-2 py-2 px-4 bg-blue-600 text-white">
-    Cancel
-  </button>
-</form>
+      <input type="text" class="border w-full py-2 px-4 mb-2" placeholder="Terrian description"
+        formControlName="terrainDescription">
+
+      <button type="submit" class="rounded-md py-2 px-4 bg-red-600 text-white">
+        Create
+      </button>
+      <button type="button" (click)="close()" class="rounded-md ml-2 py-2 px-4 bg-blue-600 text-white">
+        Cancel
+      </button>
+    </form>
+  </div>
+
+</app-modal>

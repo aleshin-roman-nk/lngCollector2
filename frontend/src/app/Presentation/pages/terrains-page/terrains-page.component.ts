@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ITerrain } from 'src/app/Core/Models/terrain';
-import { ModalService } from 'src/app/Presentation/services/modal.service';
 import { TerriansService } from 'src/app/Core/services/terrians.service';
+import { EditTerrainComponent } from '../../comps-edit/edit-terrain/edit-terrain.component';
+import { catchError, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-terrains-page',
@@ -10,28 +12,32 @@ import { TerriansService } from 'src/app/Core/services/terrians.service';
 })
 export class TerrainsPageComponent {
 
+  @ViewChild("editTerrainDlg", { static: false }) editTerrainDlg!: EditTerrainComponent
+
   terrains: ITerrain[] = []
 
   loading: boolean = false
 
-  constructor(public terrSrv: TerriansService,
-    public modalService: ModalService
+  constructor(public terrSrv: TerriansService
     ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
 
     this.loading = true;
 
     this.terrSrv
       .getAll()
-      //.subscribe((result: ITerrain[]) => this.terrains = result)
-      .subscribe(data => {
-        //console.log(data)
-
-        if(data.Success){
-          this.loading = false
-          this.terrains = data.Content
-        }
+      .subscribe((data) => {
+        this.loading = false
+        this.terrains = data
       })
   }
+
+  ngAfterViewInit(){
+    this.editTerrainDlg.finished
+    .subscribe(data => {
+      this.terrains.push(data)
+    })
+  }
+
 }

@@ -1,15 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, delay } from 'rxjs';
-import { EditThoughtComponent } from 'src/app/Presentation/comps-edit/edit-thought/edit-thought.component';
+import { Observable, Subscription, delay, switchMap } from 'rxjs';
 import { INodeDetail } from 'src/app/Core/Models/nodedetail';
-import { IThought } from 'src/app/Core/Models/thought';
-import { UserResponse } from 'src/app/Presentation/Models/user-response';
-import { ModalService } from 'src/app/Presentation/services/modal.service';
 import { NodeDetailService } from 'src/app/Core/services/node-detail.service';
 import { NodeService } from 'src/app/Core/services/node.service';
 import { ConfirmationComponent } from '../../comps-tools/confirmation/confirmation.component';
-import { ButtonKind } from '../../Models/buttons-kind-enum';
+import { EditResearchTextComponent } from '../../comps-edit/edit-research-text/edit-research-text.component';
+import { ResearchTextService } from 'src/app/Core/services/research-text.service';
+import { IResearchText } from 'src/app/Core/Models/research-text';
 
 @Component({
   selector: 'app-node-detail-page',
@@ -18,12 +16,13 @@ import { ButtonKind } from '../../Models/buttons-kind-enum';
 })
 export class NodeDetailPageComponent implements OnInit {
 
-  @ViewChild(EditThoughtComponent, {static: false}) editThoughtDlg!: EditThoughtComponent
-  @ViewChild("confirmDeleteNodeDlg", {static: false}) confirmDeleteNodeDlg!: ConfirmationComponent
+  @ViewChild("editResearchText", { static: false }) editResearchText!: EditResearchTextComponent
 
   nodeId: number
   nodeDetail: INodeDetail
   loading: boolean
+
+  showEditNode: boolean = false
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -40,67 +39,72 @@ export class NodeDetailPageComponent implements OnInit {
     });
 
     this.nodeDetailSrv.getNodeDetail(this.nodeId)
-    .pipe(
+/*     .pipe(
       //delay(2000)
-    )
+    ) */
       .subscribe(data => {
 
-        if(data.Success){
+        this.nodeDetail = data
+        this.loading = false
 
-          this.nodeDetail = data.Content
-          this.loading = false
-        }
       })
   }
 
-  ngAfterViewInit(){
-    this.editThoughtDlg.finished.subscribe(data => {
-      if(data.value) this.createThought(data.value)
-    })
+  ngAfterViewInit() {
+    this.editResearchText.onCreated
+      .subscribe((res) => {
+        this.nodeDetail.ResearchTexts.push(res)
+      })
 
-    this.confirmDeleteNodeDlg.finished.subscribe(resp => {
-      if(resp === ButtonKind.yes){
-        this.nodeService.deleteNode(this.nodeId)
-        .subscribe(resp => {
-          this.router.navigate(['terrain', this.nodeDetail.Node.terrainId, 'nodes'])
+    this.editResearchText.onUpdated
+      .subscribe((res) => {
+        const i = this.nodeDetail.ResearchTexts.findIndex(x => x.id === res.id)
+        if (i !== -1) {
+          this.nodeDetail.ResearchTexts[i] = res
+        }
+      })
+
+    this.editResearchText.onDeleted
+      .subscribe(
+        (res) => {
+          const i = this.nodeDetail.ResearchTexts.findIndex(x => x.id === res)
+          if (i !== -1) {
+            this.nodeDetail.ResearchTexts.splice(i)
+          }
         })
-      }
+  }
+
+  nodeNameAndDescriptionUpdatingSubscription: Subscription | null = null
+  saveNode() {
+
+    this.loading = true
+    if (this.nodeNameAndDescriptionUpdatingSubscription)
+      this.nodeNameAndDescriptionUpdatingSubscription.unsubscribe()
+
+      this.nodeNameAndDescriptionUpdatingSubscription = this.nodeDetailSrv
+      .updateNodeNameAndDescription({
+      description: this.nodeDetail.Node.description,
+      name: this.nodeDetail.Node.name,
+      id: this.nodeDetail.Node.id
+      //id: 1111
+    })
+      .subscribe({
+        next: () => this.loading = false,
+        error: (error) => this.loading = false
+      })
+
+    this.showEditNode = false
+  }
+
+  openCreateResearchText() {
+    this.editResearchText.openDialog({
+      id: 0,
+      nodeId: this.nodeDetail.Node.id,
+      text: ""
     })
   }
 
-  openDeletingNode(){
-    this.confirmDeleteNodeDlg.openDialog()
-  }
-
-  opentCreatingThought(){
-    this.editThoughtDlg.openDialog()
-  }
-
-  createThought(o: {text: string, descr: string}){
-
-    const th: IThought  = {
-      id: 0,
-      nodeId: this.nodeId,
-      text: o.text,
-      description: o.descr,
-      createdDate: new Date(),
-      expressions: []
-    }
-
-    /**
-     * получается здесь после отработки createThought один раз по завершении выполняется
-     * .subscribe(...) и все забыли
-     *
-     * https://rxjs.dev/guide/observable
-     * To invoke the Observable and see these values, we need to subscribe to it:
-     */
-    this.nodeDetailSrv.createThought(this.nodeId, th)
-      .subscribe(resp => {
-
-        if(resp.Success){
-          this.nodeDetail.Thoughts.push(resp.Content)
-        }
-      })
-
+  openEditResearchText(rt: IResearchText) {
+    this.editResearchText.openDialog({...rt})
   }
 }

@@ -19,30 +19,19 @@ namespace ThoughtzLand.Api.Controllers
 		[HttpGet]
 		public IActionResult GetAll()
 		{
-			var opres = srv.GetAll();
-			return processResult(opres.Success, opres);
+			return Ok(srv.GetAll());
 		}
 
 		[HttpPost]
 		public IActionResult Create([FromBody] Language lng)
 		{
-			var opres = srv.Create(lng);
-			return processResult(opres.Success, opres);
+			return Ok(srv.Create(lng));
 		}
 
 		[HttpPut]
 		public IActionResult Update([FromBody] Language lng)
 		{
-			var opres = srv.Create(lng);
-			return processResult(opres.Success, opres);
-		}
-
-		private IActionResult processResult(bool ok, object o)
-		{
-			if (ok)
-				return Ok(o);
-			else
-				return BadRequest(o);
+			return Ok(srv.Update(lng));
 		}
 	}
 }

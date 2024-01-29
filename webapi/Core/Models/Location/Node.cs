@@ -2,7 +2,7 @@
 
 namespace ThoughtzLand.Core.Models.Location
 {
-    public class Node: IDbEntity
+    public class Node
     {
         public int id { get; set; }
         public int terrainId { get; set; }
@@ -10,5 +10,7 @@ namespace ThoughtzLand.Core.Models.Location
         public string? description { get; set; }
         public int x { get; set; }// при создании, на сервере спрашиваем у территории последние доступное место
         public int y { get; set; }
-    }
+        // 
+		//public int passMinPoints {  get; set; }
+	}
 }
