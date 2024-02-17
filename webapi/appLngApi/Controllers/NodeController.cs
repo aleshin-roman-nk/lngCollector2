@@ -21,14 +21,15 @@ namespace ThoughtzLand.Api.Controllers
 			this.srv = srv;
 		}
 
-		[HttpGet("{nodeid}/detail")]
+		//[HttpGet("{nodeid}/detail")]
+		[HttpGet("{nodeid}")]
 		public IActionResult GetDetail(int nodeid)
 		{
 			return Ok(srv.GetDetail(nodeid));
 		}
 
 		[HttpPost]
-		public IActionResult Create([FromBody] Node value)
+		public IActionResult Create([FromBody] CreateNodeDto value)
 		{
 			return Ok(srv.Create(value));
 		}

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using ThoughtzLand.Core.Models.Exam;
 using ThoughtzLand.Core.Models.Exam.dto;
 using ThoughtzLand.Core.Repos;
-using ThoughtzLand.ImplementRepo.SQLitePepo.Entities;
+using ThoughtzLand.ImplementRepo.SQLitePepo.Entities.FlashCards;
 
 namespace ThoughtzLand.ImplementRepo.SQLitePepo
 {

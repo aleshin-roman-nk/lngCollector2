@@ -78,7 +78,7 @@ namespace ThoughtzLand.Api.Controllers
 			return Ok();
 		}
 
-		[HttpGet("ofnode/playing")]
+		[HttpGet("playing/ofnode/{nodeId}")]
 		//public IActionResult GetPlayingCards(int nodeId, DateTime date)
 		public IActionResult GetPlayingCards(int nodeId)
 		{

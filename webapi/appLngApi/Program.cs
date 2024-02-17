@@ -96,11 +96,12 @@ builder.Services.AddScoped<FlashCardExamService>();
 builder.Services.AddScoped<IResearchTextRepo, ResearchTextRepoSQLite>();
 builder.Services.AddScoped<ResearchTextService>();
 
-
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<IAuthorizedUserService, AuthorizedUserService>();
 
 builder.Services.AddScoped<IUserRepo, UserRepoSQLite>();
+
+builder.Services.AddSingleton<CardParametersSchemeProvider>();
 
 builder.Services.AddCors(options => options.AddPolicy(name: "moyaDerevnya",
 	policy =>

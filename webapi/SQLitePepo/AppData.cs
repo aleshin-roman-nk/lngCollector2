@@ -4,7 +4,9 @@ using ThoughtzLand.Core.Models.Common;
 using ThoughtzLand.Core.Models.Exam;
 using ThoughtzLand.Core.Models.Location;
 using ThoughtzLand.Core.Models.Location.src;
-using ThoughtzLand.ImplementRepo.SQLitePepo.Entities;
+using ThoughtzLand.ImplementRepo.SQLitePepo.Entities.FlashCards;
+using ThoughtzLand.ImplementRepo.SQLitePepo.Entities.Nodes;
+using ThoughtzLand.ImplementRepo.SQLitePepo.Entities.Terrains;
 
 namespace ThoughtzLand.ImplementRepo.SQLitePepo
 {
@@ -32,10 +34,25 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 				.HasOne(f => f.language) // Navigation property in FlashCardDb
 				.WithMany() // If ThExpression doesn't have a navigation property back to FlashCardDb, use WithMany without arguments
 				.HasForeignKey(f => f.languageId);// Foreign key property in FlashCardDb
+
+			modelBuilder.Entity<FlashCardDb>()
+				.HasOne<NodeDb>() // Specifies the related entity type
+				.WithMany(node => node.FlashCards) // If FlashCardDb doesn't have a navigation property back to NodeDb, use WithMany without arguments
+				.HasForeignKey(f => f.nodeId);// Foreign key property in FlashCardDb
+
+			modelBuilder.Entity<ResearchText>()
+				.HasOne<NodeDb>()
+				.WithMany(rt => rt.ResearchTexts)
+				.HasForeignKey(rt => rt.nodeId);
+
+			modelBuilder.Entity<NodeDb>()
+				.HasOne<TerrainDb>()
+				.WithMany(terrain => terrain.Nodes)
+				.HasForeignKey(node => node.terrainId);
 		}
 
-		public DbSet<Terrain> Terrains { get; set; }
-        public DbSet<Node> Nodes { get; set; }
+		public DbSet<TerrainDb> Terrains { get; set; }
+        public DbSet<NodeDb> Nodes { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<FlashCardDb> FlashCards { get; set; }
         public DbSet<FlashCardAnswerDb> FlashCardAnswers { get; set; }

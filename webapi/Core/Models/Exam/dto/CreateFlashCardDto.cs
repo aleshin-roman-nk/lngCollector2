@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace ThoughtzLand.Core.Models.Exam.dto
 {
-    public class CreateFlashCardDto
-    {
-        public int nodeId {  get; set; }
-        public string? question {  get; set; }
-        public string? description { get; set; }
-        public int languageId {  get; set; }
-        public DateTime nextExamDate { get; set; }
-        public int requiredHits { get; set; }
-    }
+	public class CreateFlashCardDto
+	{
+		public int nodeId {  get; set; }
+		public string? question {  get; set; }
+		public string? description { get; set; }
+		public int languageId {  get; set; }
+	}
 }

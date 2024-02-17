@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { ITerrain } from 'src/app/Core/Models/terrain';
+import { ITerrainTitle } from 'src/app/Core/Models/terrain';
 import { TerriansService } from 'src/app/Core/services/terrians.service';
 import { EditTerrainComponent } from '../../comps-edit/edit-terrain/edit-terrain.component';
 import { catchError, throwError } from 'rxjs';
@@ -14,7 +14,7 @@ export class TerrainsPageComponent {
 
   @ViewChild("editTerrainDlg", { static: false }) editTerrainDlg!: EditTerrainComponent
 
-  terrains: ITerrain[] = []
+  terrains: ITerrainTitle[] = []
 
   loading: boolean = false
 

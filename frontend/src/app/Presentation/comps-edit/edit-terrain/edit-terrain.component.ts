@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NodeService } from 'src/app/Core/services/node.service';
 import { TerriansService } from 'src/app/Core/services/terrians.service';
-import { ITerrain } from 'src/app/Core/Models/terrain';
+import { ITerrainTitle } from 'src/app/Core/Models/terrain';
 import { AuthService } from 'src/app/Core/services/auth.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class EditTerrainComponent {
 
   isShown: boolean = false
 
-  @Output() finished = new EventEmitter<ITerrain>()
+  @Output() finished = new EventEmitter<ITerrainTitle>()
 
   constructor(
     private terrSrv: TerriansService,

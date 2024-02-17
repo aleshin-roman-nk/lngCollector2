@@ -6,13 +6,15 @@ export interface IFlashCard{
   nodeId: number;
   question?: string;
   description?: string;
-  answers?: IFlashCardAnswer[];
+  answers?: IFlashCardAnswer[] | null; // Assuming FlashCardAnswer is a TypeScript type/interface
+  language?: ILanguage | null; // Assuming Language is a TypeScript type/interface
+  hitsInRow: number;
+  requiredHits: number;
+  totalHits: number;
+  level: number;
   nextExamDate: Date;
-  hitsInRow?: number;
-  requiredHits?: number;
-  totalHits?: number
-  language?: ILanguage;
-  level?: number
+  isCompleted: boolean;
+  questPrice: number;
 }
 
 export interface ICreateFlashCardDto{

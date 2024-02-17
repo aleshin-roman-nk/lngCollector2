@@ -16,13 +16,12 @@ namespace ThoughtzLand.Core.Models.Exam
 		public string? description { get; set; }
 		public IEnumerable<FlashCardAnswer>? answers { get; set; }
 		public Language? language { get; set; }
-		// на будущее, решение для интервального повторения
-		// чем больше значение hitRate, тем больше следующий интервал
-		// один неправильный ответ и обнуляется
 		public int hitsInRow { get; set; }
 		public int requiredHits { get; set; }
 		public int totalHits { get; set; }
 		public int level { get; set; }
 		public DateTime nextExamDate { get; set; }
+		public bool isCompleted { get; set; }
+		public int questPrice { get; set; }
 	}
 }

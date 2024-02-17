@@ -1,80 +1,90 @@
 <div *ngIf="!loading" class="bg-gray-100">
-    <div class="flex flex-col md:flex-row">
+  <div class="flex flex-col md:flex-row">
 
 
-      <!-- Right sidebar -->
-      <div class="w-full md:w-1/4 bg-purple text-stone-600 py-4 px-8">
-        <div class="flex flex-col space-y-4">
-          <h2 class="text-2xl font-bold">Tools</h2>
-          <!-- Replace the following code with your actual tool controls -->
-          <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start" [routerLink]="['/node', nodeDetail.Node.id, 'flash-card', 'new']">New card</button>
-          <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start" [routerLink]="['/node', nodeDetail.Node.id, 'flash-cards', 'play']">Play cards</button>
+    <!-- Tools sidebar -->
+    <div class="w-full md:w-1/4 bg-purple text-stone-600 py-4 px-8">
+      <div class="flex flex-col space-y-4">
+        <h2 class="text-2xl font-bold">Tools</h2>
+        <!-- Replace the following code with your actual tool controls -->
+        <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start"
+          [routerLink]="['/node', nodeDetail.id, 'flash-card', 'new']">New card</button>
+        <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start"
+          [routerLink]="['/node', nodeDetail.id, 'flash-cards', 'play']">Play cards</button>
 
-          <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start" (click)="openCreateResearchText()">Add text</button>
+        <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start"
+          (click)="openCreateResearchText()">Add text</button>
 
-          <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start" [routerLink]="['/terrain', nodeDetail.Node.terrainId, 'nodes']">Back</button>
+        <button *ngIf="nodeCouldBeCompleted" class="bg-green-400 text-stone-700 hover:bg-green-500 hover:text-stone-800 py-2 px-4 rounded text-start"
+        (click)="completeNode()">Complete node</button>
+
+        <button class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start"
+          [routerLink]="['/terrain', nodeDetail.terrainId, 'nodes']">Back</button>
+      </div>
+    </div>
+
+    <!-- Content sidebar -->
+    <div class="w-full md:w-3/4 bg-stone-200 text-stone-600">
+      <!-- Head area with object name -->
+      <div class="bg-stone-300 py-4 px-8">
+
+        <div class="flex justify-start items-center">
+          <div *ngIf="nodeDetail" (click)="showEditNode = true" class="text-2xl font-bold cursor-pointer p-2">
+            {{nodeDetail.name}}</div>
+          <div class="border border-stone-400 ml-2 p-2">Job: {{calcCompletedQuestPoints()}} / {{calcQuestPointsTotal()}}</div>
+          <div class="border border-stone-400 ml-2 p-2">Flash card hits: {{calcFlashCardsHitsInRow()}} / {{calcFlashCardsAimHits()}}</div>
         </div>
+
+        <div class="bg-stone-200 p-2 mt-2" *ngIf="showEditNode">
+          <textarea [(ngModel)]="nodeDetail.name" rows="1" class="border border-stone-400
+              w-full mt-2 p-2 rounded-md bg-stone-100"></textarea>
+
+          <textarea [(ngModel)]="nodeDetail.description" rows="1" class="border border-stone-400
+              w-full mt-2 p-2 rounded-md bg-stone-100"></textarea>
+
+          <button class="border border-stone-700 rounded-md p-1 " (click)="saveNode()">Save</button>
+          <button class="border border-stone-700 rounded-md p-1 ml-2 mt-2"
+            (click)="showEditNode = false">Cancel</button>
+
+          <app-loading-anim *ngIf="loading"></app-loading-anim>
+        </div>
+
+
+
       </div>
 
-      <!-- Left sidebar -->
-      <div class="w-full md:w-3/4 bg-stone-200 text-stone-600">
-        <!-- Head area with object name -->
-        <div class="bg-stone-300 py-4 px-8">
-          <h1 *ngIf="nodeDetail?.Node" (click)="showEditNode = true"
-          class="text-2xl font-bold cursor-pointer">{{nodeDetail.Node.name}}</h1>
-
-
-          <div class="bg-stone-200 p-2 mt-2" *ngIf="showEditNode">
-              <textarea [(ngModel)]="nodeDetail.Node.name" rows="1" class="border border-stone-400
-              w-full mt-2 p-2 rounded-md bg-stone-100"></textarea>
-
-              <textarea [(ngModel)]="nodeDetail.Node.description" rows="1" class="border border-stone-400
-              w-full mt-2 p-2 rounded-md bg-stone-100"></textarea>
-
-              <button class="border border-stone-700 rounded-md p-1 " (click)="saveNode()">Save</button>
-              <button class="border border-stone-700 rounded-md p-1 ml-2 mt-2" (click)="showEditNode = false">Cancel</button>
-
-            <app-loading-anim *ngIf="loading"></app-loading-anim>
-          </div>
-
-
-
-        </div>
-
-        <!-- Collection of researchable text block -->
-        <div class="mt-4 px-8 pb-8" *ngIf="nodeDetail.ResearchTexts.length > 0">
-          <div class="bg-stone-400 p-1">researchable text block</div>
-          <div class="flex flex-wrap justify-around container">
-            <!-- Replace the following code with your actual collection of items -->
-            <div *ngFor="let txtBlock of nodeDetail.ResearchTexts"
-                class="border border-stone-400 mt-2 flex justify-between w-full">
-              <p class="p-1 w-fit">{{txtBlock.text}}</p>
-<!--               <button class="px-2 border border-stone-600 bg-stone-200 text-sm
+      <!-- Collection of researchable text block -->
+      <div class="mt-4 px-8 pb-8" *ngIf="nodeDetail.ResearchTexts.length > 0">
+        <div class="bg-stone-400 p-1">researchable text block</div>
+        <div class="flex flex-wrap justify-around container">
+          <!-- Replace the following code with your actual collection of items -->
+          <div *ngFor="let txtBlock of nodeDetail.ResearchTexts"
+            class="border border-stone-400 mt-2 flex justify-between w-full">
+            <p class="p-1 w-fit">{{txtBlock.text}}</p>
+            <!--               <button class="px-2 border border-stone-600 bg-stone-200 text-sm
                         font-bold flex items-center justify-center h-8">
                 V
               </button> -->
-              <button class="bg-stone-400 w-5 h-5 hover:bg-slate-500"
-              (click)="openEditResearchText(txtBlock)">
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Collection of items area -->
-        <div class="mt-2 px-8 pb-8" *ngIf="nodeDetail.FlashCardsTitles.length > 0">
-          <div class="bg-stone-400 p-1">flash cards</div>
-          <div class="flex flex-wrap justify-around">
-            <!-- Replace the following code with your actual collection of items -->
-            <app-flash-card-title *ngFor="let card of nodeDetail.FlashCardsTitles" [flashCardTitle]="card" [routerLink]="['/flash-card', card.id]">
-            </app-flash-card-title>
-            <!-- Add more item cards as needed -->
+            <button class="bg-stone-400 w-5 h-5 hover:bg-slate-500" (click)="openEditResearchText(txtBlock)">
+            </button>
           </div>
         </div>
       </div>
 
+      <!-- Collection of items area -->
+      <div class="mt-2 px-8 pb-8" *ngIf="nodeDetail.FlashCardsTitles.length > 0">
+        <div class="bg-stone-400 p-1">flash cards</div>
+        <div class="flex flex-wrap justify-around">
+          <!-- Replace the following code with your actual collection of items -->
+          <app-flash-card-title *ngFor="let card of nodeDetail.FlashCardsTitles" [flashCardTitle]="card"
+            [routerLink]="['/flash-card', card.id]">
+          </app-flash-card-title>
+          <!-- Add more item cards as needed -->
+        </div>
+      </div>
     </div>
+
+  </div>
 </div>
 
-<app-edit-research-text #editResearchText>
-
-</app-edit-research-text>
+<app-edit-research-text #editResearchText></app-edit-research-text>

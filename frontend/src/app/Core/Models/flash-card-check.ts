@@ -5,10 +5,11 @@ export interface IFlashCardCheck{
 }
 
 export interface  IFlashCardCheckResult{
-  isCorrect: boolean;
-  cardId: number;
-  nextExamDate: Date;
-  totalHits: number;
-  hitsInRow: number;
+  isCorrect: boolean
+  cardId: number
+  nextExamDate: Date
+  totalHits: number
+  hitsInRow: number
   level: number
+  isJustCompleted: boolean
 }

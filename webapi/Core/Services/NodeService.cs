@@ -13,18 +13,24 @@ namespace ThoughtzLand.Core.Services
 	public class NodeService
 	{
 		private readonly INodeRepo _repo;
+		private readonly NodeLevelCalculator nodeLevelCalculator;
 
 		public NodeService(INodeRepo r) 
 		{
 			this._repo = r;
+			nodeLevelCalculator = new NodeLevelCalculator();
 		}
 
 		public NodeDetailDto GetDetail(int nodeId)
 		{
-			return _repo.GetDetail(nodeId);
+			var res = _repo.GetNodeDetail(nodeId);
+
+			res.level = nodeLevelCalculator.calcNodeLevel(res.FlashCardsTitles.Sum(fc => fc.questPrice));
+
+			return res;
 		}
 
-		public Node Create(Node node)
+		public NodeTitleDto Create(CreateNodeDto node)
 		{
 			return _repo.Create(node);
 		}
@@ -37,11 +43,6 @@ namespace ThoughtzLand.Core.Services
 		public void Remove(int nodeId)
 		{
 			_repo.Remove(nodeId);
-		}
-
-		public IEnumerable<Node> GetByTerrainId(int terrainId)
-		{
-			return _repo.GetByTerrainId(terrainId);
 		}
 	}
 }

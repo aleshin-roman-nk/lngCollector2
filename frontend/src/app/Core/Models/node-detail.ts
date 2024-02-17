@@ -1,11 +1,14 @@
 import { IFlashCardTitle } from "./flash-card-title";
-import { INode } from "./node";
 import { IResearchText } from "./research-text";
 
 export interface INodeDetail {
-    Node: INode
-    FlashCardsTitles: IFlashCardTitle[]
-    ResearchTexts: IResearchText[]
+  id: number;
+  terrainId: number;
+  name?: string;
+  description?: string;
+  level: number;
+  FlashCardsTitles: IFlashCardTitle[]
+  ResearchTexts: IResearchText[]
 }
 
 export interface IUpdateNodeNameAndDescriptionDto {

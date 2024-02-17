@@ -1,10 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, tap } from 'rxjs';
-import { ITerrain } from 'src/app/Core/Models/terrain';
+import { ITerrainDetail, ITerrainTitle } from 'src/app/Core/Models/terrain';
 import { NodeService } from 'src/app/Core/services/node.service';
 import { TerriansService } from 'src/app/Core/services/terrians.service';
-import { INode } from 'src/app/Core/Models/node';
 import { TextInputOnpageComponent } from '../../comps-tools/text-input-onpage/text-input-onpage.component';
 import { ConfirmationComponent } from '../../comps-tools/confirmation/confirmation.component';
 import { ButtonKind } from '../../Models/buttons-kind-enum';
@@ -23,8 +22,8 @@ export class TerrainPageComponent {
   private subscription: Subscription;
 
   id: number
-  terrain: ITerrain
-  nodes: INode[] = []
+  terrainDetail: ITerrainDetail
+
 
   showEditTerrain: boolean = false
 
@@ -43,28 +42,32 @@ export class TerrainPageComponent {
   }
 
   ngOnInit(): void {
+
+    this.loading = true
+
     this.srvTerr
       .getOne(this.id)
       .subscribe((result) => {
-        this.terrain = result
+        this.terrainDetail = result
+        this.loading = false
       })
 
     //this.nodeSrv.dataNodes$.subscribe()
     //this.nodeSrv.loadNodesOf(this.id)
-
-    this.nodeSrv.getNodesByTerrainId(this.id)
-      .subscribe(data => {
-        this.nodes = data
-      })
   }
 
   ngAfterViewInit() {
+
     this.newNodeDlg.accepted
     .subscribe(resp => {
       if(resp.trim() === "") return
-      this.nodeSrv.addNode(resp, this.terrain.id!)
+      this.nodeSrv.addNode({
+        terrainId: this.terrainDetail.id,
+        description: "",
+        name: resp
+      })
       .subscribe(resp => {
-        this.nodes.push(resp)
+        this.terrainDetail.nodes?.push(resp)
       })
     })
 
@@ -93,9 +96,9 @@ export class TerrainPageComponent {
       this.terrainUpdatingSubscription.unsubscribe()
 
       this.terrainUpdatingSubscription = this.srvTerr.update({
-      description: this.terrain.description,
-      name: this.terrain.name,
-      id: this.terrain.id
+      description: this.terrainDetail.description!,
+      name: this.terrainDetail.name!,
+      id: this.terrainDetail.id
       //id: 1111
     })
       .subscribe({

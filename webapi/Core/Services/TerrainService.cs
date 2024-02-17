@@ -12,23 +12,32 @@ namespace ThoughtzLand.Core.Services
 	public class TerrainService
 	{
 		private readonly ITerrainRepo _repo;
+		private readonly NodeLevelCalculator nodeLevelCalculator;
 
 		public TerrainService(ITerrainRepo r) 
 		{
 			this._repo = r;
+			nodeLevelCalculator = new NodeLevelCalculator();
 		}
 
-		public IEnumerable<Terrain> GetAll()
+		public IEnumerable<TerrainTitleDto> GetAllTerrainTitles()
 		{
-			return _repo.GetAll();
+			return _repo.GetAllTerrainTitles();
 		}
 
-		public Terrain Get(int id)
+		public TerrainDetailDto GetTerrainDetail(int id)
 		{
-			return _repo.Get(id);
+			var res = _repo.GetTerrainDetail(id);
+
+			foreach (var item in res.nodes) 
+			{
+				item.level = nodeLevelCalculator.calcNodeLevel(item.questPrice);
+			}
+
+			return res;
 		}
 
-		public Terrain Create(CreateTerrainDto entity)
+		public TerrainTitleDto Create(CreateTerrainDto entity)
 		{
 			return _repo.Create(entity);
 		}

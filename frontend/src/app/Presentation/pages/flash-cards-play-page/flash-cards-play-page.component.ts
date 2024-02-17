@@ -5,6 +5,7 @@ import { IFlashCard } from 'src/app/Core/Models/flash-card';
 import { FlashCardService } from 'src/app/Core/services/flash-card.service';
 import { CardCheckResultComponent } from '../../comps-play/card-check-result/card-check-result.component';
 import { IFlashCardAnswer } from 'src/app/Core/Models/flash-card-answer';
+import { QuestFinishedAnimationComponent } from '../../comps-play/quest-finished-animation/quest-finished-animation.component';
 
 @Component({
   selector: 'app-question-work-page',
@@ -15,6 +16,7 @@ export class FlashCardsPlayPageComponent {
 
   @ViewChild("inputCardDlg", { static: false }) inputCardDlg!: CardInputComponent
   @ViewChild("checkResultDlg", { static: false }) checkResultDlg!: CardCheckResultComponent
+  @ViewChild("greetingAnimation", { static: false }) greetingAnimation!: QuestFinishedAnimationComponent
 
   cards: IFlashCard[] = []
 
@@ -35,12 +37,12 @@ export class FlashCardsPlayPageComponent {
     this.loading = true
 
     this.flashCardService
-      .getCardsForPlay(this.nodeId, new Date())
+      .getCardsForPlay(this.nodeId)
       .subscribe((result) => {
 
         this.cards = result
-        .filter(x => x.answers?.length)
-        .sort((a, b) => new Date(a.nextExamDate).getTime() - new Date(b.nextExamDate).getTime())
+          .filter(x => x.answers?.length)
+          .sort((a, b) => new Date(a.nextExamDate).getTime() - new Date(b.nextExamDate).getTime())
 
         this.loading = false
       })
@@ -75,11 +77,12 @@ export class FlashCardsPlayPageComponent {
           question = this.cards[i].question!
         }
 
-        //this.cards = this.cards.sort((a, b) => new Date(a.NextExamDate).getTime() - new Date(b.NextExamDate).getTime())
-
         this.cards = [...this.cards].sort((a, b) => new Date(a.nextExamDate).getTime() - new Date(b.nextExamDate).getTime());
 
-        if(!helpUsed)
+        if(resp.isJustCompleted){
+          this.greetingAnimation.isShown = true
+        }
+        else if(!helpUsed)
           this.checkResultDlg.openDialog(resp.isCorrect, question, answers)
       })
     })

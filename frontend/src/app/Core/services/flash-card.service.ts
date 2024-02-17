@@ -19,20 +19,19 @@ export class FlashCardService {
     private errorService: ErrorHandlerService
     ) { }
 
-  getCardsForPlay(nodeId: number, date: Date): Observable<IFlashCard[]> {
-    //flashcard/ofnode/playing?nodeId=1&date=2024-01-01
-    const url = `${environment.apiUrl}/flashcard/ofnode/playing`
-    const params = new HttpParams()
+  getCardsForPlay(nodeId: number): Observable<IFlashCard[]> {
+    const url = `${environment.apiUrl}/flashcard/playing/ofnode/${nodeId}`
+
+/*     const params = new HttpParams()
       .set('nodeid', nodeId.toString())
-      .set('date', date.toDateString());
+      .set('date', date.toDateString()); */
 
     return this.http
-    .get<IFlashCard[]>(url, { params })
+    .get<IFlashCard[]>(url)
     .pipe(
       first(),
       catchError(error => this.errorService.httpErrorHandle(error))
     )
-
   }
 
   getSingleFlashCard(cardId: number): Observable<IFlashCard>{

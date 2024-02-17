@@ -11,7 +11,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ModalComponent } from './Presentation/comps-tools/modal/modal.component';
 import { EditTerrainComponent } from './Presentation/comps-edit/edit-terrain/edit-terrain.component';
 import { LoadingAnimComponent } from './Presentation/comps-tools/loading-anim/loading-anim.component';
-import { NodeComponent } from './Presentation/comps-ent/node/node.component';
+import { NodeComponent } from './Presentation/comps-ent/node-title/node-title.component';
 import { FlashCardPlayItemComponent } from './Presentation/comps-play/flash-card-play-item/flash-card-play-item.component';
 import { NodeDetailPageComponent } from './Presentation/pages/node-detail-page/node-detail-page.component';
 import { ConfirmationComponent } from './Presentation/comps-tools/confirmation/confirmation.component';
@@ -30,7 +30,8 @@ import { HomeAuthorizedPageComponent } from './Presentation/pages/home-authorize
 import { ModalMessageComponent } from './Presentation/comps-tools/modal-message/modal-message.component';
 import { EditResearchTextComponent } from './Presentation/comps-edit/edit-research-text/edit-research-text.component';
 import { FillPipe } from './Presentation/pipes/fill.pipe';
-
+import { QuestFinishedAnimationComponent } from './Presentation/comps-play/quest-finished-animation/quest-finished-animation.component';
+import { ProgressBarComponent } from './Presentation/comps-tools/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,9 @@ import { FillPipe } from './Presentation/pipes/fill.pipe';
     HomeAuthorizedPageComponent,
     ModalMessageComponent,
     EditResearchTextComponent,
-    FillPipe
+    FillPipe,
+    QuestFinishedAnimationComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,

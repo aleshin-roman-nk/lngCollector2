@@ -5,12 +5,12 @@ using ThoughtzLand.Core.Repos.Common;
 namespace ThoughtzLand.Core.Repos
 {
     public interface ITerrainRepo:
-        IRepoCreator<CreateTerrainDto, Terrain>,
+        IRepoCreator<CreateTerrainDto, TerrainTitleDto>,
 		IRepoEntityByDtoUpdater<UpdateTerrainDto>,
         IRepoPropertyUpdater,
-        IRepoGetterAll<Terrain>,
-        IRepoGetterOneById<Terrain>,
         IRepoRemover
     {
-    }
+        IEnumerable<TerrainTitleDto> GetAllTerrainTitles();
+        TerrainDetailDto GetTerrainDetail(int id);
+	}
 }

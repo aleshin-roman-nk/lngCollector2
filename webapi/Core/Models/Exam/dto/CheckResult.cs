@@ -8,6 +8,8 @@
 		public int totalHits {  get; set; }
 		public int hitsInRow { get; set; }
 		public int level { get; set; }
+		public bool isJustCompleted { get; set; }
+
 
 		//public ICollection<string> answers { get; set; } = new List<string>();
 	}

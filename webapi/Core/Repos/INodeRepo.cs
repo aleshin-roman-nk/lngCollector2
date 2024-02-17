@@ -5,11 +5,10 @@ using ThoughtzLand.Core.Repos.Common;
 namespace ThoughtzLand.Core.Repos
 {
     public interface INodeRepo:
-        IRepoCreator<Node>,
+        IRepoCreator<CreateNodeDto, NodeTitleDto>,
         IRepoEntityByDtoUpdater<UpdateNodeNameAndDescriptionDto>,
         IRepoRemover
     {
-        IEnumerable<Node> GetByTerrainId(int terrainId);
-        NodeDetailDto GetDetail(int nodeId);
+        NodeDetailDto GetNodeDetail(int nodeId);
     }
 }

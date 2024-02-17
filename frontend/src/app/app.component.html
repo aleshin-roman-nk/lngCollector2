@@ -4,11 +4,11 @@
   <div *ngIf="!authUser" class="flex">
     <div>
       Email:
-      <input [(ngModel)]="user.Email" placeholder="Name" class="bg-stone-400 border border-stone-700 m-2">
+      <input [(ngModel)]="user.Email" placeholder="Name" class="bg-stone-300 border border-stone-700 m-2 p-2">
     </div>
     <div>
       Password:
-      <input [(ngModel)]="user.Password" placeholder="Password" type="password" class="bg-stone-400 border border-stone-700 m-2">
+      <input [(ngModel)]="user.Password" placeholder="Password" type="password" class="bg-stone-300 border border-stone-700 m-2 p-2">
     </div>
   </div>
 
@@ -27,14 +27,14 @@
       <p class="mt-4">Join our community and start learning now</p>
   </div>
 
+  <!-- Footer -->
+  <footer class="bg-white text-center p-4 shadow mt-8">
+    © 2024 FlashLang. All rights reserved.
+</footer>
+
 </div>
 
 
 <router-outlet></router-outlet>
-
-  <!-- Footer -->
-<footer class="bg-white text-center p-4 shadow mt-8">
-    © 2024 FlashLang. All rights reserved.
-</footer>
 
 <app-global-error></app-global-error>

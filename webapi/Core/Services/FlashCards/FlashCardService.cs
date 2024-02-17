@@ -15,17 +15,33 @@ namespace ThoughtzLand.Core.Services.FlashCards
 	{
 		private readonly IFlashCardRepo flashCardRepo;
 		private readonly IFlashCardAnswerRepo cardAnswerRepo;
+		private readonly CardParametersSchemeProvider CardParametersSchemeProvider;
 
-		public FlashCardService(IFlashCardRepo flashCardRepo, IFlashCardAnswerRepo cardAnswerRepo)
+		public FlashCardService(IFlashCardRepo flashCardRepo, 
+			IFlashCardAnswerRepo cardAnswerRepo,
+			CardParametersSchemeProvider cardParametersSchemeProvider)
 		{
 			this.flashCardRepo = flashCardRepo;
 			this.cardAnswerRepo = cardAnswerRepo;
+			this.CardParametersSchemeProvider = cardParametersSchemeProvider;
 		}
 
 		public FlashCard Add(CreateFlashCardDto fc)
 		{
-			fc.requiredHits = 25;
-			return flashCardRepo.Create(fc);
+			var dto = new CreateFlashCardCoreDto
+			{
+				description = fc.description,
+				languageId = fc.languageId,
+				nextExamDate = DateTime.Now,
+				nodeId = fc.nodeId,
+				question = fc.question,
+				requiredHits = CardParametersSchemeProvider.CardParametersScheme.cardAimHitInRow,
+				completedQuestPrice = CardParametersSchemeProvider.CardParametersScheme.CompletedQuestPrice,
+				level = 1,
+				isCompleted = false
+			};
+
+			return flashCardRepo.Create(dto);
 		}
 
 		public FlashCard GetSingle(int id)

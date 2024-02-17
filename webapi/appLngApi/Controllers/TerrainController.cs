@@ -14,31 +14,34 @@ namespace ThoughtzLand.Api.Controllers
 	public class TerrainController : ControllerBase
 	{
 		private readonly TerrainService terrainSrv;
-		private readonly NodeService nodeSrv;
+		//private readonly NodeService nodeSrv;
 
-		public TerrainController(TerrainService terrainSrv, NodeService nodeSrv)
+		public TerrainController(TerrainService terrainSrv/*, NodeService nodeSrv*/)
 		{
 			this.terrainSrv = terrainSrv;
-			this.nodeSrv = nodeSrv;
+			//this.nodeSrv = nodeSrv;
 		}
 
 		[HttpGet]
 		public IActionResult Get()
 		{
-			return Ok(terrainSrv.GetAll());
+			return Ok(terrainSrv.GetAllTerrainTitles());
 		}
 
 		[HttpGet("{id}")]
 		public IActionResult Get(int id)
 		{
-			return Ok(terrainSrv.Get(id));
+			return Ok(terrainSrv.GetTerrainDetail(id));
 		}
 
-		[HttpGet("{id}/nodes")]
-		public IActionResult GetNodes(int id)
-		{
-			return Ok(nodeSrv.GetByTerrainId(id));
-		}
+		// 03-02-2024
+		// возможно потребуется подгрузка в будущем, если не грузить все объекты сцены
+		// вместо этого типа пагинации, если нод слишком много
+		//[HttpGet("{id}/nodes")]
+		//public IActionResult GetNodes(int id)
+		//{
+		//	return Ok(nodeSrv.GetByTerrainId(id));
+		//}
 
 		[HttpPost]
 		public IActionResult Post([FromBody] CreateTerrainDto t)

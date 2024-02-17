@@ -1,55 +1,27 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, catchError } from 'rxjs';
-import { INode } from '../Models/node';
+import { BehaviorSubject, Observable, catchError, first } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environment';
-import { INodeDetail } from '../Models/nodedetail';
+import { INodeDetail, IUpdateNodeNameAndDescriptionDto } from '../Models/node-detail';
 import { ErrorHandlerService } from './error-handler.service';
+import { ICreateNodeDto } from '../Models/create-node-dto';
+import { INodeTitle } from '../Models/node-title';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NodeService {
 
-/*   private dataNodesSubject: BehaviorSubject<INode[]> = new BehaviorSubject<INode[]>([]);
-  public dataNodes$: Observable<INode[]> = this.dataNodesSubject.asObservable(); */
-
   constructor(
     private http: HttpClient,
     private errorService: ErrorHandlerService
     ) { }
 
-/*   loadNodesOf(terrId: number){
-    const url = `${environment.apiUrl}/terrain/${terrId}/nodes`;
-
-    this.http.get<INode[]>(url).subscribe(resp => {
-      this.dataNodesSubject.next(resp)
-    })
-  } */
-
-  getNodesByTerrainId(terrId: number): Observable<INode[]>{
-    const url = `${environment.apiUrl}/terrain/${terrId}/nodes`
-    return this.http
-    .get<INode[]>(url)
-    .pipe(
-      catchError(error => this.errorService.httpErrorHandle(error))
-    )
-  }
-
-  addNode(text: string, terrId: number): Observable<INode>{
+  addNode(node: ICreateNodeDto): Observable<INodeTitle>{
     const url = `${environment.apiUrl}/node`
 
-    const n: INode = {
-      description: "",
-      id: 0,
-      name: text,
-      terrainId: terrId,
-      x: 0,
-      y: 0
-    }
-
     return this.http
-    .post<INode>(url, n)
+    .post<INodeTitle>(url, node)
     .pipe(
       catchError(error => this.errorService.httpErrorHandle(error))
     )
@@ -60,6 +32,29 @@ export class NodeService {
     return this.http
     .delete<void>(url)
     .pipe(
+      catchError(error => this.errorService.httpErrorHandle(error))
+    )
+  }
+
+  getNodeDetail(nodeId: number): Observable<INodeDetail> {
+    //const url = `${environment.apiUrl}/node/${nodeId}/detail`;
+    const url = `${environment.apiUrl}/node/${nodeId}`;
+
+    return this.http
+    .get<INodeDetail>(url)
+    .pipe(
+      first(),
+      catchError(error => this.errorService.httpErrorHandle(error))
+    )
+  }
+
+  updateNodeNameAndDescription(nodedto: IUpdateNodeNameAndDescriptionDto): Observable<void>{
+    const url = `${environment.apiUrl}/node`;
+
+    return this.http
+    .put<void>(url, nodedto)
+    .pipe(
+      first(),
       catchError(error => this.errorService.httpErrorHandle(error))
     )
   }

@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, delay, first, Observable, tap, throwError } from 'rxjs';
 import { environment } from 'src/environment';
-import { ITerrain, ITerrainUpdateDto } from '../Models/terrain';
+import { ICreateTerrainDto, ITerrainDetail, ITerrainTitle, ITerrainUpdateDto } from '../Models/terrain';
 import { ErrorHandlerService } from 'src/app/Core/services/error-handler.service';
 
 @Injectable({
@@ -20,9 +20,9 @@ export class TerriansService {
     return this.instance++;
   }
 
-  getAll(): Observable<ITerrain[]> {
+  getAll(): Observable<ITerrainTitle[]> {
     return this.http
-    .get<ITerrain[]>(`${environment.apiUrl}/terrain`)
+    .get<ITerrainTitle[]>(`${environment.apiUrl}/terrain`)
     .pipe(
       delay(10),
       first(),
@@ -30,18 +30,18 @@ export class TerriansService {
     )
   }
 
-  getOne(id: number): Observable<ITerrain> {
+  getOne(id: number): Observable<ITerrainDetail> {
     return this.http
-      .get<ITerrain>(`${environment.apiUrl}/terrain/${id}`)
+      .get<ITerrainDetail>(`${environment.apiUrl}/terrain/${id}`)
       .pipe(
         first(),
         catchError(error => this.errorService.httpErrorHandle(error))
       )
   }
 
-  create(terr: ITerrain): Observable<ITerrain> {
+  create(terr: ICreateTerrainDto): Observable<ITerrainTitle> {
     return this.http
-    .post<ITerrain>(`${environment.apiUrl}/terrain`, terr)
+    .post<ITerrainTitle>(`${environment.apiUrl}/terrain`, terr)
     .pipe(
       first(),
       catchError(error => this.errorService.httpErrorHandle(error))

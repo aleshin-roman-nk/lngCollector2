@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription, delay, switchMap } from 'rxjs';
-import { INodeDetail } from 'src/app/Core/Models/nodedetail';
-import { NodeDetailService } from 'src/app/Core/services/node-detail.service';
+import { INodeDetail } from 'src/app/Core/Models/node-detail';
 import { NodeService } from 'src/app/Core/services/node.service';
 import { ConfirmationComponent } from '../../comps-tools/confirmation/confirmation.component';
 import { EditResearchTextComponent } from '../../comps-edit/edit-research-text/edit-research-text.component';
@@ -27,7 +26,6 @@ export class NodeDetailPageComponent implements OnInit {
   constructor(
     private activateRoute: ActivatedRoute,
     private router: Router,
-    public nodeDetailSrv: NodeDetailService,
     private nodeService: NodeService
   ) {}
 
@@ -38,7 +36,7 @@ export class NodeDetailPageComponent implements OnInit {
       this.nodeId = params['id'];
     });
 
-    this.nodeDetailSrv.getNodeDetail(this.nodeId)
+    this.nodeService.getNodeDetail(this.nodeId)
 /*     .pipe(
       //delay(2000)
     ) */
@@ -81,11 +79,11 @@ export class NodeDetailPageComponent implements OnInit {
     if (this.nodeNameAndDescriptionUpdatingSubscription)
       this.nodeNameAndDescriptionUpdatingSubscription.unsubscribe()
 
-      this.nodeNameAndDescriptionUpdatingSubscription = this.nodeDetailSrv
+      this.nodeNameAndDescriptionUpdatingSubscription = this.nodeService
       .updateNodeNameAndDescription({
-      description: this.nodeDetail.Node.description,
-      name: this.nodeDetail.Node.name,
-      id: this.nodeDetail.Node.id
+      description: this.nodeDetail.description,
+      name: this.nodeDetail.name,
+      id: this.nodeDetail.id
       //id: 1111
     })
       .subscribe({
@@ -99,12 +97,42 @@ export class NodeDetailPageComponent implements OnInit {
   openCreateResearchText() {
     this.editResearchText.openDialog({
       id: 0,
-      nodeId: this.nodeDetail.Node.id,
+      nodeId: this.nodeDetail.id,
       text: ""
     })
   }
 
   openEditResearchText(rt: IResearchText) {
     this.editResearchText.openDialog({...rt})
+  }
+
+  calcQuestPointsTotal(): number {
+    let res = this.nodeDetail.FlashCardsTitles.reduce((sum, item) => sum + item.questPrice, 0)
+    return res
+  }
+
+  calcCompletedQuestPoints(): number{
+    let res = this.nodeDetail.FlashCardsTitles.reduce((sum, item) => item.isCompleted ? item.questPrice + sum : sum, 0)
+
+    return res
+  }
+
+  calcFlashCardsAimHits(): number{
+    let res = this.nodeDetail.FlashCardsTitles.reduce((sum, item) => item.requiredHits! + sum, 0)
+    return res
+  }
+
+  calcFlashCardsHitsInRow(): number{
+    let res = this.nodeDetail.FlashCardsTitles.reduce((sum, item) => item.hitsInRow! + sum, 0)
+    return res
+  }
+
+  nodeCouldBeCompleted: boolean = false
+  calcIfNodeCouldBeCompleted(): boolean{
+    return true
+  }
+
+  completeNode(){
+
   }
 }

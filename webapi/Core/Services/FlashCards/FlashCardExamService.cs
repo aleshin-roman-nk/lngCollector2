@@ -8,95 +8,70 @@ namespace ThoughtzLand.Core.Services.FlashCards
 	{
 		private readonly IFlashCardRepo fcrepo;
 
-		CardLevelScheme cardLevelScheme;
+		private readonly CardParametersScheme CardParametersScheme;
 
 		public FlashCardExamService(
-			IFlashCardRepo fcrepo)
+			IFlashCardRepo fcrepo,
+			CardParametersSchemeProvider cardLevelSchemeProvider)
 		{
 			this.fcrepo = fcrepo;
-			cardLevelScheme = initCardLevelScheme();
+			CardParametersScheme = cardLevelSchemeProvider.CardParametersScheme;
 		}
-
-		CardLevelScheme initCardLevelScheme()
-		{
-			return new CardLevelScheme(
-				new CardLevel[]
-				{
-					new CardLevel(level: 1, hitsFrom: 0, hitsTo: 10, nextExamInMinuts: 10),
-					new CardLevel(level: 2, hitsFrom: 11, hitsTo: 20, nextExamInMinuts: 15),
-					new CardLevel(level: 3, hitsFrom: 21, hitsTo: 24, nextExamInMinuts: 20),
-					new CardLevel(level: 4, hitsFrom: 25, hitsTo: 9999, nextExamInMinuts: 20)
-				},
-				4,
-				25);
-		}
-
-		// На странице ноды где то можно типа истории ответов хранить; или очки.
-		// очки получаются путем выборки всех очков всех Expression of Thoughts данной ноды.
 
 		public CheckResult Check(CardSolution sol)
 		{
-			var card = fcrepo.Get(sol.cardId);
+			var cardHit = fcrepo.GetCardHit(sol.cardId);
 
-			if (sol.helpIsUsed)
+			var cardHitUpdateDto = new UpdateCardHitDto
 			{
-				//var newDate = DateTime.Now.AddMinutes(5);
-
-				card.hitsInRow = card.hitsInRow >= cardLevelScheme.cardMaxHit ? cardLevelScheme.cardMaxHit : 0;
-				var calcLevel = cardLevelScheme.calc(card.hitsInRow);
-
-				card.level = calcLevel.level;
-				card.nextExamDate = calcLevel.NextExamDate;
-
-				fcrepo.UpdateProperty(card.id, "nextExamDate", card.nextExamDate);
-				fcrepo.UpdateProperty(card.id, "hitsInRow", card.hitsInRow);
-				fcrepo.UpdateProperty(card.id, "level", card.level);
-
-				return new CheckResult
-				{
-					cardId = card.id,
-					isCorrect = false,
-					nextExamDate = card.nextExamDate,
-					totalHits = card.totalHits,
-					hitsInRow = card.hitsInRow,
-					level = card.level
-				};
-			}
+				hitsInRow = cardHit.hitsInRow,
+				id = cardHit.id,
+				isCompleted = cardHit.isCompleted,
+				totalHits = cardHit.totalHits,
+				level = cardHit.level,
+				nextExamDate = cardHit.nextExamDate,
+			};
 			
-			var res = new CheckResult();
+			var isCorrect = cardHit.answers.Any(answer => IsSimilar(sol.solution.Trim(), answer.Trim(), 93));
 
-			var isCorrect = card.answers.Any(answer => IsSimilar(sol.solution.Trim(), answer.text.Trim(), 93));
+			var justCompleted = false;
 
-			if (isCorrect)
+			if (isCorrect && !sol.helpIsUsed)
 			{
-				card.hitsInRow = card.hitsInRow + 1;
-				card.totalHits = card.totalHits + 1;
+				cardHitUpdateDto.hitsInRow = cardHit.hitsInRow + 1;
+				cardHitUpdateDto.totalHits = cardHit.totalHits + 1;
+
+				if(cardHitUpdateDto.hitsInRow >= cardHit.requiredHits)
+				{
+					justCompleted = cardHit.isCompleted ? false : true;
+					cardHitUpdateDto.isCompleted = true;
+					cardHitUpdateDto.hitsInRow = cardHit.requiredHits;
+				}
 			}
 			else
 			{
-				card.hitsInRow = card.hitsInRow >= cardLevelScheme.cardMaxHit ? cardLevelScheme.cardMaxHit : 0;
+				cardHitUpdateDto.hitsInRow = cardHit.hitsInRow >= CardParametersScheme.cardAimHitInRow ? CardParametersScheme.cardAimHitInRow : 0;
+				isCorrect = false;
 			}
 
 			{
-				var calcLevel = cardLevelScheme.calc(card.hitsInRow);
+				var calcLevel = CardParametersScheme.calc(cardHitUpdateDto.hitsInRow);
 
-				card.level = calcLevel.level;
-				card.nextExamDate = calcLevel.NextExamDate;
+				cardHitUpdateDto.level = calcLevel.level;
+				cardHitUpdateDto.nextExamDate = calcLevel.NextExamDate;
 
-				fcrepo.UpdateProperty(card.id, "hitsInRow", card.hitsInRow);
-				fcrepo.UpdateProperty(card.id, "totalHits", card.totalHits);
-				fcrepo.UpdateProperty(card.id, "level", card.level);
-				fcrepo.UpdateProperty(card.id, "nextExamDate", card.nextExamDate);
+				fcrepo.UpdateCardHit(cardHitUpdateDto);
 
-				// Трудности с маппингом. Пока по одной обновляем
-				//fcrepo.UpdateProperties(card, x => x.points, x=> x.NextExamDate);
-
-				res.cardId = card.id;
-				res.isCorrect = isCorrect;
-				res.nextExamDate = card.nextExamDate;
-				res.totalHits = card.totalHits;
-				res.hitsInRow = card.hitsInRow;
-				res.level = card.level;
+				CheckResult res = new CheckResult
+				{
+					cardId = cardHitUpdateDto.id,
+					hitsInRow = cardHitUpdateDto.hitsInRow,
+					isCorrect = isCorrect,
+					isJustCompleted = justCompleted,
+					level = cardHitUpdateDto.level,
+					nextExamDate = cardHitUpdateDto.nextExamDate,
+					totalHits = cardHitUpdateDto.totalHits
+				};
 
 				return res;
 			}

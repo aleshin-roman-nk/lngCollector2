@@ -1,9 +1,11 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System.Data;
 using ThoughtzLand.Core.Models.Location;
 using ThoughtzLand.Core.Models.Location.dto;
 using ThoughtzLand.Core.Repos;
 using ThoughtzLand.Core.Repos.Common;
+using ThoughtzLand.ImplementRepo.SQLitePepo.Entities.Terrains;
 using UserRegistry;
 
 namespace ThoughtzLand.ImplementRepo.SQLitePepo
@@ -12,35 +14,69 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 	{
 		private readonly AppData db;
 		private readonly IAuthorizedUserService authUserServ;
-		PropertyUpdater<Terrain> propertyUpdater;
+		PropertyUpdater<TerrainDb> propertyUpdater;
 
 		public TerrainRepoSQLite(AppData db, IAuthorizedUserService authUserServ)
 		{
 			this.db = db;
 			this.authUserServ = authUserServ;
-			propertyUpdater = new PropertyUpdater<Terrain>(db);
-
+			propertyUpdater = new PropertyUpdater<TerrainDb>(db);
 		}
 
-		public IEnumerable<Terrain> GetAll()
+		public IEnumerable<TerrainTitleDto> GetAllTerrainTitles()
 		{
 			var user = authUserServ.Get();
-			return db.Terrains.Where(t => t.userId == int.Parse(user.Id));
+			return db.Terrains
+				.Where(t => t.userId == int.Parse(user.Id))
+				.Select(t => new TerrainTitleDto
+				{
+					description = t.description,
+					id = t.id,
+					name = t.name,
+					userId = t.userId
+				});
 		}
 
-		public Terrain Get(int id)
+		public TerrainDetailDto GetTerrainDetail(int id)
 		{
-			var res = db.Terrains.FirstOrDefault(x => x.id == id);
+			var terrainDetailDto = db.Terrains
+				.Where(t => t.id == id)
+				.Select(t => new TerrainDetailDto
+				{
+					id = t.id,
+					name = t.name,
+					description = t.description,
+					userId = t.userId,
+					nodes = t.Nodes
+						.Where(n => n.terrainId == t.id)
+						.Select(n => new NodeTitleDto
+						{
+							id = n.id,
+							terrainId = n.terrainId,
+							name = n.name,
+							description = n.description,
+							x = n.x,
+							y = n.y,
+							width = n.width,
+							height = n.height,
+							//questsMinimumTotalPrice = n.questsMinimumTotalPrice,
+							questCount = n.FlashCards.Count(),// + n.Stories.Count(),
+							completedQuestCount = n.FlashCards.Count(fc => fc.isCompleted),
+							questPrice = n.FlashCards.Sum(fc => fc.questPrice),// + n.Stories.Sum(s => s.points),
+							completedQuestPrice = n.FlashCards.Where(fc => fc.isCompleted).Sum(fc => fc.questPrice)
+						})
+				})
+				.FirstOrDefault();
 
-			if (res != null)
-				return res;
+			if (terrainDetailDto != null)
+				return terrainDetailDto;
 			else
 				throw new InvalidOperationException($"no such terrain with id = {id}");
 		}
 
-		public Terrain Create(CreateTerrainDto entity)
+		public TerrainTitleDto Create(CreateTerrainDto entity)
 		{
-			var newTerrain = new Terrain 
+			var newTerrain = new TerrainDb 
 			{ 
 				description = entity.description,
 				name = entity.name,
@@ -50,7 +86,13 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 			db.Terrains.Add(newTerrain);
 			var success = db.SaveChanges() > 0;
 			if (success)
-				return newTerrain;
+				return new TerrainTitleDto
+				{
+					id = newTerrain.id,
+					description = newTerrain.description,
+					userId = newTerrain.userId,
+					name = newTerrain.name
+				};
 			else
 				throw new InvalidOperationException("wrong with creating terrain");
 		}
@@ -62,7 +104,7 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 
 		public void Remove(int entId)
 		{
-			db.Terrains.Remove(new Terrain { id = entId });
+			db.Terrains.Remove(new TerrainDb { id = entId });
 			var success = db.SaveChanges() > 0;
 
 			if (!success)

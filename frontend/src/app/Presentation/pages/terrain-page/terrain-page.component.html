@@ -7,39 +7,44 @@
 
 <div class="container mx-auto my-4">
 
-  <a class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 py-2 px-4 rounded text-start text-2xl"
+<div>
+  <a class="bg-stone-200 text-stone-600 hover:bg-stone-300 hover:text-stone-700 px-4 rounded text-start text-2xl"
   href="terrains"
     >back</a>
+</div>
 
-    <button class=" bg-red-700 text-white ml-2 p-2 rounded text-2xl"
+<!--     <button class=" bg-red-700 text-white ml-2 p-2 rounded text-2xl"
 (click)="startAskingToKill()">
-Kill</button>
+Kill</button> -->
 
 <div class="bg-stone-200 p-2 mt-2">
-  <h1 *ngIf="terrain" (click)="showEditTerrain = true" class="my-4 text-3xl font-bold cursor-pointer
-   text-stone-700 rounded-md text-center ">TERRAIN: {{terrain.name}}</h1>
+  <h1 *ngIf="terrainDetail" (click)="showEditTerrain = true" class="my-4 text-3xl font-bold cursor-pointer
+   text-stone-700 rounded-md text-center ">TERRAIN: {{terrainDetail.name}}</h1>
 
   <div *ngIf="showEditTerrain">
-    <textarea [(ngModel)]="terrain.name" rows="1" class="border border-stone-400
+    <textarea [(ngModel)]="terrainDetail.name" rows="1" class="border border-stone-400
     w-full mt-2 p-2 rounded-md bg-stone-100"></textarea>
 
-    <textarea [(ngModel)]="terrain.description" rows="1" class="border border-stone-400
+    <textarea [(ngModel)]="terrainDetail.description" rows="1" class="border border-stone-400
     w-full mt-2 p-2 rounded-md bg-stone-100"></textarea>
 
     <button class="border border-stone-700 rounded-md p-1 " (click)="saveTerrain()">Save</button>
     <button class="border border-stone-700 rounded-md p-1 ml-2 mt-2" (click)="showEditTerrain = false">Cancel</button>
 
   </div>
-  <app-loading-anim *ngIf="loading"></app-loading-anim>
+
 </div>
 
 </div>
 
 <!-- Node collection -->
 <div class="container mx-auto">
-  <div class="grid grid-cols-3 justify-items-center my-4 gap-4 bg-stone-100 rounded-md">
-    <app-node *ngFor="let node of nodes" [node]="node"></app-node>
+  <div *ngIf="!loading" class="grid grid-cols-3 justify-items-center my-4 gap-4 bg-stone-100 rounded-md">
+    <app-node-title *ngFor="let node of terrainDetail.nodes" [node]="node"></app-node-title>
   </div>
+
+  <app-loading-anim *ngIf="loading"></app-loading-anim>
+
 </div>
 
 <button class="fixed rounded-full bg-red-700 text-white right-5 bottom-5 px-4 py-2"

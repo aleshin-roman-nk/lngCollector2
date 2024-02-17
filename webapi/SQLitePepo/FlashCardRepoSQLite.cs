@@ -13,11 +13,11 @@ using ThoughtzLand.Core.Models.Exam.dto;
 using ThoughtzLand.Core.Models.Location;
 using ThoughtzLand.Core.Repos;
 using ThoughtzLand.Core.Repos.Common;
-using ThoughtzLand.ImplementRepo.SQLitePepo.Entities;
+using ThoughtzLand.ImplementRepo.SQLitePepo.Entities.FlashCards;
 
 namespace ThoughtzLand.ImplementRepo.SQLitePepo
 {
-	public class FlashCardRepoSQLite: IFlashCardRepo
+    public class FlashCardRepoSQLite: IFlashCardRepo
 	{
 		private readonly AppData db;
 		private readonly PropertyUpdater<FlashCardDb, FlashCard> tool;
@@ -80,7 +80,7 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 			return tool.UpdateProperties(ent, propSelectors);
 		}
 
-		public FlashCard Create(CreateFlashCardDto dto)
+		public FlashCard Create(CreateFlashCardCoreDto dto)
 		{
 			var ent = new FlashCardDb { 
 				nodeId = dto.nodeId,
@@ -91,7 +91,9 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 				requiredHits = dto.requiredHits,
 				question = dto.question,
 				description = dto.description,
-				level = 1
+				level = dto.level,
+				questPrice = dto.completedQuestPrice,
+				isCompleted = dto.isCompleted
 			};
 
 			db.FlashCards.Add(ent);
@@ -145,6 +147,41 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 			.ToArray();
 
 			return flashCardsQuery;
+		}
+
+		public CardHitDto? GetCardHit(int cardId)
+		{
+			return db.FlashCards
+				.Where(card => card.id == cardId)
+				.Select(card => new CardHitDto
+				{
+					hitsInRow = card.hitsInRow,
+					isCompleted = card.isCompleted,
+					level = card.level,
+					nextExamDate = card.nextExamDate,
+					requiredHits = card.requiredHits,
+					totalHits = card.totalHits,
+					answers = card.answers.Select(a => a.text),
+					id = card.id
+				})
+				.FirstOrDefault();
+		}
+
+		public void UpdateCardHit(UpdateCardHitDto dto)
+		{
+			var card = db.FlashCards.FirstOrDefault(c => c.id == dto.id);
+
+			if (card != null)
+			{
+				card.isCompleted = dto.isCompleted;
+				card.level = dto.level;
+				card.totalHits = dto.totalHits;
+				card.hitsInRow = dto.hitsInRow;
+				card.level = dto.level;
+				card.nextExamDate = dto.nextExamDate;
+
+				db.SaveChanges();
+			}
 		}
 	}
 }

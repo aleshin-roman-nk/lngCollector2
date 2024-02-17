@@ -5,15 +5,12 @@ namespace ThoughtzLand.Core.Models.Location.dto
 {
 	public class NodeDetailDto
 	{
-		public NodeDetailDto(Node n, IEnumerable<FlashCardTitle> ths, IEnumerable<ResearchText> rtxts)
-		{
-			Node = n;
-			FlashCardsTitles = ths;
-			ResearchTexts = rtxts;
-		}
-
-		public Node Node { get; }
-		public IEnumerable<FlashCardTitle> FlashCardsTitles { get; }
-		public IEnumerable<ResearchText> ResearchTexts { get; }
+		public int id { get; set; }
+		public int terrainId { get; set; }
+		public string? name { get; set; }
+		public string? description { get; set; }
+		public int level { get; set; }
+		public IEnumerable<FlashCardTitle>? FlashCardsTitles { get; set; }
+		public IEnumerable<ResearchText>? ResearchTexts { get; set; }
 	}
 }

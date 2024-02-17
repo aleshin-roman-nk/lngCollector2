@@ -18,5 +18,7 @@ namespace ThoughtzLand.Core.Models.Exam
 		public int totalHits { get; set; }
 		public int level { get; set; }
 		public int answersCount { get; set; }
+		public int questPrice { get; set; }
+		public bool isCompleted { get; set; }
 	}
 }

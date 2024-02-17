@@ -8,4 +8,6 @@ export interface IFlashCardTitle {
   lngTag?: string;
   level?: number
   answersCount: number
+  questPrice: number;
+  isCompleted: boolean
 }

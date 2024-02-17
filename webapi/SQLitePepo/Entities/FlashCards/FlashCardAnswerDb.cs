@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ThoughtzLand.Core.Models.Common;
 
-namespace ThoughtzLand.ImplementRepo.SQLitePepo.Entities
+namespace ThoughtzLand.ImplementRepo.SQLitePepo.Entities.FlashCards
 {
 	[Table("FlashCardAnswers")]
 	public class FlashCardAnswerDb

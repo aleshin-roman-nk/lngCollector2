@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ITerrain } from 'src/app/Core/Models/terrain';
+import { ITerrainTitle } from 'src/app/Core/Models/terrain';
 
 @Component({
   selector: 'app-terrian',
@@ -7,5 +7,5 @@ import { ITerrain } from 'src/app/Core/Models/terrain';
   styleUrls: ['./terrian.component.css']
 })
 export class TerrianComponent {
-  @Input() terrain: ITerrain
+  @Input() terrain: ITerrainTitle
 }

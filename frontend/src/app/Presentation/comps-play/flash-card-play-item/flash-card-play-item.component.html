@@ -3,10 +3,10 @@
 shadow-md shadow-blue-800 cursor-pointer w-96 h-40"
 
 [ngClass]="{
-  'bg-green-400 border-green-600': card.level === 1,
-  'bg-purple-400 border-purple-600': card.level === 2,
-  'bg-orange-400 border-orange-600': card.level === 3,
-  'bg-cyan-400 border-cyan-600': card.level === 4
+  'bg-gray-400 border-gray-600': card.level === 1,
+  'bg-green-400 border-green-600': card.level === 2,
+  'bg-blue-200 border-blue-400': card.level === 3,
+  'bg-orange-400 border-orange-600': card.level === 4
   }">
 
   <!-- title info section -->
@@ -22,7 +22,10 @@ shadow-md shadow-blue-800 cursor-pointer w-96 h-40"
       </div>
     </div>
 
-    <div class="pr-2 font-bold">{{card.level}}</div>
+    <div class="pr-2 font-bold">
+      <!-- <img src="assets/_1.png" alt="Flower" width="15" height="15" /> -->
+      {{card.level}}
+    </div>
 
 
   </div>

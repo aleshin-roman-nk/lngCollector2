@@ -62,14 +62,20 @@ export class FlashCardPageComponent {
       map(segments => segments.length === 4 && segments[3].path === "new"),
       tap(isNew => this.isNewCard = isNew),
       switchMap(isNew => {
-        if (isNew) {
+        if (isNew) {// вообще, если карточка новая, нужно открыть окно именно создания карточки, а потом от него уже переходить на страницу правки карточки
           return this.activateRoute.params.pipe(
             map(params => ({
               nodeId: params['nodeId'],
               id: 0,
               nextExamDate: new Date(),
               question: "",
-              description: ""
+              description: "",
+              questPrice: 0,
+              hitsInRow: 0,
+              isCompleted: false,
+              level: 0,
+              requiredHits: 0,
+              totalHits: 0
             }))
           );
         } else {
