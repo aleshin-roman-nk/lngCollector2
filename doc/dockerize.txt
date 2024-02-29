@@ -1,14 +1,49 @@
-docker run --name mysql-server -v /mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=1111 -p 3307:3306 -d mysql:latest
+https://chat.openai.com/g/g-HgZuFuuBK-professional-coder-auto-programming/c/43398f11-92b7-45bc-a1a7-0f61c6968c16
+https://chat.openai.com/g/g-HgZuFuuBK-professional-coder-auto-programming/c/64e7f401-c426-4e8a-87b5-f7180d22ec96
+
+ssh root@45.131.41.112
+
+access token
+dckr_pat_UQY3Lmmb2TL5t-Z600B7CvrX-h8
+
+создать образ web api
+docker build -t kalinared/webapimysql:latest .
+
+создать образ frontexamp
+docker build -t kalinared/frontexamp:latest .
+
+запушить в docker hub
+docker tag webapimysql:latest kalinared/webapimysql:latest
+docker push kalinared/webapimysql:latest
+
+запушить в docker hub frontexamp
+docker tag frontexamp:latest kalinared/frontexamp:latest
+docker push kalinared/frontexamp:latest
+
+на хосте
+docker pull kalinared/frontexamp:latest
+
+на хосте
+docker pull kalinared/webapimysql:latest
+
+начальная настройка
+1. создать сеть
+docker network create my-network
+
+2. создать контейнер базы данных
+docker run --rm --name mysql-container -d -p 3306:3306 --network my-network -e MYSQL_ROOT_PASSWORD=1111 -v /mysql-data:/var/lib/mysql mysql
+docker run --rm --name mysql-container -d -p 33077:3306 --network my-network -e MYSQL_ROOT_PASSWORD=1111 -v d:/mysql-data:/var/lib/mysql mysql
+
+3. создать контейнер web api
+docker run --rm --name webapimysql-container -d -p 9999:8080 --network my-network -e DB_IP=mysql-container kalinared/webapimysql
+docker run --rm --name webapimysql-container -d -p 9999:8080 --network my-network -e DB_IP=mysql-container -e DB_PORT=33077 kalinared/webapimysql
 
 
+4. создать контейнер front-end
+docker run --rm --name frontexamp-container -d -p 80:80 --network my-network kalinared/frontexamp
+docker run --rm --name frontexamp-container -d -p 80:80 frontexamp
 
+http://45.131.41.112:9999/api/Computers
 
-
-
-
-docker run --name my_mysql_container -e MYSQL_ROOT_PASSWORD=1111 -p 3306:3306 -d mysql
-
-docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=1111 -v /mysql-data:/var/lib/mysql -d mysql
-
-docker build -t webapimysql .
-docker run --rm -d -p 80:8080 --name webapimysql-container webapimysql
+docker exec -it frontexamp-container curl http://webapimysql-container:9999/api/Computers
+docker exec -it frontexamp-container curl webapimysql-container:8080/api/Computers
