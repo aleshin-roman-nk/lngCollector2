@@ -5,6 +5,7 @@ on:
       - develop
     paths:
       - 'frontend/**'
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -13,19 +14,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build Angular app
-        run: npm run build -- --prod
-
       - name: Build Docker image
-        run: docker build -t kalinared/lng2front:latest .
+        run: docker build -t kalinared/lng2front:latest ./frontend
 
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
@@ -40,6 +30,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
-            docker pull yourusername/yourappname:latest
-            docker stop $(docker ps -q --filter ancestor=yourusername/yourappname:latest) || true
-            docker run -d -p 80:80 yourusername/yourappname:latest
+            docker rmi kalinared/lng2front:latest
+            docker pull kalinared/lng2front:latest
+            docker stop $(docker ps -q --filter ancestor=kalinared/lng2front:latest) || true
+            docker run --rm --name lng2front-container -d -p 80:80 --network my-network kalinared/lng2front
