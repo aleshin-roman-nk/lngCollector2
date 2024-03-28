@@ -33,7 +33,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
+            docker stop $(docker ps -q --filter ancestor=kalinared/lng2front:latest) || true
             docker rmi kalinared/lng2front:latest
             docker pull kalinared/lng2front:latest
-            docker stop $(docker ps -q --filter ancestor=kalinared/lng2front:latest) || true
             docker run --rm --name lng2front-container -d -p 80:80 --network my-network kalinared/lng2front
