@@ -24,4 +24,16 @@ jobs:
           password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
           
       - name: Push Docker image to Docker Hub
-        run: docker push kalinared/lng2front:latest          
+        run: docker push kalinared/lng2front:latest
+        
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            docker rmi kalinared/lng2front:latest
+            docker pull kalinared/lng2front:latest
+            docker stop $(docker ps -q --filter ancestor=kalinared/lng2front:latest) || true
+            docker run --rm --name lng2front-container -d -p 80:80 --network my-network kalinared/lng2front
