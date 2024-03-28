@@ -19,3 +19,6 @@ git push origin --delete feature_branch
 
 Code Review and Testing
 git push -u origin new_feat
+
+push where
+git push -u origin <branch-name>
