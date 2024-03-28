@@ -32,8 +32,11 @@ jobs:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }}
-          script: |
-            docker stop $(docker ps -q --filter ancestor=kalinared/lng2front:latest) || true
-            docker rmi kalinared/lng2front:latest
+          run: |
+            CONTAINER_IDS=$(docker ps -q --filter ancestor=kalinared/lng2front:latest)
+            if [ -n "$CONTAINER_IDS" ]; then
+              docker stop $CONTAINER_IDS
+            fi
+            docker rmi kalinared/lng2front:latest || true
             docker pull kalinared/lng2front:latest
-            docker run --rm --name lng2front-container -d -p 80:80 --network my-network kalinared/lng2front
+            docker run --rm --name lng2front-container -d -p 80:80 --network my-network kalinared/lng2front:latest
