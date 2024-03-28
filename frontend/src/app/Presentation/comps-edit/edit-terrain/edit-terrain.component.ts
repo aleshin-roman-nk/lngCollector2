@@ -39,6 +39,8 @@ export class EditTerrainComponent {
     this.submitted = true
     if (this.creatingForm.valid) {
 
+      if(this.userSrv.currentUser == null) return
+
       this.terrSrv
       .create({
         name: this.creatingForm.value.terrainName as string,

@@ -1,20 +1,21 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using MySQLRepo;
 using System.Xml.Linq;
 using ThoughtzLand.Core.Models.Exam;
 using ThoughtzLand.Core.Models.Location;
 using ThoughtzLand.Core.Models.Location.dto;
 using ThoughtzLand.Core.Repos;
-using ThoughtzLand.ImplementRepo.SQLitePepo.Entities;
-using ThoughtzLand.ImplementRepo.SQLitePepo.Entities.Nodes;
+using ThoughtzLand.ImplementRepo.MySqlRepo.Entities;
+using ThoughtzLand.ImplementRepo.MySqlRepo.Entities.Nodes;
 
 namespace ThoughtzLand.ImplementRepo.SQLitePepo
 {
-	public class NodeRepoSQLite : INodeRepo
+	public class NodeRepoMySql : INodeRepo
 	{
-		private readonly AppDataSQLite db;
+		private readonly AppDataMySql db;
 
-		public NodeRepoSQLite(AppDataSQLite db)
+		public NodeRepoMySql(AppDataMySql db)
 		{
 			this.db = db;
 		}

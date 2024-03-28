@@ -10,9 +10,9 @@ using ThoughtzLand.ImplementRepo.SQLitePepo.Entities.Terrains;
 
 namespace ThoughtzLand.ImplementRepo.SQLitePepo
 {
-    public class AppData: DbContext
+    public class AppDataSQLite: DbContext
     {
-        public AppData(DbContextOptions<AppData> options): base(options) { }
+        public AppDataSQLite(DbContextOptions<AppDataSQLite> options): base(options) { }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

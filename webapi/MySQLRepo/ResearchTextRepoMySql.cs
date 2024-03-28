@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MySQLRepo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,11 @@ using ThoughtzLand.Core.Repos;
 
 namespace ThoughtzLand.ImplementRepo.SQLitePepo
 {
-	public class ResearchTextRepoSQLite : IResearchTextRepo
+	public class ResearchTextRepoMySql : IResearchTextRepo
 	{
-		private readonly AppDataSQLite db;
+		private readonly AppDataMySql db;
 
-		public ResearchTextRepoSQLite(AppDataSQLite db)
+		public ResearchTextRepoMySql(AppDataMySql db)
 		{
 			this.db = db;
 		}

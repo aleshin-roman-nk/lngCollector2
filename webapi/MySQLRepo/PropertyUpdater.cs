@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using MySQLRepo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,18 +14,17 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using ThoughtzLand.Core.Models.Common;
 using ThoughtzLand.Core.Models.Exam;
-using ThoughtzLand.ImplementRepo.SQLitePepo.Entities;
 
-namespace ThoughtzLand.ImplementRepo.SQLitePepo
+namespace ThoughtzLand.ImplementRepo.MySqlRepo
 {
 	internal class PropertyUpdater<TInternalEntity, TExternalEntity>
 		where TInternalEntity : class
 		where TExternalEntity : class
 	{
-		private readonly AppDataSQLite db;
+		private readonly AppDataMySql db;
 		IMapper mapper;
 
-		public PropertyUpdater(AppDataSQLite db)
+		public PropertyUpdater(AppDataMySql db)
 		{
 			this.db = db;
 
@@ -107,9 +107,9 @@ namespace ThoughtzLand.ImplementRepo.SQLitePepo
 	internal class PropertyUpdater<TEntity>
 	where TEntity : class
 	{
-		private readonly AppDataSQLite db;
+		private readonly AppDataMySql db;
 
-		public PropertyUpdater(AppDataSQLite db)
+		public PropertyUpdater(AppDataMySql db)
 		{
 			this.db = db;
 		}

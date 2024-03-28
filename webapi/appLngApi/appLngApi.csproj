@@ -25,7 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\SQLitePepo\SQLitePepo.csproj" />
+    <ProjectReference Include="..\MySQLRepo\MySQLRepo.csproj" />
     <ProjectReference Include="..\UserRegistry\UserRegistry.csproj" />
   </ItemGroup>
 

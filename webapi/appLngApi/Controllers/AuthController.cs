@@ -27,7 +27,7 @@ namespace JwtWebApiTutorial.Controllers
 		}
 
 		[HttpPost("register")]
-		public async Task<ActionResult<User>> Register(UserDto request)
+		public IActionResult Register(UserDto request)
 		{
 			if (_userService.EmailExists(request.Email)) 
 				return StatusCode(StatusCodes.Status409Conflict, $"Email {request.Email} already exists");
@@ -143,7 +143,7 @@ namespace JwtWebApiTutorial.Controllers
 		{
 			List<Claim> claims = new List<Claim>
 			{
-				new Claim(ClaimTypes.Name, user.name),
+				//new Claim(ClaimTypes.Name, user.name),
 				//new Claim(ClaimTypes.Role, "Admin"),
 				new Claim(ClaimTypes.NameIdentifier, user.id.ToString()),
 				new Claim(ClaimTypes.Email, user.email)

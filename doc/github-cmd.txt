@@ -1,0 +1,21 @@
+create a new branch
+one of this
+git branch aaa
+git checkout -b aaa
+
+
+switch to a branch
+git checkout aaa
+
+merge
+git checkout release
+git merge feature_branch
+
+Delete the local branch
+git branch -d aaa
+
+Delete the remote branch
+git push origin --delete feature_branch
+
+Code Review and Testing
+git push -u origin new_feat

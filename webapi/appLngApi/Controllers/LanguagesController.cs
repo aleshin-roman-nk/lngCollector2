@@ -19,7 +19,7 @@ namespace ThoughtzLand.Api.Controllers
 		[HttpGet]
 		public IActionResult GetAll()
 		{
-			return Ok(srv.GetAll());
+            return Ok(srv.GetAll());
 		}
 
 		[HttpPost]

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using MySQLRepo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,18 +14,18 @@ using ThoughtzLand.Core.Models.Exam.dto;
 using ThoughtzLand.Core.Models.Location;
 using ThoughtzLand.Core.Repos;
 using ThoughtzLand.Core.Repos.Common;
-using ThoughtzLand.ImplementRepo.SQLitePepo.Entities.FlashCards;
+using ThoughtzLand.ImplementRepo.MySqlRepo.Entities.FlashCards;
 
-namespace ThoughtzLand.ImplementRepo.SQLitePepo
+namespace ThoughtzLand.ImplementRepo.MySqlRepo
 {
-    public class FlashCardRepoSQLite: IFlashCardRepo
+    public class FlashCardRepoMySql: IFlashCardRepo
 	{
-		private readonly AppDataSQLite db;
+		private readonly AppDataMySql db;
 		private readonly PropertyUpdater<FlashCardDb, FlashCard> tool;
 		private readonly PropertyUpdater<FlashCardDb> propertyUpdater;
 		IMapper mapper;
 
-		public FlashCardRepoSQLite(AppDataSQLite db)
+		public FlashCardRepoMySql(AppDataMySql db)
 		{
 			this.db = db;
 			tool = new PropertyUpdater<FlashCardDb, FlashCard>(db);

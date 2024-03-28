@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using MySQLRepo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +11,17 @@ using System.Threading.Tasks;
 using ThoughtzLand.Core.Models.Exam;
 using ThoughtzLand.Core.Models.Exam.dto;
 using ThoughtzLand.Core.Repos;
-using ThoughtzLand.ImplementRepo.SQLitePepo.Entities.FlashCards;
+using ThoughtzLand.ImplementRepo.MySqlRepo.Entities.FlashCards;
 
-namespace ThoughtzLand.ImplementRepo.SQLitePepo
+namespace ThoughtzLand.ImplementRepo.MySqlRepo
 {
-    public class FlashCardAnswerRepoSQLite : IFlashCardAnswerRepo
+    public class FlashCardAnswerRepoMySql : IFlashCardAnswerRepo
 	{
-		private readonly AppDataSQLite db;
+		private readonly AppDataMySql db;
 		PropertyUpdater<FlashCardAnswerDb> propertyUpdater;
 		IMapper mapper;
 
-		public FlashCardAnswerRepoSQLite(AppDataSQLite db)
+		public FlashCardAnswerRepoMySql(AppDataMySql db)
 		{
 			this.db = db;
 

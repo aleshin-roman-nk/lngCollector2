@@ -5,13 +5,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using MySQLRepo;
 using Swashbuckle.AspNetCore.Filters;
+using System.Configuration;
 using System.Net;
 using System.Text;
 using ThoughtzLand.Api.auth;
 using ThoughtzLand.Core.Repos;
 using ThoughtzLand.Core.Services;
 using ThoughtzLand.Core.Services.FlashCards;
+//using ThoughtzLand.ImplementRepo.SQLitePepo;
+using ThoughtzLand.ImplementRepo.MySqlRepo;
 using ThoughtzLand.ImplementRepo.SQLitePepo;
 using UserRegistry;
 
@@ -55,15 +59,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 		};
 	});
 
-
-builder.Services.AddDbContext<AppData>(options =>
-{
-	options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("appLngApi"));
-	//options.LogTo(Console.WriteLine);
-	//options.EnableSensitiveDataLogging(true);
-	//options.UseLoggerFactory(null);
-});
-
 builder.Host.ConfigureDefaults(args)
 			.ConfigureLogging(logging =>
 			{
@@ -77,36 +72,30 @@ builder.Host.ConfigureDefaults(args)
 
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddScoped<ITerrainRepo, TerrainRepoSQLite>();
 builder.Services.AddScoped<TerrainService>();
-
-builder.Services.AddScoped<INodeRepo, NodeRepoSQLite>();
 builder.Services.AddScoped<NodeService>();
-
-builder.Services.AddScoped<ILanguageRepo, LanguageRepoSQLite>();
 builder.Services.AddScoped<LanguagesService>();
-
-builder.Services.AddScoped<IFlashCardRepo, FlashCardRepoSQLite>();
 builder.Services.AddScoped<FlashCardService>();
-
-builder.Services.AddScoped<IFlashCardAnswerRepo, FlashCardAnswerRepoSQLite>();
-
 builder.Services.AddScoped<FlashCardExamService>();
-
-builder.Services.AddScoped<IResearchTextRepo, ResearchTextRepoSQLite>();
 builder.Services.AddScoped<ResearchTextService>();
-
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<IAuthorizedUserService, AuthorizedUserService>();
 
-builder.Services.AddScoped<IUserRepo, UserRepoSQLite>();
+dataBaseRepositoriesMySql(builder);
 
 builder.Services.AddSingleton<CardParametersSchemeProvider>();
 
 builder.Services.AddCors(options => options.AddPolicy(name: "moyaDerevnya",
 	policy =>
 	{
-		policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+		var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>();
+		if (allowedOrigins == null) allowedOrigins = new string[] { "localhost" };
+
+		Console.WriteLine("Allowed cors origins:");
+		foreach (var allowedOrigin in allowedOrigins)
+            Console.WriteLine(allowedOrigin);
+
+		policy.WithOrigins(allowedOrigins).AllowAnyMethod().AllowAnyHeader();
 	}));
 
 
@@ -160,3 +149,52 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+void dataBaseRepositoriesMySql(WebApplicationBuilder? builder)
+{
+	if (builder == null) return;
+
+	builder.Services.AddDbContext<AppDataMySql>(options =>
+	{
+		var dbIp = builder.Configuration["DB_IP"] != null ? builder.Configuration["DB_IP"] : "45.131.41.112";
+		var dbPort = builder.Configuration["DB_PORT"] != null ? builder.Configuration["DB_PORT"] : "3306";
+		var dbRootPsw = builder.Configuration["DB_ROOT_PSW"] != null ? builder.Configuration["DB_ROOT_PSW"] : "tratata900";
+
+		var connection = $"Server={dbIp};Database=lng2;port={dbPort};user=root;password={dbRootPsw};";
+
+		options.UseMySql(connection, new MySqlServerVersion(new Version(8, 0, 25)));
+
+		//options.LogTo(Console.WriteLine);
+		//options.EnableSensitiveDataLogging(true);
+		//options.UseLoggerFactory(null);
+	});
+
+	builder.Services.AddScoped<ITerrainRepo, TerrainRepoMySql>();
+	builder.Services.AddScoped<INodeRepo, NodeRepoMySql>();
+	builder.Services.AddScoped<ILanguageRepo, LanguageRepoMySql>();
+	builder.Services.AddScoped<IFlashCardRepo, FlashCardRepoMySql>();
+	builder.Services.AddScoped<IFlashCardAnswerRepo, FlashCardAnswerRepoMySql>();
+	builder.Services.AddScoped<IResearchTextRepo, ResearchTextRepoMySql>();
+	builder.Services.AddScoped<IUserRepo, UserRepoMySql>();
+}
+
+//void dataBaseRepositoriesSQLite(WebApplicationBuilder? builder)
+//{
+//	if (builder == null) return;
+
+//builder.Services.AddDbContext<AppDataSQLite>(options =>
+//{
+//	options.UseSqlite(builder.Configuration.GetConnectionString("cnSqlite"), b => b.MigrationsAssembly("appLngApi"));
+//	//options.LogTo(Console.WriteLine);
+//	//options.EnableSensitiveDataLogging(true);
+//	//options.UseLoggerFactory(null);
+//});
+
+//	builder.Services.AddScoped<ITerrainRepo, TerrainRepoSQLite>();
+//	builder.Services.AddScoped<INodeRepo, NodeRepoSQLite>();
+//	builder.Services.AddScoped<ILanguageRepo, LanguageRepoSQLite>();
+//	builder.Services.AddScoped<IFlashCardRepo, FlashCardRepoSQLite>();
+//	builder.Services.AddScoped<IFlashCardAnswerRepo, FlashCardAnswerRepoSQLite>();
+//	builder.Services.AddScoped<IResearchTextRepo, ResearchTextRepoSQLite>();
+//	builder.Services.AddScoped<IUserRepo, UserRepoSQLite>();
+//}

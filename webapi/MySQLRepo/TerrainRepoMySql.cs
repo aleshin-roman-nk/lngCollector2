@@ -1,22 +1,23 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using MySQLRepo;
 using System.Data;
 using ThoughtzLand.Core.Models.Location;
 using ThoughtzLand.Core.Models.Location.dto;
 using ThoughtzLand.Core.Repos;
 using ThoughtzLand.Core.Repos.Common;
-using ThoughtzLand.ImplementRepo.SQLitePepo.Entities.Terrains;
+using ThoughtzLand.ImplementRepo.MySqlRepo.Entities.Terrains;
 using UserRegistry;
 
-namespace ThoughtzLand.ImplementRepo.SQLitePepo
+namespace ThoughtzLand.ImplementRepo.MySqlRepo
 {
-	public class TerrainRepoSQLite : ITerrainRepo
+	public class TerrainRepoMySql : ITerrainRepo
 	{
-		private readonly AppDataSQLite db;
+		private readonly AppDataMySql db;
 		private readonly IAuthorizedUserService authUserServ;
 		PropertyUpdater<TerrainDb> propertyUpdater;
 
-		public TerrainRepoSQLite(AppDataSQLite db, IAuthorizedUserService authUserServ)
+		public TerrainRepoMySql(AppDataMySql db, IAuthorizedUserService authUserServ)
 		{
 			this.db = db;
 			this.authUserServ = authUserServ;

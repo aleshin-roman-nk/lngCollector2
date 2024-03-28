@@ -31,8 +31,8 @@
               "D:\\prg\\lngCollector2\\webapi\\Core\\Core.csproj": {
                 "projectPath": "D:\\prg\\lngCollector2\\webapi\\Core\\Core.csproj"
               },
-              "D:\\prg\\lngCollector2\\webapi\\SQLitePepo\\SQLitePepo.csproj": {
-                "projectPath": "D:\\prg\\lngCollector2\\webapi\\SQLitePepo\\SQLitePepo.csproj"
+              "D:\\prg\\lngCollector2\\webapi\\MySQLRepo\\MySQLRepo.csproj": {
+                "projectPath": "D:\\prg\\lngCollector2\\webapi\\MySQLRepo\\MySQLRepo.csproj"
               },
               "D:\\prg\\lngCollector2\\webapi\\UserRegistry\\UserRegistry.csproj": {
                 "projectPath": "D:\\prg\\lngCollector2\\webapi\\UserRegistry\\UserRegistry.csproj"
@@ -101,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -161,18 +161,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\prg\\lngCollector2\\webapi\\SQLitePepo\\SQLitePepo.csproj": {
+    "D:\\prg\\lngCollector2\\webapi\\MySQLRepo\\MySQLRepo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\prg\\lngCollector2\\webapi\\SQLitePepo\\SQLitePepo.csproj",
-        "projectName": "SQLitePepo",
-        "projectPath": "D:\\prg\\lngCollector2\\webapi\\SQLitePepo\\SQLitePepo.csproj",
+        "projectUniqueName": "D:\\prg\\lngCollector2\\webapi\\MySQLRepo\\MySQLRepo.csproj",
+        "projectName": "MySQLRepo",
+        "projectPath": "D:\\prg\\lngCollector2\\webapi\\MySQLRepo\\MySQLRepo.csproj",
         "packagesPath": "C:\\Users\\alesh\\.nuget\\packages\\",
-        "outputPath": "D:\\prg\\lngCollector2\\webapi\\SQLitePepo\\obj\\",
+        "outputPath": "D:\\prg\\lngCollector2\\webapi\\MySQLRepo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alesh\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -215,27 +215,15 @@
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
-              "version": "[12.0.1, )"
+              "version": "[13.0.1, )"
             },
-            "Microsoft.EntityFrameworkCore": {
+            "MySql.Data": {
               "target": "Package",
-              "version": "[8.0.1, )"
+              "version": "[8.3.0, )"
             },
-            "Microsoft.EntityFrameworkCore.Abstractions": {
+            "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[8.0.1, )"
-            },
-            "Microsoft.EntityFrameworkCore.Analyzers": {
-              "target": "Package",
-              "version": "[8.0.1, )"
-            },
-            "Microsoft.EntityFrameworkCore.Sqlite": {
-              "target": "Package",
-              "version": "[8.0.1, )"
-            },
-            "Microsoft.Extensions.Caching.Abstractions": {
-              "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.2, )"
             }
           },
           "imports": [
@@ -254,7 +242,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -314,7 +302,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
