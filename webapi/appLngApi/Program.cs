@@ -156,9 +156,13 @@ void dataBaseRepositoriesMySql(WebApplicationBuilder? builder)
 
 	builder.Services.AddDbContext<AppDataMySql>(options =>
 	{
-		var dbIp = builder.Configuration["DB_IP"] != null ? builder.Configuration["DB_IP"] : "45.131.41.112";
-		var dbPort = builder.Configuration["DB_PORT"] != null ? builder.Configuration["DB_PORT"] : "3306";
-		var dbRootPsw = builder.Configuration["DB_ROOT_PSW"] != null ? builder.Configuration["DB_ROOT_PSW"] : "tratata900";
+		//var dbIp = builder.Configuration["DB_IP"] != null ? builder.Configuration["DB_IP"] : "45.131.41.112";
+		//var dbPort = builder.Configuration["DB_PORT"] != null ? builder.Configuration["DB_PORT"] : "3306";
+		//var dbRootPsw = builder.Configuration["DB_ROOT_PSW"] != null ? builder.Configuration["DB_ROOT_PSW"] : "tratata900";
+
+		var dbIp = builder.Configuration.GetSection("AppSettings:DB_IP").Value;
+		var dbPort = builder.Configuration.GetSection("AppSettings:DB_PORT").Value;
+		var dbRootPsw = builder.Configuration.GetSection("AppSettings:DB_ROOT_PSW").Value;
 
 		var connection = $"Server={dbIp};Database=lng2;port={dbPort};user=root;password={dbRootPsw};";
 

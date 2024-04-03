@@ -67,7 +67,7 @@ namespace ThoughtzLand.Core.Services.FlashCards
 			if (cl == null) throw new InvalidOperationException("Wrong with calculating level");
 
 			return new LevelCalculation {
-				NextExamDate = DateTime.Now.AddSeconds(cl.nextExamInMinuts) ,
+				NextExamDate = DateTime.UtcNow.AddSeconds(cl.nextExamInMinuts) ,
 				level = cl.level
 			};
 		}
