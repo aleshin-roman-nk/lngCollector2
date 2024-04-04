@@ -16,7 +16,7 @@ RUN dotnet restore "appLngApi/appLngApi.csproj"
 COPY . .
 
 # Build and publish the application
-RUN dotnet publish "appLngApi/appLngApi.csproj" -c Release -o /app/publish
+RUN dotnet publish "appLngApi/appLngApi.csproj" -c Release -o /app/publish -v detailed
 
 # Use the ASP.NET Core runtime image for the final image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
