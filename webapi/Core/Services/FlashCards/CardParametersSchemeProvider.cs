@@ -15,9 +15,9 @@ namespace ThoughtzLand.Core.Services.FlashCards
 			CardParametersScheme = new CardParametersScheme(
 				levels: new CardLevel[]
 				{
-					new CardLevel(hitsFrom: 0, hitsTo: 10, nextExamInMinuts: 5),
-					new CardLevel(hitsFrom: 11, hitsTo: 15, nextExamInMinuts: 30),
-					new CardLevel(hitsFrom: 16, hitsTo: 19, nextExamInMinuts: 60),
+					new CardLevel(hitsFrom: 0, hitsTo: 10, nextExamInMinuts: 3),
+					new CardLevel(hitsFrom: 11, hitsTo: 15, nextExamInMinuts: 10),
+					new CardLevel(hitsFrom: 16, hitsTo: 19, nextExamInMinuts: 480),
 					new CardLevel(hitsFrom: 20, hitsTo: 20, nextExamInMinuts: 0)
 				},
 				completedQuestPrice: 10);

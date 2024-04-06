@@ -28,7 +28,7 @@ docker pull kalinared/lng2front:latest
 docker network create my-network
 
 2. создать контейнер базы данных
-docker run --rm --name mysql-container -d -p 3306:3306 --network my-network -e MYSQL_ROOT_PASSWORD=tratata900 -v /mysql-data:/var/lib/mysql mysql
+docker run --rm --name mysql-container -d -p 3306:3306 --network my-network -e MYSQL_ROOT_PASSWORD=<set> -v /mysql-data:/var/lib/mysql mysql
 
 
 3. создать контейнер web api
