@@ -164,10 +164,6 @@ void dataBaseRepositoriesMySql(WebApplicationBuilder? builder)
 		var dbPort = builder.Configuration.GetSection("AppSettings:DB_PORT").Value;
 		var dbRootPsw = builder.Configuration.GetSection("AppSettings:DB_ROOT_PSW").Value;
 
-        Console.WriteLine(dbIp);
-        Console.WriteLine(dbPort);
-        Console.WriteLine(dbRootPsw);
-
         var connection = $"Server={dbIp};Database=lng2;port={dbPort};user=root;password={dbRootPsw};";
 
 		options.UseMySql(connection, new MySqlServerVersion(new Version(8, 0, 25)));

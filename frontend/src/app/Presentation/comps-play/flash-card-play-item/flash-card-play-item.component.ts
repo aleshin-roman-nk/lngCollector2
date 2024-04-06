@@ -40,11 +40,11 @@ export class FlashCardPlayItemComponent {
 
   checkTime() {
     const currentTime = new Date()
-    const cardDate = new Date(this.card!.nextExamDate)
+    const cardNextExamDate = new Date(this.card!.nextExamDate)
 
-    if(currentTime < cardDate){
+    if(currentTime < cardNextExamDate){
       // Calculate the difference in milliseconds
-      const differenceInMilliseconds = Math.abs(currentTime.getTime() - cardDate.getTime());
+      const differenceInMilliseconds = Math.abs(currentTime.getTime() - cardNextExamDate.getTime());
 
       // Convert to hours, minutes, and seconds
       const hours = Math.floor(differenceInMilliseconds / 3600000); // 1 hour = 3600000 milliseconds
@@ -58,7 +58,7 @@ export class FlashCardPlayItemComponent {
     else
     this.timeLeft = undefined
 
-    this.isDisabled = currentTime < cardDate
+    this.isDisabled = currentTime < cardNextExamDate
   }
 
   ngOnDestroy() {

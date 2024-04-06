@@ -9,17 +9,14 @@ sftp root@45.131.41.112
 put d:\lng2webapi\appsettings.json
 - путь на локльном компе
 
-access token
-dckr_pat_UQY3Lmmb2TL5t-Z600B7CvrX-h8
-
 web api
 docker build -t kalinared/lng2webapi:latest .
 docker push kalinared/lng2webapi:latest
 docker pull kalinared/lng2webapi:latest
 docker run --rm --name lng2webapi-container -d -p 9999:8080 --network my-network -e DB_IP=mysql-container kalinared/lng2webapi
-docker run --rm --name lng2webapi-container -d -p 9999:8080 --network my-network -e DB_IP=mysql-container -v /lng2webapi/appsettings.json:/app/appsettings.json kalinared/lng2webapi
+docker run --rm --name lng2webapi-container -d -p 9999:8080 --network my-network -v /lng2webapi/appsettings.json:/app/appsettings.json kalinared/lng2webapi
 для отладки налокальной машине но с доступом к удаленному mysql
-docker run --rm --name lng2webapi-container -d -p 9999:8080 -e DB_IP=45.131.41.112 -v d:/lng2webapi/appsettings.json:/app/appsettings.json kalinared/lng2webapi
+docker run --rm --name lng2webapi-container -d -p 9999:8080 -v d:/lng2webapi/appsettings.json:/app/appsettings.json kalinared/lng2webapi:latest
 
 web app front
 docker build -t kalinared/lng2front:latest .

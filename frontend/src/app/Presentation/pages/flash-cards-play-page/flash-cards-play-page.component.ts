@@ -44,6 +44,10 @@ export class FlashCardsPlayPageComponent {
           .filter(x => x.answers?.length)
           .sort((a, b) => new Date(a.nextExamDate).getTime() - new Date(b.nextExamDate).getTime())
 
+        this.cards.forEach(card => {
+          card.nextExamDate = new Date(card.nextExamDate + 'Z')
+        })
+
         this.loading = false
       })
   }
