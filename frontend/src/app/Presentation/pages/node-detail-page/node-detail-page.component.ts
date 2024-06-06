@@ -84,7 +84,6 @@ export class NodeDetailPageComponent implements OnInit {
       description: this.nodeDetail.description,
       name: this.nodeDetail.name,
       id: this.nodeDetail.id
-      //id: 1111
     })
       .subscribe({
         next: () => this.loading = false,

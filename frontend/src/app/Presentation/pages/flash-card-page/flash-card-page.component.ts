@@ -250,11 +250,6 @@ export class FlashCardPageComponent {
         })
     } */
 
-  updateThExpressionStringProperty(id: number, propName: string, newValue: string) {
-    /*     this.thExpressionSrv.updateStringProperty(id, propName, newValue)
-        .subscribe() */
-  }
-
   deleteCardAnswer(ca: IFlashCardAnswer) {
       this.flashCardService.deleteCardAnswer(ca.id).subscribe(() => {
 
