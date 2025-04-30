@@ -4704,7 +4704,11 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
+<<<<<<< HEAD
       "SdkAnalysisLevel": "9.0.100"
+=======
+      "SdkAnalysisLevel": "9.0.200"
+>>>>>>> master
     },
     "frameworks": {
       "net8.0": {
@@ -4756,7 +4760,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+>>>>>>> master
       }
     }
   }
