@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserRegistry", "UserRegistr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySQLRepo", "MySQLRepo\MySQLRepo.csproj", "{D2EB0BBF-C6D7-4B54-A10D-00AD1EFF9150}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreRepo", "EFCoreRepo\EFCoreRepo.csproj", "{07B650AA-989E-41D7-8B97-0D69EFF565B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D2EB0BBF-C6D7-4B54-A10D-00AD1EFF9150}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2EB0BBF-C6D7-4B54-A10D-00AD1EFF9150}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2EB0BBF-C6D7-4B54-A10D-00AD1EFF9150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07B650AA-989E-41D7-8B97-0D69EFF565B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07B650AA-989E-41D7-8B97-0D69EFF565B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07B650AA-989E-41D7-8B97-0D69EFF565B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07B650AA-989E-41D7-8B97-0D69EFF565B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

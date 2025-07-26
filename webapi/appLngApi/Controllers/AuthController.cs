@@ -154,9 +154,11 @@ namespace JwtWebApiTutorial.Controllers
 
 			var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
+			var days = double.Parse(_configuration.GetSection("AppSettings:TokenExpiresDays").Value);
+			
 			var token = new JwtSecurityToken(
 				claims: claims,
-				expires: DateTime.Now.AddDays(1),
+				expires: DateTime.Now.AddDays(days),
 				signingCredentials: creds);
 
 			return new JwtSecurityTokenHandler().WriteToken(token);
