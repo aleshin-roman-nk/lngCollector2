@@ -11,8 +11,7 @@ namespace ThoughtzLand.Core.Repos
 {
     public interface IFlashCardAnswerRepo:
 		IRepoCreator<CreateFlashCardAnswerDto, FlashCardAnswer>,
-		//IRepoPropertyUpdater
-		IRepoEntityByDtoUpdater<UpdateCardAnswerDto>,
+		IRepoEntityUpdater<UpdateCardAnswerDto>,
 		IRepoRemover
 	{
 	}

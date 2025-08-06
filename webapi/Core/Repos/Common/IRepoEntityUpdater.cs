@@ -18,10 +18,4 @@ namespace ThoughtzLand.Core.Repos.Common
 	{
 		TResultEntity Update(TSourceEntity entity);
 	}
-
-	public interface IRepoEntityByDtoUpdater<TDtoEntity>
-	where TDtoEntity : class
-	{
-		void Update(TDtoEntity dto);
-	}
 }

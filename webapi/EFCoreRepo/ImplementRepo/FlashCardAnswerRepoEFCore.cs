@@ -62,7 +62,7 @@ namespace ThoughtzLand.ImplementRepo.EFCoreRepo
 			db.SaveChanges();
 		}
 
-		public void Update(UpdateCardAnswerDto dto)
+		public UpdateCardAnswerDto Update(UpdateCardAnswerDto dto)
 		{
 			// Create an instance of the FlashCardDb with only the ID set
 			var cardAnswer = new FlashCardAnswerDb { id = dto.id };
