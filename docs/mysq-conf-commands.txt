@@ -1,0 +1,14 @@
+docker exec -it <container_name_or_id> bash
+
+sudo nano my.cnf
+
+enter mysql server
+mysql -u <username> -p
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password';
+ALTER USER 'root'@'%' IDENTIFIED BY 'new_password';
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'172.18.0.3' IDENTIFIED BY '1111' WITH GRANT OPTION;
+
+delete a directory with all inside
+rm -r ~/mydirectory

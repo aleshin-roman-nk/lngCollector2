@@ -1,0 +1,16 @@
+<mxfile host="Electron" modified="2023-05-17T09:35:42.231Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.8 Chrome/112.0.5615.165 Electron/24.2.0 Safari/537.36" etag="PTwjGixBzioJhKVo2BvI" version="21.2.8" type="device">
+  <diagram name="Page-1" id="X-qbELrHY3De8q2ge2He">
+    <mxGraphModel dx="2058" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="n6xCgHWEPocTwpsC3c_E-1" value="Коллекция объектов сцены" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="40" width="400" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="n6xCgHWEPocTwpsC3c_E-2" value="Коллекция исходных объектов материалов на которые создать миссии;&lt;br&gt;&lt;br&gt;- слова предложений." style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=10;" parent="1" vertex="1">
+          <mxGeometry x="520" y="40" width="400" height="160" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

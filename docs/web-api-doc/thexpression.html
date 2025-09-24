@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        h2 {
+            color: #666;
+        }
+
+        .endpoint {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+        }
+
+        .endpoint-container {
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        .method {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .path {
+            color: #666;
+        }
+
+        .description {
+            margin-top: 5px;
+            color: #888;
+        }
+
+        .response {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+
+        .response-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .response-code {
+            color: #990000;
+        }
+
+        .response-property {
+            font-family: monospace;
+            color: #333;
+        }
+
+        .collapsible {
+            background-color: #C1C1C1;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            outline: none;
+        }
+
+        .content {
+            display: none;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .request-data {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>API Documentation</h1>
+
+    <h2 class="collapsible">Response without content</h2>
+    <div class="response content">
+        <pre>
+{
+    "Message": "Message text",
+    "Success": true | false
+}
+        </pre>
+    </div>
+
+    <h2 class="collapsible">Response with content</h2>
+    <div class="response content">
+        <pre>
+{
+    "Message": "Message text",
+    "Success": true | false,
+    "Content": ...
+}
+        </pre>
+    </div>
+
+<!-- *** ThExpression *** -->
+    <h2>Thought expression</h2>
+
+    <!--GET /api/Terrain -->
+    <div class="endpoint-container collapsible">
+        <span>Retrieve all ---</span>
+    </div>
+
+    <div class="content">
+
+        <div class="endpoint">
+            <span class="method">GET</span>
+            <span class="path">/api/terrain</span>
+        </div>
+
+        <div class="description">Retrieves all terrains.</div>
+
+        <div class="response">
+            <div class="response-title">Response content:</div>
+            <pre>
+[
+    {
+        "id": 1,
+        "name": "Mountain",
+        "description": "A tall landform that rises prominently above its surroundings."
+    },
+    {
+        "id": 2,
+        "name": "Valley",
+        "description": "A low-lying area between hills or mountains, often with a river running through it."
+    },
+    {
+        "id": 3,
+        "name": "Plateau",
+        "description": "A flat-topped elevated landform."
+    }
+]
+            </pre>
+        </div>
+    </div>
+
+    <!--GET /api/Terrain/5 -->
+    <div class="endpoint-container collapsible">
+        <span>Retrieve a terrain</span>
+    </div>
+    <div class="content">
+
+        <div class="endpoint">
+            <span class="method">GET</span>
+            <span class="path">/api/Terrain/5</span>
+        </div>
+
+        <div class="description">Retrieves a single object of type <b>Terrain</b>.</div>
+
+        <div class="response">
+            <div class="response-title">Response content:</div>
+            <pre>
+{
+    "id": 5,
+    "name": "Mountain",
+    "description": "Глаголы"
+}
+            </pre>
+        </div>
+
+    </div>
+
+    <!-- /api/Terrain/5/nodes -->
+    <div class="endpoint-container collapsible">
+        <span>Retrieve all nodes of a terrain</span>
+    </div>
+    <div class="content">
+
+        <div class="endpoint">
+            <span class="method">GET</span>
+            <span class="path">/api/Terrain/5/nodes</span>
+        </div>
+
+        <div class="description">Retrieves all nodes of a terrain.</div>
+
+        <div class="response">
+            <div class="response-title">Response content:</div>
+            <pre>
+[
+    {
+        "id": 1,
+        "terrainId": 5,
+        "name": "Школьная 27",
+        "description": null,
+        "x": 0,
+        "y": 0
+    },
+    {
+        "id": 2,
+        "terrainId": 5,
+        "name": "Школьная 28",
+        "description": null,
+        "x": 0,
+        "y": 0
+    }
+]
+            </pre>
+        </div>
+
+    </div>
+
+    <!-- Create terrain -->
+    <div class="endpoint-container collapsible">
+        <span>Create a new terrain</span>
+    </div>
+    <div class="content">
+
+        <div class="endpoint">
+            <span class="method">POST</span>
+            <span class="path">/api/Terrain</span>
+        </div>
+
+        <div class="description">Create a new terrain.</div>
+
+        <div class="request-data">
+            <div class="description">Request data:</div>
+            <pre>
+{
+    "id": 0,
+    "name": "Village",
+    "description": "of nouns"
+}
+            </pre>
+        </div>
+
+        <div class="response">
+            <div class="response-title">Response content:</div>
+            <pre>
+{
+    "id": 128,
+    "name": "Village",
+    "description": "of nouns"
+}
+            </pre>
+        </div>
+
+    </div>
+
+    <!-- Update terrain -->
+    <div class="endpoint-container collapsible">
+        <span>Update a terrain</span>
+    </div>
+    <div class="content">
+
+        <div class="endpoint">
+            <span class="method">PUT</span>
+            <span class="path">/api/Terrain</span>
+        </div>
+
+        <div class="description">Update an existing terrain.</div>
+
+        <div class="request-data">
+            <div class="description">Request data:</div>
+            <pre>
+{
+    "id": 128,
+    "name": "Village",
+    "description": "of nouns"
+}
+            </pre>
+        </div>
+
+        <div class="response">
+            <div class="response-title">Response content:</div>
+            <pre>
+{
+    "id": 128,
+    "name": "Village",
+    "description": "of nouns"
+}
+            </pre>
+        </div>
+
+    </div>
+
+    <!-- Delete a terrain -->
+    <div class="endpoint-container collapsible">
+        <span>Delete a terrain</span>
+    </div>
+    <div class="content">
+
+        <div class="endpoint">
+            <span class="method">DELETE</span>
+            <span class="path">/api/Terrain/128</span>
+        </div>
+
+        <div class="description">Delete an existing terrain.</div>
+
+        <div class="response">
+            <div class="response-title">Response content: no content</div>
+        </div>
+
+    </div>
+
+
+<!-- *** Node *** -->
+    <h2>Node</h2>
+
+    <!-- Retrieve node detail -->
+    <div class="endpoint-container collapsible">
+        <span>Retrieve node detail</span>
+    </div>
+    <div class="content">
+
+        <div class="endpoint">
+            <span class="method">GET</span>
+            <span class="path">/api/Node/1/detail</span>
+        </div>
+
+        <div class="description">Retrieves an NodeDetail.</div>
+
+        <div class="response">
+            <div class="response-title">Response content:</div>
+            <pre>
+public class NodeDetailDto
+{
+    public Node Node { get; }
+    public IEnumerable<Thought> Thoughts { get; }
+}
+            </pre>
+        </div>
+
+    </div>
+
+
+    <!-- Create a node -->
+    <div class="endpoint-container collapsible">
+        <span>Create a node</span>
+    </div>
+    <div class="content">
+
+        <div class="endpoint">
+            <span class="method">POST</span>
+            <span class="path">/api/Node</span>
+        </div>
+
+        <div class="description">Create a node.</div>
+
+        <div class="request-data">
+            <div class="description">Request data:</div>
+            <pre>
+{
+    "id": 0,
+    "terrainId": 120,
+    "name": "ggg gggg",
+    "description": "eee eeee",
+    "x": 0,
+    "y": 0
+}
+            </pre>
+        </div>
+
+        <div class="response">
+            <div class="response-title">Response content:</div>
+            <pre>
+{
+    "id": 3,
+    "terrainId": 120,
+    "name": "ggg gggg",
+    "description": "eee eeee",
+    "x": 0,
+    "y": 0
+}
+            </pre>
+        </div>
+
+    </div>    
+
+    <!-- Update a node -->
+    <div class="endpoint-container collapsible">
+        <span>Update a node</span>
+    </div>
+    <div class="content">
+
+        <div class="endpoint">
+            <span class="method">PUT</span>
+            <span class="path">/api/Node</span>
+        </div>
+
+        <div class="description">Update a node.</div>
+
+        <div class="request-data">
+            <div class="description">Request data:</div>
+            <pre>
+{
+    "id": 3,
+    "terrainId": 120,
+    "name": "ggg gggg DDDd",
+    "description": "eee eeee",
+    "x": 0,
+    "y": 0
+}
+            </pre>
+        </div>
+
+        <div class="response">
+            <div class="response-title">Response content:</div>
+            <pre>
+{
+    "id": 3,
+    "terrainId": 120,
+    "name": "ggg gggg DDDd",
+    "description": "eee eeee",
+    "x": 0,
+    "y": 0
+}
+            </pre>
+        </div>
+
+    </div>  
+
+    <!-- Delete a node -->
+    <div class="endpoint-container collapsible">
+        <span>Delete a node</span>
+    </div>
+    <div class="content">
+
+        <div class="endpoint">
+            <span class="method">DELETE</span>
+            <span class="path">/api/Node/3</span>
+        </div>
+
+        <div class="description">Delete an existing node.</div>
+
+        <div class="response">
+            <div class="response-title">Response content: no content</div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    });
+</script>

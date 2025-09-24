@@ -1,0 +1,9 @@
+service:
+nodeSubject: BehaviourSubject<INode> = new BehaviourSubject<INode>(null)
+node$: Observable<INode> = nodeSubject.asObservable()
+load()
+delete()
+update()
+
+component:
+ngOnInit
