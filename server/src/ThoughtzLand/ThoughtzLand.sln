@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36518.9 d17.14
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11222.15 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThoughtzLand.Domain", "ThoughtzLand.Domain\ThoughtzLand.Domain.csproj", "{7DBF7A5C-B4B9-48CC-B2E8-3BEA6D72A426}"
 EndProject
@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThoughtzLand.Application", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThoughtzLand.Contracts", "ThoughtzLand.Contracts\ThoughtzLand.Contracts.csproj", "{49A71D30-95F5-4861-AB96-1DB28E5E7599}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThoughtzLand.Infrastructure.EfCore.MySql", "ThoughtzLand.Infrastructure.EfCore.MySql\ThoughtzLand.Infrastructure.EfCore.MySql.csproj", "{49C02FA7-8C2A-41A8-B0B4-FA6AB26757BC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThoughtzLand.WebApi", "ThoughtzLand.WebApi\ThoughtzLand.WebApi.csproj", "{DF2827B2-6FAE-4536-8159-0FB0CF554A80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThoughtzLand.Infrastructure", "ThoughtzLand.Infrastructure\ThoughtzLand.Infrastructure.csproj", "{B2FADC4C-96F4-4FE7-8B4E-85EECE80B02B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{49A71D30-95F5-4861-AB96-1DB28E5E7599}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49A71D30-95F5-4861-AB96-1DB28E5E7599}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49A71D30-95F5-4861-AB96-1DB28E5E7599}.Release|Any CPU.Build.0 = Release|Any CPU
-		{49C02FA7-8C2A-41A8-B0B4-FA6AB26757BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{49C02FA7-8C2A-41A8-B0B4-FA6AB26757BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{49C02FA7-8C2A-41A8-B0B4-FA6AB26757BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{49C02FA7-8C2A-41A8-B0B4-FA6AB26757BC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DF2827B2-6FAE-4536-8159-0FB0CF554A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DF2827B2-6FAE-4536-8159-0FB0CF554A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF2827B2-6FAE-4536-8159-0FB0CF554A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF2827B2-6FAE-4536-8159-0FB0CF554A80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2FADC4C-96F4-4FE7-8B4E-85EECE80B02B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2FADC4C-96F4-4FE7-8B4E-85EECE80B02B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2FADC4C-96F4-4FE7-8B4E-85EECE80B02B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2FADC4C-96F4-4FE7-8B4E-85EECE80B02B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
